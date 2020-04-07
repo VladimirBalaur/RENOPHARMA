@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- jquery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" type="text/css" media="all" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+
+    <!-- -->
+    <script src="fontawesome/all.js"></script>
+    <link rel="stylesheet" href="fontawesome/all.css" />
+    <link rel="stylesheet" href="css/productList.css" />
+    <!-- Price range -->
+    <link rel="stylesheet" href="components/price-range/price_range_style.css" />
+    <script src="components/price-range/price_range_script.js"></script>
+    <!-- -->
+    <!-- Toate informatiile despre produse -->
+    <script src="data/data.js"></script>
+    <style>
+        /* Override the jquery styles for price range */
+        
+        .ui-state-default,
+        .ui-widget-content .ui-state-default,
+        .ui-widget-header .ui-state-default,
+        .ui-button,
+        html .ui-button.ui-state-disabled:hover,
+        html .ui-button.ui-state-disabled:active {
+            outline: 2px solid black;
+            background: #454545;
+            font-weight: normal;
+            color: #454545;
+            border: 2px solid white;
+            width: 10px;
+            height: 10px;
+            padding: 0px;
+        }
+        
+        .ui-slider-horizontal .ui-slider-handle {
+            top: -0.1em;
+            margin-left: -0.6em;
+        }
+        
+        .ui-corner-all,
+        .ui-corner-bottom,
+        .ui-corner-right,
+        .ui-corner-br {
+            border-bottom-right-radius: 0px;
+        }
+        
+        .ui-corner-all,
+        .ui-corner-bottom,
+        .ui-corner-left,
+        .ui-corner-bl {
+            border-bottom-left-radius: 0px;
+        }
+        
+        .ui-corner-all,
+        .ui-corner-top,
+        .ui-corner-right,
+        .ui-corner-tr {
+            border-top-right-radius: 0;
+        }
+        
+        .ui-corner-all,
+        .ui-corner-top,
+        .ui-corner-left,
+        .ui-corner-tl {
+            border-top-left-radius: 0;
+        }
+        
+        .ui-corner-all,
+        .ui-corner-top,
+        .ui-corner-left,
+        .ui-corner-tl {
+            border-top-left-radius: 0;
+        }
+        
+        .ui-corner-all,
+        .ui-corner-top,
+        .ui-corner-left,
+        .ui-corner-tl {
+            border-top-left-radius: 0;
+        }
+        
+        .ui-widget.ui-widget-content {
+            border: 1px solid #e1e4eb;
+            margin-left: 10px;
+            background: #e1e4eb;
+        }
+        
+        .ui-corner-all,
+        .ui-corner-top,
+        .ui-corner-left,
+        .ui-corner-tl {
+            border-top-left-radius: 0;
+        }
+        
+        .ui-corner-all,
+        .ui-corner-top,
+        .ui-corner-right,
+        .ui-corner-tr {
+            border-top-right-radius: 0;
+        }
+        
+        .ui-corner-all,
+        .ui-corner-bottom,
+        .ui-corner-left,
+        .ui-corner-bl {
+            border-bottom-left-radius: 0;
+        }
+        
+        .ui-corner-all,
+        .ui-corner-bottom,
+        .ui-corner-right,
+        .ui-corner-br {
+            border-bottom-right-radius: 0;
+        }
+        
+        .ui-corner-all,
+        .ui-corner-top,
+        .ui-corner-right,
+        .ui-corner-tr {
+            border-top-right-radius: 0;
+        }
+        
+        .ui-corner-all,
+        .ui-corner-top,
+        .ui-corner-left,
+        .ui-corner-tl {
+            border-top-left-radius: 0;
+        }
+    </style>
+    <script></script>
+</head>
+
+<body>
+    <div class="navigation-bar">
+        <div class="upper-bar">
+            <div class="phone">
+                <i class="fas fa-phone"></i>
+                <span>+1 123 456 789</span>
+            </div>
+            <div class="email">
+                <i class="fas fa-envelope"></i>
+                <span>info@company.com</span>
+            </div>
+            <div class="social-media">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-invision"></i>
+            </div>
+        </div>
+        <div class="lower-bar">
+            <div class="logo">
+                <a href="index.html"><span>reno</span>pharma</a>
+            </div>
+            <nav>
+                <a href="index.html">Acasă</a>
+                <a href="#">noutăți</a>
+                <a href="#">ajutor</a>
+                <a href="#">contacte</a>
+                <a href="#">f.a.q</a>
+                <div class="dropdown">
+                    <a href="#">produse</a>
+                    <div class="dropdown-content">
+                        <a href="./products_per_category.html">Dental care</a>
+                        <a href="./products_per_category.html">Ingrijirea pielii</a>
+                        <a href="./products_per_category.html">Cosmetice</a>
+                        <a href="./products_per_category.html">Vitamine</a>
+                        <a href="./products_per_category.html">Echipamente medicale</a>
+                        <a href="./products_per_category.html">Baby Care</a>
+                        <a href="./productList.html">Toate produsele...</a>
+                    </div>
+                </div>
+                <a href="#">programare online</a>
+            </nav>
+            <a id="burger" href=""> <i class="fas fa-bars"></i> </a>
+            <div class="right-elements">
+                <div class="shopping-cart">
+                    <a href="shoppingCart.html"><i class="fas fa-shopping-cart"> </i></a
+                        ><span class="cart-item-count">10</span>
+          </div>
+          <i class="fas fa-search"></i>
+                    <div class="language-dd">
+                        <a href=""><i class="fas fa-bars"></i></a>
+                    <div class="dd-content">
+                        <a href="#">RO</a>
+                        <a href="#">RU</a>
+                        <a href="#">EN</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="main">
+        <div class="left-container">
+            <div class="categories-list">
+                <h3>Categorii</h3>
+                <ul>
+
+                </ul>
+            </div>
+            <div class="filter">
+                <h3>filtrare prețuri</h3>
+
+                <div id="slider-range" class="price-filter-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content" name="rangeInput">
+                    <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
+                    <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 9%;"></span
+            ><span
+              tabindex="0"
+              class="ui-slider-handle ui-corner-all ui-state-default"
+              style="left: 74%;"
+            ></span>
+                </div>
+
+                <div id="input-container" style="margin:30px auto">
+                    <input type="number" min="0" max="9900" oninput="validity.valid||(value='0');" id="min_price" class="price-range-field" />
+                    <input type="number" min="0" max="10000" oninput="validity.valid||(value='10000');" id="max_price" class="price-range-field" />
+                    <button class="price-range-search" id="price-range-submit" style="display: block;">
+              <i class="fas fa-search"></i>
+            </button>
+                </div>
+            </div>
+            <div class="popular-products-container">
+                <h3>Cele mai populare produse</h3>
+                <!-- Singular product item -->
+                <!-- <div class="product-item">
+                        <div class="image-container">
+                            <img src="" alt="this is a popular product" />
+                        </div>
+                        <div class="product-content">
+                            <h4>Product title</h4>
+                            <p class="price">$</p>
+                        </div>
+                    </div> -->
+                <!--  -->
+
+            </div>
+        </div>
+        <div class="right-container">
+            <div class="infobar">
+                <div class="results-showing">
+                    Afișare 1-<span class="count"></span>
+                    <span class="products-count"></span> rezultate
+                </div>
+
+                <div class="sortby-container">
+                    Sortează după preț
+                    <select name="" id="sortby">
+              <option value="asc">Crescator</option>
+              <option value="desc">Descrescator</option>
+            </select>
+                </div>
+            </div>
+
+            <div class="products-container">
+                <!-- Singular product -->
+                <!-- <div class="product-container">
+                        <div class="product-img">
+                            <img src="" alt=""> </div>
+                        <div class="product-main-content">
+                            <h1>Product name</h1>
+                            <h2>$</h2>
+                            <p class="product-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                            <p class="product-description"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis dolorem esse facere exercitationem amet eius nam consectetur nostrum ut corporis, iste, distinctio reiciendis voluptatem deleniti numquam, perspiciatis vel aliquid
+                                quis?
+                            </p>
+                            <p class="product-tags">
+                                <span>tag</span>
+                                <span>tag</span>
+                            </p>
+                            <div class="buttons-container">
+                                <button><i class="fas fa-cart-plus"></i>Adauga in cos</button>
+                                <button><i class="far fa-heart"></i></button>
+                            </div>
+                        </div>
+                    </div> -->
+                <!--  -->
+            </div>
+
+        </div>
+        </div>
+
+    </section>
+    <div class="pagination">
+        <div></div>
+        <ul>
+            <!-- <li>1</li>
+            <li>2</li>
+            <li>3</li> -->
+
+        </ul>
+        <div></div>
+    </div>
+    <footer>
+        <div class="upper-footer-bar">
+            <div>
+                <p>
+                    Vă asigurăm servicii de calitate, și suport continuu pentru toți cumpărătorii noștri.
+                </p>
+            </div>
+            <div class="social-media">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-invision"></i>
+            </div>
+            <div>&nbsp;</div>
+        </div>
+        <div class="mid-footer-bar">
+            <div>
+                <h1>contul meu</h1>
+                <a href="#">Sign in</a>
+                <a href="#">Vizualizează coșul</a>
+                <a href="#">My Wishlist</a>
+                <a href="#">Achitare</a>
+            </div>
+            <div>
+                <h1>ajutor</h1>
+                <a href="#">F.A.Q</a>
+                <a href="#">Contactează-ne</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <div>
+                <h1>informație de contact</h1>
+                <a href="#"><i class="fas fa-globe-europe"></i> Str. Sarmisegetusa 1010/9</a
+          >
+          <a href="#"><i class="fas fa-phone-alt"></i> +1 234 56789</a>
+                <a href="#" id="email"><i class="fas fa-envelope"></i> mail@domain.com</a
+          >
+        </div>
+      </div>
+      <div class="lower-footer-bar"></div>
+    </footer>
+    <script type="module" src="js/productList.js"></script>
+  </body>
+</html>

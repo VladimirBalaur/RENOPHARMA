@@ -1,0 +1,225 @@
+@import "../components/navbar/style.css";
+
+/* Products style */
+
+html {
+    scroll-behavior: smooth;
+}
+
+div.product-card {
+    max-width: 340px;
+    height: 565px;
+    background-color: white;
+    overflow: hidden;
+    -webkit-box-shadow: -3px 5px 17px -10px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -3px 5px 17px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: -3px 5px 17px -10px rgba(0, 0, 0, 0.75);
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 350ms ease;
+}
+
+div.product-card:hover {
+    transform: scale(1.035);
+}
+
+div.product-card .image {
+    background-image: url("https://www.w3schools.com/css/img_lights.jpg");
+    width: 350px;
+    height: 450px;
+    background-repeat: no-repeat;
+}
+
+div.product-card img {
+    width: 100%;
+    height: auto;
+}
+
+div.product-card p {
+    margin-top: 10px;
+}
+
+div.product-card div.product-content {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    position: absolute;
+    bottom: 0;
+}
+
+div.product-card p.title {
+    font-size: 14px;
+    font-family: "Poppins-regular", sans-serif;
+    color: rgb(51, 51, 51);
+    font-weight: bold;
+    line-height: 1.714;
+    text-align: left;
+}
+
+div.product-card p.price {
+    font-size: 14px;
+    font-family: "Poppins-regular", sans-serif;
+    color: #3cb878;
+    font-weight: bold;
+    line-height: 1.714;
+    text-align: left;
+}
+
+div.product-buttons {
+    position: absolute;
+    right: 0;
+    top: 30px;
+}
+
+div.product-buttons button {
+    width: 40px;
+    height: 40px;
+    background-color: var(--light-green);
+    color: white;
+    font-size: 1rem;
+    border: none;
+    display: block;
+    margin: 5px 0;
+    cursor: pointer;
+    transition: all 300ms ease;
+    transform: translateX(101%);
+}
+
+div.product-buttons .inCart {
+    background: #a3a2a1;
+}
+
+div.product-buttons button:hover {
+    opacity: 0.8;
+}
+
+
+/* *********** */
+
+section {
+    margin-top: 250px;
+    max-width: 1165px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.infobar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    margin: 60px 0;
+    grid-gap: 20px;
+    justify-content: center;
+    padding: 0 30px;
+}
+
+.products-container>* {
+    justify-self: center;
+}
+
+div.pagination {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    margin: 60px 0;
+}
+
+div.pagination>* {
+    border: 1px solid #e0e0e0;
+}
+
+div.pagination>div {
+    border-left: none;
+    border-right: none;
+}
+
+div.pagination>ul {
+    list-style-type: none;
+}
+
+div.pagination>ul>li {
+    display: inline-block;
+    margin: 15px 15px;
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+}
+
+div.pagination>ul>li:hover {
+    color: #febc48;
+    border-bottom: 1px solid #febc48;
+}
+
+
+/****FOOTER BEGIN */
+
+footer div.upper-footer-bar {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+}
+
+footer div.upper-footer-bar div {
+    border: 1px solid #eeeeee;
+    /* border-top: none; */
+}
+
+footer div.upper-footer-bar p {
+    text-align: center;
+    font-size: 14px;
+    font-family: "Roboto", sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.429;
+    padding: 25px 0;
+}
+
+footer div.upper-footer-bar div.social-media {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+footer a:hover {
+    color: var(--light-green);
+}
+
+footer div.mid-footer-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: fit-content;
+    margin: 60px auto;
+}
+
+footer div.mid-footer-bar a {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-family: "Roboto";
+    color: rgb(51, 51, 51);
+}
+
+footer div.mid-footer-bar h1 {
+    font-size: 16px;
+    font-family: "Poppins-regular", sans-serif;
+    color: rgb(51, 51, 51);
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.25;
+    margin-bottom: 40px;
+}
+
+footer #email {
+    color: var(--light-green);
+}
+
+footer div.lower-footer-bar {
+    height: 60px;
+    background-color: black;
+}
+
+
+/****FOOTER END*/

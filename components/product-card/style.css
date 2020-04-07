@@ -1,0 +1,85 @@
+div.product-card {
+    max-width: 310px;
+    height: 565px;
+    background-color: white;
+    overflow: hidden;
+    -webkit-box-shadow: -3px 5px 17px -10px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -3px 5px 17px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: -3px 5px 17px -10px rgba(0, 0, 0, 0.75);
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 350ms ease;
+}
+
+div.product-card:hover {
+    transform: scale(1.035);
+}
+
+div.product-card .image {
+    background-image: url("https://www.w3schools.com/css/img_lights.jpg");
+    width: 350px;
+    height: 450px;
+    background-repeat: no-repeat;
+}
+
+div.product-card img {
+    width: 100%;
+    height: auto;
+}
+
+div.product-card p {
+    margin-top: 10px;
+}
+
+div.product-card div.product-content {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    position: absolute;
+    bottom: 0;
+}
+
+div.product-card p.title {
+    font-size: 14px;
+    font-family: "Poppins-regular", sans-serif;
+    color: rgb(51, 51, 51);
+    font-weight: bold;
+    line-height: 1.714;
+    text-align: left;
+}
+
+div.product-card p.price {
+    font-size: 14px;
+    font-family: "Poppins-regular", sans-serif;
+    color: #3cb878;
+    font-weight: bold;
+    line-height: 1.714;
+    text-align: left;
+}
+
+div.product-buttons {
+    position: absolute;
+    right: 0;
+    top: 30px;
+}
+
+div.product-buttons button {
+    width: 40px;
+    height: 40px;
+    background-color: var(--light-green);
+    color: white;
+    font-size: 1rem;
+    border: none;
+    display: block;
+    margin: 5px 0;
+    cursor: pointer;
+    transition: all 300ms ease;
+    transform: translateX(101%);
+}
+
+div.product-buttons button:hover {
+    opacity: 0.8;
+}

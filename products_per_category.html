@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Category - products</title>
+    <!-- Toate informatiile despre produse -->
+
+    <link rel="stylesheet" href="css/productsPerCategory.css" />
+    <link rel="stylesheet" href="fontawesome/all.css" />
+    <script src="fontawesome/all.js"></script>
+</head>
+
+<body>
+    <script src="data/data.js"></script>
+    <div class="navigation-bar">
+        <div class="upper-bar">
+            <div class="phone">
+                <i class="fas fa-phone"></i>
+                <span>+1 123 456 789</span>
+            </div>
+            <div class="email">
+                <i class="fas fa-envelope"></i>
+                <span>info@company.com</span>
+            </div>
+            <div class="social-media">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-invision"></i>
+            </div>
+        </div>
+        <div class="lower-bar">
+            <div class="logo">
+                <a href="index.html"><span>reno</span>pharma</a>
+            </div>
+            <nav>
+                <a href="index.html">Acasă</a>
+                <a href="#">noutăți</a>
+                <a href="#">ajutor</a>
+                <a href="#">contacte</a>
+                <a href="#">f.a.q</a>
+                <div class="dropdown">
+                    <a href="#">produse</a>
+                    <div class="dropdown-content">
+                        <a href="./products_per_category.html">Dental care</a>
+                        <a href="./products_per_category.html">Ingrijirea pielii</a>
+                        <a href="./products_per_category.html">Cosmetice</a>
+                        <a href="./products_per_category.html">Vitamine</a>
+                        <a href="./products_per_category.html">Echipamente medicale</a>
+                        <a href="./products_per_category.html">Baby Care</a>
+                        <a href="./productList.html">Toate produsele...</a>
+                    </div>
+                </div>
+                <a href="#">programare online</a>
+            </nav>
+            <a id="burger" href=""> <i class="fas fa-bars"></i> </a>
+            <div class="right-elements">
+                <div class="shopping-cart">
+                    <a href="shoppingCart.html"><i class="fas fa-shopping-cart"> </i></a
+            ><span class="cart-item-count">10</span>
+          </div>
+          <i class="fas fa-search"></i>
+          <div class="language-dd">
+            <a href=""><i class="fas fa-bars"></i></a>
+                    <div class="dd-content">
+                        <a href="#">RO</a>
+                        <a href="#">RU</a>
+                        <a href="#">EN</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section>
+        <div class="infobar">
+            <div class="results-showing">
+                Afișare 1- <span class="count">1-12</span>
+                <span class="products-count"></span> rezultate
+            </div>
+
+            <div class="sortby-container">
+                Sortare nume:
+                <select name="" id="sortby">
+            <option value="asc">Crescător</option>
+            <option value="desc">Descrescător</option>
+          </select>
+            </div>
+        </div>
+        <div class="products-container">
+            <!-- Products -->
+            <!-- Singular product -->
+            <!-- <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="img/Cosmetice/2.jpg" alt="product" />
+                    </div>
+                    <div class="product-buttons">
+                        <button data-role="add-to-cart">
+              <i class="fas fa-cart-plus"></i>
+            </button>
+                        <button data-role="add-to-wishlist">
+              <i class="fas fa-heart"></i>
+            </button>
+                    </div>
+                    <div class="product-content">
+                        <p class="title">asdasd</p>
+                        <p class="price">$234</p>
+                        <p style="color:#ff9600"></p>
+                    </div>
+                </div> -->
+
+            <!-- end of singular product -->
+        </div>
+
+        <div class="pagination">
+            <div></div>
+            <ul></ul>
+            <div></div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="upper-footer-bar">
+            <div>
+                <p>
+                    Vă asigurăm servicii de calitate, și suport continuu pentru toți cumpărătorii noștri.
+                </p>
+            </div>
+            <div class="social-media">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-invision"></i>
+            </div>
+            <div>&nbsp;</div>
+        </div>
+        <div class="mid-footer-bar">
+            <div>
+                <h1>contul meu</h1>
+                <a href="#">Sign in</a>
+                <a href="#">Vizualizează coșul</a>
+                <a href="#">My Wishlist</a>
+                <a href="#">Achitare</a>
+            </div>
+            <div>
+                <h1>ajutor</h1>
+                <a href="#">F.A.Q</a>
+                <a href="#">Contactează-ne</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <div>
+                <h1>informație de contact</h1>
+                <a href="#"><i class="fas fa-globe-europe"></i> Str. Sarmisegetusa 1010/9</a
+          >
+          <a href="#"><i class="fas fa-phone-alt"></i> +1 234 56789</a>
+                <a href="#" id="email"><i class="fas fa-envelope"></i> mail@domain.com</a
+          >
+        </div>
+      </div>
+      <div class="lower-footer-bar"></div>
+    </footer>
+    <script type="module" src="js/productsPerCategory.js"></script>
+  </body>
+</html>

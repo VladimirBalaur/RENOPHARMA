@@ -1,0 +1,227 @@
+@import "../components//navbar/style.css";
+body {
+    padding-top: 250px;
+}
+
+section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(550px, 1fr));
+    max-width: 1270px;
+    margin: 0 auto;
+    grid-column-gap: 20px;
+    grid-row-gap: 35px;
+    padding: 15px;
+}
+
+section h1 {
+    font-size: 1.3rem;
+    line-height: 2.5;
+}
+
+.contact p {
+    margin: 35px 0;
+}
+
+iframe {
+    width: 100%;
+    height: 415px;
+}
+
+div.accordion {
+    max-width: 550px;
+    height: 485px;
+}
+
+div.accordion-item {
+    margin: 15px 0;
+    transition: 0.4s;
+}
+
+div.accordion-item:first-of-type {
+    margin-top: 0;
+}
+
+div.accordion-item .item-head {
+    padding: 15px;
+    border: 1px solid #eaeaea;
+    display: flex;
+    align-items: center;
+}
+
+div.accordion-item .item-head i {
+    font-size: 30px;
+    color: #cccccc;
+    cursor: pointer;
+}
+
+div.accordion-item .item-head i:hover {
+    opacity: 0.8;
+}
+
+div.accordion-item .item-head>i:first-of-type {
+    color: var(--light-green);
+}
+
+div.accordion-item .item-head>i:last-of-type {
+    font-size: 20px;
+}
+
+.clickedChev {
+    transform: rotate(-90deg);
+}
+
+.openedTab {
+    display: block !important;
+    padding: 30px !important;
+    max-height: 200px !important;
+    transition: max-height 200ms;
+    transition: padding 0;
+}
+
+div.accordion-item .item-head p {
+    margin: 0 15px;
+}
+
+div.accordion-item .item-head span.arrow {
+    margin-left: auto;
+}
+
+div.accordion-item .item-head p {
+    font-size: 14px;
+    font-family: "Montserrat";
+    color: rgb(51, 51, 51);
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+div.accordion-item .content {
+    border: 1px solid #eaeaea;
+    border-top: none;
+    color: #999999;
+    padding: 0 30px 0;
+    font-size: 15px;
+    font-family: "Roboto";
+    font-style: italic;
+    line-height: 1.6;
+    text-align: left;
+    overflow: hidden;
+    transition: 0.4s;
+    max-height: 0;
+}
+
+.contact p {
+    font-size: 14px;
+    font-family: "Roboto";
+    color: rgb(51, 51, 51);
+    line-height: 1.571;
+}
+
+.contact p i {
+    margin-right: 15px;
+}
+
+
+/* FOOTER */
+
+footer div.upper-footer-bar {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+}
+
+footer div.upper-footer-bar div {
+    border: 1px solid #eeeeee;
+    /* border-top: none; */
+}
+
+footer div.upper-footer-bar p {
+    text-align: center;
+    font-size: 14px;
+    font-family: "Roboto", sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.429;
+    padding: 25px 0;
+}
+
+footer div.upper-footer-bar div.social-media {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+footer a:hover {
+    color: var(--light-green);
+}
+
+footer div.mid-footer-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: fit-content;
+    margin: 60px auto;
+}
+
+footer div.mid-footer-bar a {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-family: "Roboto";
+    color: rgb(51, 51, 51);
+}
+
+footer div.mid-footer-bar h1 {
+    font-size: 16px;
+    font-family: "Poppins-regular", sans-serif;
+    color: rgb(51, 51, 51);
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.25;
+    margin-bottom: 40px;
+}
+
+footer #email {
+    color: var(--light-green);
+}
+
+footer div.lower-footer-bar {
+    height: 60px;
+    background-color: black;
+}
+
+
+/****FOOTER END*/
+
+
+/*********** RESPONSIVE *******/
+
+@media screen and (max-width: 1000px) {
+    footer div.upper-footer-bar div:last-of-type {
+        display: none;
+    }
+    footer div.upper-footer-bar {
+        grid-template-columns: 1fr;
+    }
+    footer div.upper-footer-bar div.social-media {
+        padding: 1vw;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    footer div.upper-footer-bar div:last-of-type {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 565px) {
+    section {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    footer div.mid-footer-bar {
+        grid-template-columns: 1fr;
+    }
+    footer div.upper-footer-bar {
+        grid-template-columns: 1fr;
+    }
+}

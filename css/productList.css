@@ -1,0 +1,376 @@
+@import "../components/navbar/style.css";
+
+/* Compensate the space from top of navbar */
+
+body {
+    padding-top: 165px;
+}
+
+section.main {
+    display: grid;
+    grid-template-columns: 350px max-content;
+    max-width: 1320px;
+    margin: 100px auto;
+}
+
+section h3 {
+    font-size: 14px;
+    font-family: "Poppins";
+    color: rgb(36, 38, 40);
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 4.285;
+    text-align: left;
+}
+
+div.categories-list li {
+    font-size: 14px;
+    font-family: "Roboto";
+    color: rgb(35, 35, 35);
+    line-height: 3;
+    text-align: left;
+    position: relative;
+}
+
+div.categories-list li::before {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #c3c3c5;
+    left: -10px;
+    top: 46%;
+}
+
+div.categories-list ul {
+    list-style-type: none;
+    margin-left: 10px;
+}
+
+div.right-container {
+    width: 850px;
+}
+
+div.left-container>div::after {
+    bottom: -35px;
+    left: 0;
+    content: "";
+    height: 1px;
+    max-width: 260px;
+    display: block;
+    background-color: #f0f0f0;
+    position: relative;
+    margin-bottom: 45px;
+}
+
+div.left-container div.popular-products-container>div {
+    margin: 20px 0;
+    width: 100%;
+}
+
+div.left-container div.product-item {
+    display: grid;
+    grid-template-columns: min-content auto;
+    padding: 10px;
+    transition: all 300ms ease-in-out;
+}
+
+div.left-container div.product-item:hover {
+    -webkit-box-shadow: -3px 5px 17px -4px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -3px 5px 17px -4px rgba(0, 0, 0, 0.75);
+    box-shadow: -3px 5px 17px -4px rgba(0, 0, 0, 0.75);
+}
+
+div.left-container div.product-item div.image-container {
+    width: 80px;
+    height: 100px;
+}
+
+div.left-container div.product-item div.image-container img {
+    width: 100%;
+    height: auto;
+}
+
+div.left-container div.product-item div.product-content {
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+div.left-container div.product-item div.product-content h4 {
+    font-size: 14px;
+    font-family: "Myriad Pro";
+    color: rgb(35, 35, 35);
+    line-height: 1.429;
+    text-align: left;
+}
+
+div.product-item p.price {
+    font-size: 18px;
+    font-family: "Droid Serif";
+    color: rgb(60, 184, 120);
+    line-height: 1.333;
+    text-align: left;
+}
+
+div.left-container .filter {
+    max-width: 260px;
+}
+
+div.right-container div.product-container {
+    display: grid;
+    grid-template-columns: min-content auto;
+    grid-gap: 50px;
+    margin: 25px 0;
+    -webkit-box-shadow: -1px 0px 34px -25px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -1px 0px 34px -25px rgba(0, 0, 0, 0.75);
+    box-shadow: -1px 0px 34px -25px rgba(0, 0, 0, 0.75);
+}
+
+div.right-container div.product-container .product-main-content {
+    padding: 30px 0;
+}
+
+div.product-container div.product-img {
+    height: 400px;
+    width: 270px;
+}
+
+div.product-container div.product-img img {
+    width: 100%;
+    height: auto;
+}
+
+div.product-container h1 {
+    font-size: 18px;
+    font-family: "Poppins";
+    color: rgb(51, 51, 51);
+    font-weight: bold;
+    line-height: 1.333;
+    text-align: left;
+}
+
+div.product-container h2 {
+    font-size: 18px;
+    font-family: "Droid Serif";
+    color: rgb(60, 184, 120);
+    line-height: 1.333;
+    text-align: left;
+    margin: 25px 0;
+}
+
+div.product-container p.product-rating {
+    color: #ff9600;
+    margin: 25px 0;
+}
+
+div.product-container p.product-description {
+    font-size: 14px;
+    font-family: "Roboto";
+    color: rgb(35, 35, 35);
+    line-height: 1.714;
+    text-align: left;
+}
+
+div.product-container p.product-tags {
+    margin: 20px 0;
+}
+
+div.product-container p.product-tags>span {
+    font-size: 14px;
+    font-family: "Roboto";
+    color: rgb(153, 153, 153);
+    line-height: 1.714;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+div.product-container p.product-tags>span::before {
+    content: "#";
+}
+
+div.product-container p.product-tags>span:hover {
+    text-decoration: underline;
+}
+
+div.product-container div.buttons-container button:first-of-type {
+    background-color: white;
+    border: 1px solid #eeeeee;
+    color: black;
+    padding: 15px;
+    font-size: 14px;
+    font-family: "Myriad Pro";
+    text-transform: uppercase;
+    line-height: 1.714;
+    transition: all 300ms linear;
+}
+
+div.product-container div.buttons-container button:first-of-type:hover {
+    background-color: #3cb878;
+    color: white;
+    border-color: transparent;
+}
+
+div.product-container div.buttons-container button:last-of-type {
+    border: 1px solid #eeeeee;
+    color: black;
+    padding: 15px;
+    font-size: 14px;
+    font-family: "Myriad Pro";
+    text-transform: uppercase;
+    line-height: 1.714;
+    background-color: white;
+    transition: all 300ms linear;
+}
+
+.inWishlist {
+    background: #a3a2a1 !important;
+    color: white !important;
+    opacity: 0.8 !important;
+}
+
+div.product-container div.buttons-container button:last-of-type:focus {
+    background-color: #f35959;
+    color: white;
+    font-weight: bolder;
+}
+
+div.pagination {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    margin: 60px 0;
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+div.pagination>* {
+    border: 1px solid #e0e0e0;
+    border-bottom: none;
+}
+
+div.pagination>div {
+    border-left: none;
+    border-right: none;
+}
+
+div.pagination>ul {
+    list-style-type: none;
+}
+
+div.pagination>ul>li {
+    display: inline-block;
+    margin: 15px 15px;
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+}
+
+div.pagination>ul>li:hover {
+    color: var(--light-green);
+    border-bottom: 1px solid var(--light-green);
+}
+
+
+/* Price range */
+
+
+/********************************/
+
+
+/* FOOTER */
+
+
+/****FOOTER BEGIN */
+
+footer div.upper-footer-bar {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+}
+
+footer div.upper-footer-bar div {
+    border: 1px solid #eeeeee;
+    /* border-top: none; */
+}
+
+footer div.upper-footer-bar p {
+    text-align: center;
+    font-size: 14px;
+    font-family: "Roboto", sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.429;
+    padding: 25px 0;
+}
+
+footer div.upper-footer-bar div.social-media {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+footer a:hover {
+    color: var(--light-green);
+}
+
+footer div.mid-footer-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: fit-content;
+    margin: 60px auto;
+}
+
+footer div.mid-footer-bar a {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-family: "Roboto";
+    color: rgb(51, 51, 51);
+}
+
+footer div.mid-footer-bar h1 {
+    font-size: 16px;
+    font-family: "Poppins-regular", sans-serif;
+    color: rgb(51, 51, 51);
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.25;
+    margin-bottom: 40px;
+}
+
+footer #email {
+    color: var(--light-green);
+}
+
+footer div.lower-footer-bar {
+    height: 60px;
+    background-color: black;
+}
+
+
+/*********** RESPONSIVE *******/
+
+@media screen and (max-width: 1000px) {
+    footer div.upper-footer-bar div:last-of-type {
+        display: none;
+    }
+    footer div.upper-footer-bar {
+        grid-template-columns: 1fr;
+    }
+    footer div.upper-footer-bar div.social-media {
+        padding: 1vw;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    footer div.upper-footer-bar div:last-of-type {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    footer div.mid-footer-bar {
+        grid-template-columns: 1fr;
+    }
+    footer div.upper-footer-bar {
+        grid-template-columns: 1fr;
+    }
+}

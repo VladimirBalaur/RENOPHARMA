@@ -1,0 +1,228 @@
+@import "../components//navbar/style.css";
+body {
+    padding-top: 250px;
+}
+
+* {
+    transition: all 650ms;
+}
+
+section.news {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 66%;
+    margin: 0 auto;
+}
+
+section.news h1 {
+    margin-bottom: 30px;
+}
+
+section.news span {
+    color: var(--light-green);
+}
+
+section.news div.news-wrapper {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 30px;
+    margin: 20px 0;
+    transition: all 350ms ease;
+    cursor: pointer;
+    padding: 10px;
+    max-width: 850px;
+}
+
+section.news div.news-wrapper div.img-container {
+    max-width: 200px;
+}
+
+section.news div.news-wrapper div.img-container img {
+    width: 100%;
+    height: auto;
+}
+
+section.news div.news-wrapper:hover,
+section.news div.news-wrapper:focus {
+    -webkit-box-shadow: -3px 5px 17px -4px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -3px 5px 17px -4px rgba(0, 0, 0, 0.75);
+    box-shadow: -3px 5px 17px -4px rgba(0, 0, 0, 0.75);
+}
+
+section.news div.news-wrapper h1 {
+    font-size: 16px;
+    font-family: "Poppins-regular", sans-serif;
+    color: rgb(67, 67, 67);
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.5;
+    text-align: left;
+    position: relative;
+}
+
+section.news div.news-wrapper h1::after {
+    position: absolute;
+    content: "";
+    width: 35px;
+    height: 2px;
+    background: #3cb878;
+    bottom: -20px;
+    left: 0;
+}
+
+section.news div.news-wrapper p {
+    margin-top: 40px;
+    font-size: 14px;
+    font-family: "Lato";
+    color: rgb(153, 153, 153);
+    line-height: 1.714;
+    text-align: left;
+}
+
+div.pagination {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    margin: 60px 0;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+div.pagination>* {
+    border: 1px solid #e0e0e0;
+    border-bottom: none;
+}
+
+div.pagination>div {
+    border-left: none;
+    border-right: none;
+}
+
+div.pagination>ul {
+    list-style-type: none;
+}
+
+div.pagination>ul>li {
+    display: inline-block;
+    margin: 15px 15px;
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+}
+
+div.pagination>ul>li:hover {
+    color: var(--light-green);
+    border-bottom: 1px solid var(--light-green);
+}
+
+
+/* FOOTER */
+
+footer div.upper-footer-bar {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+}
+
+footer div.upper-footer-bar div {
+    border: 1px solid #eeeeee;
+    /* border-top: none; */
+}
+
+footer div.upper-footer-bar p {
+    text-align: center;
+    font-size: 14px;
+    font-family: "Roboto", sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.429;
+    padding: 25px 0;
+}
+
+footer div.upper-footer-bar div.social-media {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+footer a:hover {
+    color: var(--light-green);
+}
+
+footer div.mid-footer-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: fit-content;
+    margin: 60px auto;
+}
+
+footer div.mid-footer-bar a {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-family: "Roboto";
+    color: rgb(51, 51, 51);
+}
+
+footer div.mid-footer-bar h1 {
+    font-size: 16px;
+    font-family: "Poppins-regular", sans-serif;
+    color: rgb(51, 51, 51);
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.25;
+    margin-bottom: 40px;
+}
+
+footer #email {
+    color: var(--light-green);
+}
+
+footer div.lower-footer-bar {
+    height: 60px;
+    background-color: black;
+}
+
+
+/****FOOTER END*/
+
+
+/*********** RESPONSIVE *******/
+
+@media screen and (max-width: 1000px) {
+    footer div.upper-footer-bar div:last-of-type {
+        display: none;
+    }
+    footer div.upper-footer-bar {
+        grid-template-columns: 1fr;
+    }
+    footer div.upper-footer-bar div.social-media {
+        padding: 1vw;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    body {
+        padding-top: 150px;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    footer div.upper-footer-bar div:last-of-type {
+        display: none;
+    }
+    div.pagination>ul>li {
+        margin: 15px 5px;
+    }
+    section.news {
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    footer div.mid-footer-bar {
+        grid-template-columns: 1fr;
+    }
+    footer div.upper-footer-bar {
+        grid-template-columns: 1fr;
+    }
+    section.news div.news-wrapper div.img-container {
+        max-width: 100px;
+    }
+}

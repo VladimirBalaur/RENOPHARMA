@@ -1,0 +1,19 @@
+@font-face {
+    font-family: "Roboto-regular";
+    src: url("../fonts/Roboto/Roboto-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Poppins-regular";
+    src: url("../fonts/Poppins/Poppins-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Poppins-semibold";
+    src: url("../fonts/Poppins/Poppins-SemiBold.ttf");
+}
+
+@font-face {
+    font-family: "Droid-serif bold-italic";
+    src: url("../fonts/droidserif/DroidSerif-BoldItalic.ttf");
+}
