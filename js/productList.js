@@ -41,12 +41,6 @@ let requestedCategory = sessionStorage.getItem("featuredProductsCategory");
 
 document.addEventListener("DOMContentLoaded", () => {
     generatePopularProducts(products, requestedCategory);
-
-    document.querySelectorAll(".categories-list li a").forEach((item) => {
-        if (String(item.innerText).toLowerCase() == requestedCategory.toLowerCase()) {
-            item.classList.toggle("active");
-        }
-    });
 });
 
 let target_products_container = document.querySelector(".right-container .products-container"); //the target container of prods
