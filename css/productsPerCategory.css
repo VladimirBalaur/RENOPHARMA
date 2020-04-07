@@ -130,6 +130,11 @@ div.pagination {
     margin: 60px 0;
 }
 
+li.active {
+    color: var(--light-green) !important;
+    text-decoration: underline !important;
+}
+
 div.pagination>* {
     border: 1px solid #e0e0e0;
 }

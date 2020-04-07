@@ -108,6 +108,11 @@ div.pagination>ul>li {
     cursor: pointer;
 }
 
+.active {
+    color: var(--light-green) !important;
+    text-decoration: underline !important;
+}
+
 div.pagination>ul>li:hover {
     color: var(--light-green);
     border-bottom: 1px solid var(--light-green);

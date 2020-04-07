@@ -56,6 +56,17 @@ class NewsUI {
                         ) //after clicking on the li paginating item, scroll to top
                         .then(() => {
                             window.scroll(0, 0);
+
+                            //mark the active li elem page
+                            event.currentTarget.classList.toggle("active", true);
+
+                            //unmark the rest
+                            let pagItems = document.querySelectorAll(".pagination li");
+                            for (let pagItem of pagItems) {
+                                if (pagItem !== event.currentTarget) {
+                                    pagItem.classList.toggle("active", false);
+                                }
+                            }
                         });
                 });
             });

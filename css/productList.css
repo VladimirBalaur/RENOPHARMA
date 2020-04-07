@@ -244,6 +244,11 @@ div.pagination {
     margin: 0 auto;
 }
 
+.active {
+    color: var(--light-green) !important;
+    text-decoration: underline !important;
+}
+
 div.pagination>* {
     border: 1px solid #e0e0e0;
     border-bottom: none;
