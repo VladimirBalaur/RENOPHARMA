@@ -1,0 +1,241 @@
+@import "../components/navbar/style.css";
+@import "../components/footer/style.css";
+body {
+    padding-top: 170px;
+}
+
+section.main {
+    padding: 130px 25px;
+    height: min-content;
+}
+
+section.main>div {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    max-width: 1270px;
+    margin: 0 auto;
+    grid-gap: 130px;
+}
+
+.left {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 10px;
+    order: 1;
+}
+
+section.main .left>div {
+    height: auto;
+    background: #fafafa;
+}
+
+section.main .left .img-container>* {
+    font-size: 45px;
+    color: #808080;
+}
+
+.left .appointment-item {
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+.left .appointment-item:hover {
+    background: #3cb878;
+    transform: scale(1.035);
+}
+
+.left .appointment-item:hover .img-container>*,
+.left .appointment-item:hover h2 {
+    color: white;
+}
+
+.left .appointment-item:hover hr {
+    background-color: white;
+}
+
+section.main .left .appointment-item>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 220px;
+}
+
+.left h2 {
+    font-size: 16px;
+    font-family: "Montserrat";
+    color: rgb(67, 67, 67);
+    line-height: 1.5;
+    text-align: center;
+    font-style: normal !important;
+    margin: 0 !important;
+}
+
+.left .appointment-item hr {
+    background-color: #91bfe9;
+    height: 2px;
+    border: none;
+    width: 35px;
+    margin: 25px 0;
+}
+
+.right {
+    order: 2;
+}
+
+.right form {
+    background-color: #3cb878;
+    padding: 60px 35px;
+    width: 370px;
+}
+
+.right form h1 {
+    font-size: 21px;
+    font-family: "Montserrat";
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 0.727;
+    text-align: left;
+    margin-bottom: 55px;
+}
+
+.right form select,
+input {
+    padding: 0 15px;
+    border: none;
+    margin: 5px 0;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    height: 45px;
+    outline: none;
+}
+
+::-webkit-input-placeholder {
+    /* Edge */
+    color: black;
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: black;
+}
+
+::placeholder {
+    color: black;
+}
+
+
+/* .right form select:invalid {
+    color: gray;
+} */
+
+select:required:invalid {
+    color: gray;
+}
+
+option[value=""][disabled] {
+    display: none;
+}
+
+.right form p.sideNote {
+    color: white;
+    font-size: 14px;
+    font-family: "Montserrat";
+    margin: 20px 0;
+}
+
+.right form button[type="submit"] {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    font-size: 14px;
+    font-family: "Montserrat";
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    line-height: 1.714;
+    text-align: center;
+    height: 50px;
+    width: 100%;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.right form button[type="submit"]:hover {
+    background-color: white;
+    color: #3cb878;
+}
+
+@media screen and (max-width: 960px) {
+    section.main>div {
+        grid-gap: 30px;
+    }
+}
+
+@media screen and (max-width: 930px) {
+    section.main .left {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        height: 190px;
+    }
+    section.main .left .appointment-item>div {
+        height: 190px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    section.main>div {
+        grid-template-columns: 1fr 1fr;
+    }
+    .right form {
+        width: 310px;
+        padding: 30px 35px;
+        margin: 0px auto;
+    }
+    .right form h1 {
+        font-size: 16px;
+        margin-bottom: 25px;
+        line-height: 1.727;
+    }
+}
+
+@media screen and (max-width: 604px) {
+    .left {
+        order: 2;
+    }
+    .right {
+        order: 1;
+    }
+    section.main .left .appointment-item>div {
+        height: 162px;
+        transform: scale(0.9);
+    }
+    section.main>div {
+        grid-template-columns: 1fr;
+    }
+    section.main {
+        height: 100vh;
+        padding: 90px 25px;
+    }
+    body {
+        padding-top: 100px;
+    }
+}
+
+@media screen and (max-width: 505px) {
+    .right form {
+        width: 315px;
+        padding: 30px 35px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    section.main .left .appointment-item>div {
+        height: 85px;
+        transform: scale(0.4);
+    }
+    section.main .left {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    }
+}

@@ -106,6 +106,9 @@ div.lower-bar div.shopping-cart .cart-item-count {
     padding: 2px;
     top: -8px;
     right: -20px;
+    width: 20px;
+    text-align: center;
+    height: 20px;
 }
 
 div.lower-bar a#burger {
