@@ -39,18 +39,22 @@ section.main .left .img-container>* {
     transition: all 0.4s;
 }
 
-.left .appointment-item:hover {
-    background: #3cb878;
-    transform: scale(1.035);
+.left .appointment-item:hover,
+.focused {
+    background: #3cb878 !important;
+    transform: scale(1.035) !important;
 }
 
 .left .appointment-item:hover .img-container>*,
-.left .appointment-item:hover h2 {
-    color: white;
+.left .appointment-item:hover h2,
+.focused .img-container>*,
+.focused h2 {
+    color: white !important;
 }
 
-.left .appointment-item:hover hr {
-    background-color: white;
+.left .appointment-item:hover hr,
+.focused hr {
+    background-color: white !importante;
 }
 
 section.main .left .appointment-item>div {

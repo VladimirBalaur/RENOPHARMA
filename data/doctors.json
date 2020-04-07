@@ -1,0 +1,105 @@
+[{
+        "serviceName": "Health caring",
+        "doctors": [{
+                "name": "Ana Ionescu",
+                "function": "Dietolog"
+            },
+            {
+                "name": "Ana Avramescu",
+                "function": "Imunolog"
+            },
+            {
+                "name": "Daniel Avraman",
+                "function": "Cosmetolog"
+            },
+            {
+                "name": "Lilia Balaur",
+                "function": "Neonatolog-Pediatru"
+            },
+            {
+                "name": "Daria Savin",
+                "function": "Kinetoterapeut"
+            }
+        ]
+    },
+    {
+        "serviceName": "Produse farmaceutice",
+        "doctors": [{
+                "name": "Ivan Ionescu",
+                "function": "Farmacolog"
+            },
+            {
+                "name": "Ana Alisa",
+                "function": "Farmacolog"
+            },
+            {
+                "name": "John McFredick",
+                "function": "Farmacolog"
+            }
+        ]
+    },
+    {
+        "serviceName": "Produse dentare",
+        "doctors": [{
+                "name": "Daniel Cebotari",
+                "function": "Stomatolog"
+            },
+            {
+                "name": "Fred Browngard",
+                "function": "Stomatolog"
+            },
+            {
+                "name": "Ion Chelea",
+                "function": "Stomatolog"
+            }
+        ]
+    },
+    {
+        "serviceName": "Consultatie medicala",
+        "doctors": [{
+                "name": "Alexei Ivanenco",
+                "function": "Doctor de familie"
+            },
+            {
+                "name": "Mihai Armaș",
+                "function": "Doctor de familie"
+            },
+            {
+                "name": "Eugen Sajin",
+                "function": "Doctor de familie"
+            }
+        ]
+    },
+    {
+        "serviceName": "Programarea la clinica stomatologica",
+        "doctors": [{
+                "name": "Daniela Cebotari",
+                "function": "Stomatolog"
+            },
+            {
+                "name": "Alfred McKenick",
+                "function": "Stomatolog"
+            },
+            {
+                "name": "Ion Javelea",
+                "function": "Stomatolog"
+            }
+        ]
+    },
+    {
+        "serviceName": "Consultatie speciala",
+        "doctors": [{
+                "name": "Alexei Alexeev",
+                "function": "Doctor de familie"
+            },
+            {
+                "name": "Andrei Valencu",
+                "function": "Doctor de familie"
+            },
+            {
+                "name": "Eugen Savin",
+                "function": "Doctor de familie"
+            }
+        ]
+    }
+]

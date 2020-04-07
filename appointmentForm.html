@@ -77,7 +77,7 @@
     <section class="main">
         <div>
             <div class="left">
-                <div class="appointment-item">
+                <div data-service="produse-farmaceutice" class="appointment-item">
                     <div>
                         <div class="img-container">
                             <i class="fas fa-pills"></i>
@@ -86,7 +86,7 @@
                         <h2>Produse farmaceutice</h2>
                     </div>
                 </div>
-                <div class="appointment-item">
+                <div data-service="produse-dentare" class="appointment-item">
                     <div>
                         <div class="img-container">
                             <i class="fas fa-tooth"></i>
@@ -95,7 +95,7 @@
                         <h2>Produse dentare</h2>
                     </div>
                 </div>
-                <div class="appointment-item">
+                <div data-service="health-caring" class="appointment-item">
                     <div>
                         <div class="img-container">
                             <i class="fas fa-heartbeat"></i>
@@ -104,7 +104,7 @@
                         <h2>Health Caring</h2>
                     </div>
                 </div>
-                <div class="appointment-item">
+                <div data-service="consultatie-medicala" class="appointment-item">
                     <div>
                         <div class="img-container">
                             <i class="fas fa-syringe"></i>
@@ -113,7 +113,7 @@
                         <h2>Consultație medicală</h2>
                     </div>
                 </div>
-                <div class="appointment-item">
+                <div data-service="programarea-la-clinica-stomatologica" class="appointment-item">
                     <div>
                         <div class="img-container">
                             <i class="fas fa-tooth"></i>
@@ -122,7 +122,7 @@
                         <h2>Programare la clinică stomatologică</h2>
                     </div>
                 </div>
-                <div class="appointment-item">
+                <div data-service="consultatie-speciala" class="appointment-item">
                     <div>
                         <div class="img-container">
                             <i class="fas fa-stethoscope"></i>
@@ -134,18 +134,16 @@
             </div>
             <div class="right">
                 <form action="/" onsubmit="return false">
-                    <h1>Programrează-te acum</h1>
+                    <h1>Programează-te acum</h1>
                     <select placeholder="Selectează țara de origine" name="originCountry" id="originCountry">
-              <option value="" disabled selected hidden>Selectează țara de origine</option>
-
-              <option value="Moldova">Moldova</option>
-              <option value="SUA">SUA</option>
-              <option value="Rusia">Rusia</option>
-              <option value="Marea-Britanie">Marea Britanie</option>
-              <option value="Romania">Romania</option>
+              <option value="" disabled="true" selected hidden
+                >Selectează țara de origine</option
+              >
             </select>
                     <select value="Selectează serviciul dorit" name="reqService" id="reqService">
-              <option value="" disabled selected hidden>Selectează serviciul dorit</option>
+              <option value="" disabled selected hidden
+                >Selectează serviciul dorit</option
+              >
 
               <option value="health-caring">Health caring</option>
               <option value="produse-farmaceutice">Produse farmaceutice</option>
@@ -157,10 +155,12 @@
               <option value="consultatie-speciala">Consultație speciala</option>
             </select>
                     <select name="reqDoctor" id="reqDoctor">
-              <option value="" disabled selected hidden>Selectează doctorul dorit</option>
+              <option value="" disabled selected hidden
+                >Selectează doctorul dorit</option
+              >
             </select>
                     <input placeholder="Selectează o dată" onfocus="(this.type='date')" onblur="(this.type='text')" type="text" name="reqDate" id="reqDate" />
-                    <input placeholder="Selectează o dată" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" name="reqTime" id="reqTime" />
+                    <input placeholder="Selectează timpul" type="text" onfocus="(this.type='time')" onblur="(this.type='text')" name="reqTime" id="reqTime" />
                     <p class="sideNote">Toate câmpurile sunt obligatorii**</p>
                     <button type="submit">Submit</button>
                 </form>
@@ -197,14 +197,15 @@
             </div>
             <div>
                 <h1>informație de contact</h1>
-                <a href="#"><i class="fas fa-globe-europe"></i> Str. Sarmisegetusa 1010/9</a>
-                <a href="#"><i class="fas fa-phone-alt"></i> +1 234 56789</a>
-                <a href="#" id="email"><i class="fas fa-envelope"></i> mail@domain.com</a>
-            </div>
+                <a href="#"><i class="fas fa-globe-europe"></i> Str. Sarmisegetusa 1010/9</a
+          >
+          <a href="#"><i class="fas fa-phone-alt"></i> +1 234 56789</a>
+                <a href="#" id="email"><i class="fas fa-envelope"></i> mail@domain.com</a
+          >
         </div>
-        <div class="lower-footer-bar"></div>
+      </div>
+      <div class="lower-footer-bar"></div>
     </footer>
     <script type="module" src="./js/appointmentForm.js"></script>
-</body>
-
+  </body>
 </html>
