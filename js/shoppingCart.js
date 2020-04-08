@@ -163,7 +163,11 @@ class shoppingCartUI {
         }
 
         //item is the <i></i> meant to trigger the removal
-        Parent.remove();
+        Parent.classList.add("fade");
+        Parent.addEventListener("animationend", () => {
+            event.currentTarget.remove();
+        });
+        // Parent.remove();
         setCartItemsCount();
     }
 

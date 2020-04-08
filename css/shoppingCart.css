@@ -1,4 +1,5 @@
 @import "../components/navbar/style.css";
+@import "./animations.css";
 
 /* Compensate the space from top of navbar */
 
@@ -238,6 +239,12 @@ input#onlinePay {
     margin-left: 69%;
     padding: 15px;
     width: auto;
+}
+
+.fade {
+    animation-name: removeItem;
+    animation-duration: 1.4s;
+    animation-fill-mode: forwards;
 }
 
 

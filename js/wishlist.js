@@ -163,7 +163,11 @@ class WishlistUI {
         }
 
         //item is the <i></i> meant to trigger the removal
-        Parent.remove();
+        //item is the <i></i> meant to trigger the removal
+        Parent.classList.add("fade");
+        Parent.addEventListener("animationend", () => {
+            event.currentTarget.remove();
+        });
         setCartItemsCount();
     }
 }
