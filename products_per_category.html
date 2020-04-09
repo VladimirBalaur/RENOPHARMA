@@ -5,11 +5,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Category - products</title>
+    <link rel="stylesheet" href="css/animations.css" />
     <!-- Toate informatiile despre produse -->
 
     <link rel="stylesheet" href="css/productsPerCategory.css" />
     <link rel="stylesheet" href="fontawesome/all.css" />
     <script src="fontawesome/all.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="js/jQueryHelperFunctions.js"></script>
 </head>
 
 <body>
@@ -75,7 +78,8 @@
     <section>
         <div class="infobar">
             <div class="results-showing">
-                Afișare 1- <span class="count">1-12</span> <span class="products-count"></span> rezultate
+                Afișare 1- <span class="count">1-12</span>
+                <span class="products-count"></span> rezultate
             </div>
 
             <div class="sortby-container">
@@ -86,7 +90,7 @@
           </select>
             </div>
         </div>
-        <div class="products-container">
+        <div class="products-container fadeInFromBottom">
             <!-- Products -->
             <!-- Singular product -->
             <!-- <div class="product-card">
@@ -148,14 +152,16 @@
             </div>
             <div>
                 <h1>informație de contact</h1>
-                <a href="#"><i class="fas fa-globe-europe"></i> Str. Sarmisegetusa 1010/9</a>
-                <a href="#"><i class="fas fa-phone-alt"></i> +1 234 56789</a>
-                <a href="#" id="email"><i class="fas fa-envelope"></i> mail@domain.com</a>
-            </div>
+                <a href="#"><i class="fas fa-globe-europe"></i> Str. Sarmisegetusa 1010/9</a
+          >
+          <a href="#"><i class="fas fa-phone-alt"></i> +1 234 56789</a>
+                <a href="#" id="email"><i class="fas fa-envelope"></i> mail@domain.com</a
+          >
         </div>
-        <div class="lower-footer-bar"></div>
+      </div>
+      <div class="lower-footer-bar"></div>
     </footer>
     <script type="module" src="js/productsPerCategory.js"></script>
-</body>
-
+    <script></script>
+  </body>
 </html>

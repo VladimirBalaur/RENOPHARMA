@@ -12,12 +12,19 @@ let prodsPerPage = 9;
 let userCategory = sessionStorage.getItem("userCategory");
 sessionStorage.setItem("sortName", false);
 
-if (String(userCategory).toLowerCase().trim() !== String("Toate produsele...").toLowerCase().trim()) {
+if (
+    String(userCategory).toLowerCase().trim() !==
+    String("Toate produsele...").toLowerCase().trim()
+) {
     //setting the title of the document
     document.querySelector("title").innerHTML = `${userCategory} - produse`;
 
     /*an array returned from the function, which returns an array of strings, each item of arr being a string of html code   that includes the products chunk*/
-    let result_products_arr = load_products_from_category_by_chunks(products, userCategory, prodsPerPage);
+    let result_products_arr = load_products_from_category_by_chunks(
+        products,
+        userCategory,
+        prodsPerPage
+    );
 
     document.querySelector("select").addEventListener("change", (event) => {
         if (event.target.value == "asc") {
@@ -25,9 +32,17 @@ if (String(userCategory).toLowerCase().trim() !== String("Toate produsele...").t
         } else {
             sessionStorage.setItem("sortName", true);
         }
-        result_products_arr = load_products_from_category_by_chunks(products, userCategory, prodsPerPage);
+        result_products_arr = load_products_from_category_by_chunks(
+            products,
+            userCategory,
+            prodsPerPage
+        );
 
-        insertProductsByPage(0, result_products_arr, target_products_container).then(() => {
+        insertProductsByPage(
+            0,
+            result_products_arr,
+            target_products_container
+        ).then(() => {
             document.querySelector("span.count").innerHTML = prodsPerPage;
 
             setCartItemsCount();
@@ -46,6 +61,13 @@ if (String(userCategory).toLowerCase().trim() !== String("Toate produsele...").t
                         ) //after clicking on the li paginating item, scroll to top
                         .then(() => {
                             window.scroll(0, 0);
+
+                            document
+                                .querySelector(".products-container")
+                                .classList.remove("fadeInFromBottom");
+                            document
+                                .querySelector(".products-container")
+                                .classList.add("fadeInFromBottom");
 
                             //mark the active li elem page
                             event.currentTarget.classList.toggle("active");
@@ -68,7 +90,11 @@ if (String(userCategory).toLowerCase().trim() !== String("Toate produsele...").t
     /*loading the first page of products on the user category*/
     document.querySelector("body").addEventListener(
         "load",
-        insertProductsByPage(0, result_products_arr, target_products_container).then(() => {
+        insertProductsByPage(
+            0,
+            result_products_arr,
+            target_products_container
+        ).then(() => {
             document.querySelector("span.count").innerHTML = prodsPerPage;
             setCartItemsCount();
         })
@@ -91,6 +117,12 @@ if (String(userCategory).toLowerCase().trim() !== String("Toate produsele...").t
                         ) //after clicking on the li paginating item, scroll to top
                         .then(() => {
                             window.scroll(0, 0);
+                            document
+                                .querySelector(".products-container")
+                                .classList.remove("fadeInFromBottom");
+                            document
+                                .querySelector(".products-container")
+                                .classList.add("fadeInFromBottom");
 
                             //mark the active li elem page
                             event.currentTarget.classList.toggle("active");
@@ -119,7 +151,11 @@ if (String(userCategory).toLowerCase().trim() !== String("Toate produsele...").t
     /*loading the first page of products on the user category*/
     document.querySelector("body").addEventListener(
         "load",
-        insertProductsByPage(0, result_products_arr, target_products_container).then(() => {
+        insertProductsByPage(
+            0,
+            result_products_arr,
+            target_products_container
+        ).then(() => {
             document.querySelector("span.count").innerHTML = prodsPerPage;
             setCartItemsCount();
         })
@@ -142,6 +178,13 @@ if (String(userCategory).toLowerCase().trim() !== String("Toate produsele...").t
                         ) //after clicking on the li paginating item, scroll to top
                         .then(() => {
                             window.scroll(0, 0);
+
+                            document
+                                .querySelector(".products-container")
+                                .classList.remove("fadeInFromBottom");
+                            document
+                                .querySelector(".products-container")
+                                .classList.add("fadeInFromBottom");
                         });
                 });
             });
@@ -175,12 +218,14 @@ function load_all_products_by_chunks(products, chunk_size) {
         for (let j = 0; j < products[i].items.length; j++) {
             output_string = "";
             if (products[i].items != "undefined") {
-                output_string += `  <div data-id="${products[i].items[j].id}" data-category="${
-          products[i].category
-        }" class="product-card">
+                output_string += `  <div data-id="${
+          products[i].items[j].id
+        }" data-category="${products[i].category}" class="product-card">
                           <div class="product-image-container">
           
-                          <img src="${products[i].items[j].image_path}" alt="product" />
+                          <img src="${
+                            products[i].items[j].image_path
+                          }" alt="product" />
                           </div>
                           <div class="product-buttons">
                               <button data-role="add-to-cart">
@@ -192,10 +237,14 @@ function load_all_products_by_chunks(products, chunk_size) {
                           </div>
                           <div class="product-content">
                               <p class="title">
-                              <a href="././product_description.html">${products[i].items[j].name.trim()}</a>
+                              <a href="././product_description.html">${products[
+                                i
+                              ].items[j].name.trim()}</a>
                               </p>
                               <p class="price">${products[i].items[j].price}</p>
-                              <p style="color:#ff9600">${setStars(products[i].items[j].rating)}</p>
+                              <p style="color:#ff9600">${setStars(
+                                products[i].items[j].rating
+                              )}</p>
                           </div>
                       </div>`;
                 array_of_all_prods.push(output_string);
@@ -234,7 +283,10 @@ function load_products_from_category_by_chunks(products, category, chunk_size) {
 
     for (let i = 0; i < products.length; i++) {
         //looking for the suitable category
-        if (String(category).toLowerCase() === String(products[i].category).toLowerCase()) {
+        if (
+            String(category).toLowerCase() ===
+            String(products[i].category).toLowerCase()
+        ) {
             //if the chunk exceeds the number of available products, reset the value to the amount of prods we have
             if (chunk_size > products[i].items.length) {
                 chunk_size = products[i].items.length;
@@ -262,11 +314,13 @@ function load_products_from_category_by_chunks(products, category, chunk_size) {
                 ) {
                     if (products[i].items != "undefined") {
                         current_selected_prods++;
-                        output_string += `  <div data-id="${products[i].items[j].id}" data-category="${
-              products[i].category
-            }" class="product-card">
+                        output_string += `  <div data-id="${
+              products[i].items[j].id
+            }" data-category="${products[i].category}" class="product-card">
                                             <div class="product-image-container">
-                                            <img src="${products[i].items[j].image_path}" alt="product" />
+                                            <img src="${
+                                              products[i].items[j].image_path
+                                            }" alt="product" />
                                             </div>
                                             <div class="product-buttons">
                                                 <button data-role="add-to-cart">
@@ -278,10 +332,12 @@ function load_products_from_category_by_chunks(products, category, chunk_size) {
                                             </div>
                                             <div class="product-content">
                                                 <p class="title">
-                                                <a href="././product_description.html">${products[i].items[
-                                                  j
-                                                ].name.trim()}</a></p>
-                                                <p class="price">$${products[i].items[j].price}</p>
+                                                <a href="././product_description.html">${products[
+                                                  i
+                                                ].items[j].name.trim()}</a></p>
+                                                <p class="price">$${
+                                                  products[i].items[j].price
+                                                }</p>
                                                 <p style="color:#ff9600">${setStars(
                                                   products[i].items[j].rating
                                                 )}</p>
@@ -301,12 +357,18 @@ function load_products_from_category_by_chunks(products, category, chunk_size) {
     return page_contents;
 }
 
-async function insertProductsByPage(page, page_contents_arr, target_products_container) {
+async function insertProductsByPage(
+    page,
+    page_contents_arr,
+    target_products_container
+) {
     //get the content of html string of products on the corresponding page
     target_products_container.innerHTML = page_contents_arr[page];
 
     /**product overlay buttons hover event */
-    let productCard = document.querySelectorAll(".products-container .product-card");
+    let productCard = document.querySelectorAll(
+        ".products-container .product-card"
+    );
 
     console.log(productCard);
     productCard.forEach((card) => {
@@ -328,7 +390,9 @@ async function insertProductsByPage(page, page_contents_arr, target_products_con
             item.addEventListener("click", (event) => {
                 let prod = {
                     name: String(event.target.innerText).toLowerCase(),
-                    category: String(event.target.parentNode.parentNode.parentNode.dataset.category).toLowerCase(),
+                    category: String(
+                        event.target.parentNode.parentNode.parentNode.dataset.category
+                    ).toLowerCase(),
                     id: event.target.parentNode.parentNode.parentNode.dataset.id,
                 };
                 sessionStorage.setItem("reqProduct", JSON.stringify(prod));
@@ -343,17 +407,29 @@ async function insertProductsByPage(page, page_contents_arr, target_products_con
             if (button.dataset.role === "add-to-cart") {
                 button.addEventListener("click", (event) => {
                     const id = event.currentTarget.parentNode.parentNode.dataset.id;
-                    const category = event.currentTarget.parentNode.parentNode.dataset.category;
+                    const category =
+                        event.currentTarget.parentNode.parentNode.dataset.category;
                     const price = Number(
-                        event.currentTarget.parentNode.parentNode.querySelector(".price").innerText.split("$")[1]
+                        event.currentTarget.parentNode.parentNode
+                        .querySelector(".price")
+                        .innerText.split("$")[1]
                     );
-                    const name = event.currentTarget.parentNode.parentNode.querySelector("p.title").innerText;
+                    const name = event.currentTarget.parentNode.parentNode.querySelector(
+                        "p.title"
+                    ).innerText;
 
                     const imagePath = event.currentTarget.parentNode.parentNode.querySelector(
                         ".product-image-container img"
                     ).src;
 
-                    const cartItem = new CartProduct(id, name.toLowerCase(), price, category, 1, imagePath);
+                    const cartItem = new CartProduct(
+                        id,
+                        name.toLowerCase(),
+                        price,
+                        category,
+                        1,
+                        imagePath
+                    );
                     console.log(`Our item - ${cartItem}`);
 
                     if (localStorage.getItem("UserCart") !== null) {
@@ -384,7 +460,10 @@ async function insertProductsByPage(page, page_contents_arr, target_products_con
                         localStorage.setItem("UserCart", JSON.stringify(newCart));
                     }
 
-                    console.log("Cart content---", JSON.parse(localStorage.getItem("UserCart")));
+                    console.log(
+                        "Cart content---",
+                        JSON.parse(localStorage.getItem("UserCart"))
+                    );
 
                     // update the cart items count
                     setCartItemsCount();
@@ -392,17 +471,29 @@ async function insertProductsByPage(page, page_contents_arr, target_products_con
             } else if (button.dataset.role === "add-to-wishlist") {
                 button.addEventListener("click", (event) => {
                     const id = event.currentTarget.parentNode.parentNode.dataset.id;
-                    const category = event.currentTarget.parentNode.parentNode.dataset.category;
+                    const category =
+                        event.currentTarget.parentNode.parentNode.dataset.category;
                     const price = Number(
-                        event.currentTarget.parentNode.parentNode.querySelector(".price").innerText.split("$")[1]
+                        event.currentTarget.parentNode.parentNode
+                        .querySelector(".price")
+                        .innerText.split("$")[1]
                     );
-                    const name = event.currentTarget.parentNode.parentNode.querySelector("p.title").innerText;
+                    const name = event.currentTarget.parentNode.parentNode.querySelector(
+                        "p.title"
+                    ).innerText;
 
                     const imagePath = event.currentTarget.parentNode.parentNode.querySelector(
                         ".product-image-container img"
                     ).src;
 
-                    const cartItem = new CartProduct(id, name.toLowerCase(), price, category, 1, imagePath);
+                    const cartItem = new CartProduct(
+                        id,
+                        name.toLowerCase(),
+                        price,
+                        category,
+                        1,
+                        imagePath
+                    );
                     console.log(`Our item - ${cartItem}`);
 
                     if (localStorage.getItem("UserWishlist") !== null) {
@@ -433,7 +524,10 @@ async function insertProductsByPage(page, page_contents_arr, target_products_con
                         localStorage.setItem("UserWishlist", JSON.stringify(newWishlist));
                     }
 
-                    console.log("Cart content---", JSON.parse(localStorage.getItem("UserWishlist")));
+                    console.log(
+                        "Cart content---",
+                        JSON.parse(localStorage.getItem("UserWishlist"))
+                    );
 
                     // update the cart items count
                     setCartItemsCount();
@@ -446,12 +540,16 @@ async function insertProductsByPage(page, page_contents_arr, target_products_con
             let obj = JSON.parse(localStorage.getItem("UserCart"));
 
             obj.items.forEach((item) => {
-                if (item.name === card.querySelector(".title").innerText.toLowerCase()) {
+                if (
+                    item.name === card.querySelector(".title").innerText.toLowerCase()
+                ) {
                     card.querySelector(
                         ".product-buttons button:first-of-type"
                     ).innerHTML = `<i class="far fa-check-square "></i>`;
 
-                    card.querySelector(".product-buttons button:first-of-type").classList.add("inCart");
+                    card
+                        .querySelector(".product-buttons button:first-of-type")
+                        .classList.add("inCart");
                 }
             });
         }
@@ -461,8 +559,12 @@ async function insertProductsByPage(page, page_contents_arr, target_products_con
             let obj = JSON.parse(localStorage.getItem("UserWishlist"));
 
             obj.items.forEach((item) => {
-                if (item.name === card.querySelector(".title").innerText.toLowerCase()) {
-                    card.querySelector(".product-buttons button:last-of-type").classList.add("inCart");
+                if (
+                    item.name === card.querySelector(".title").innerText.toLowerCase()
+                ) {
+                    card
+                        .querySelector(".product-buttons button:last-of-type")
+                        .classList.add("inCart");
                 }
             });
         }
@@ -482,10 +584,12 @@ async function setPages(pages) {
 
 /***Setting the sessionstorage events, that will memorize which category to return if a certain category was selected */
 
-document.querySelectorAll("nav .dropdown .dropdown-content a").forEach((item) => {
-    //for each item of links, add an event that will set the UserCategory the inner text
-    item.addEventListener("click", (event) => {
-        sessionStorage.setItem("userCategory", event.target.innerText);
-        console.log(event.target.innerText);
+document
+    .querySelectorAll("nav .dropdown .dropdown-content a")
+    .forEach((item) => {
+        //for each item of links, add an event that will set the UserCategory the inner text
+        item.addEventListener("click", (event) => {
+            sessionStorage.setItem("userCategory", event.target.innerText);
+            console.log(event.target.innerText);
+        });
     });
-});

@@ -6,6 +6,12 @@ html {
     scroll-behavior: smooth;
 }
 
+.fadeInFromBottom {
+    animation-name: FadeInFromBottom;
+    animation-duration: 1.8s;
+    animation-fill-mode: forwards;
+}
+
 div.product-card {
     max-width: 340px;
     height: 565px;
@@ -118,6 +124,7 @@ section {
     grid-gap: 20px;
     justify-content: center;
     padding: 0 30px;
+    opacity: 0;
 }
 
 .products-container>* {

@@ -3,7 +3,7 @@ export class Navbar {
         /** PRODUCT DROPDOWN JS TOGGLE */
         let dropdown_link = document.querySelector("nav div.dropdown a");
         let dropdown_content = document.querySelector("nav div.dropdown-content");
-
+        dropdown_content.style.transition = "all 1s";
         dropdown_link.addEventListener("mouseover", () => {
             dropdown_content.style.height = "unset";
         });

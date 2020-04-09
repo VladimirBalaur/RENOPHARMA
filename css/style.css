@@ -10,6 +10,9 @@
 
 @import "fonts.css";
 
+/* @import "animations.css"; */
+
+
 /******GLOBALS BEGIN ***************/
 
 section h1 {
@@ -215,6 +218,9 @@ header {
     background-repeat: no-repeat;
     padding-left: 400px;
     padding-top: 450px;
+    animation-name: GrayscaleFadeIn;
+    animation-duration: 2.5s;
+    animation-fill-mode: forwards;
 }
 
 header .content {
@@ -228,6 +234,10 @@ header .content h1 {
     text-transform: uppercase;
     line-height: 1.2;
     text-align: left;
+    animation-play-state: running;
+    animation-name: FadeInFromTop;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
 }
 
 header .content h1>span {
@@ -242,6 +252,9 @@ header p {
     text-align: left;
     font-weight: 700;
     margin: 30px 0;
+    animation-name: FadeInFromTop;
+    animation-duration: 2.2s;
+    animation-fill-mode: forwards;
 }
 
 header button {
@@ -253,6 +266,9 @@ header button {
     font-family: "Poppins-regular", sans-serif;
     font-size: 16px;
     transition: all 450ms ease;
+    animation-name: FadeInFromTop;
+    animation-duration: 2.5s;
+    animation-fill-mode: forwards;
 }
 
 header button:hover {
@@ -262,6 +278,27 @@ header button:hover {
 
 
 /********** header END **********/
+
+
+/* Animation classes */
+
+.fadeFromTop {
+    animation-name: FadeInFromTop;
+    animation-duration: 2.5s;
+    animation-fill-mode: forwards;
+}
+
+.fadeFromLeft {
+    animation-name: FadeFromLeft;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+}
+
+.fadeFromRight {
+    animation-name: FadeFromRight;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+}
 
 
 /********** PROVIDERS BEGIN *************/
@@ -276,6 +313,7 @@ section.providers div.featured-products {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
+    opacity: 0;
 }
 
 section.providers div.providers-content {
@@ -433,6 +471,10 @@ section.news {
     grid-column-gap: 30px;
 }
 
+section.news .news-container {
+    opacity: 0;
+}
+
 section.news h1 {
     margin-bottom: 30px;
 }
@@ -491,6 +533,10 @@ section.news div.news-wrapper p {
 section.news video {
     width: 570px;
     height: 350px;
+}
+
+.video-container {
+    opacity: 0;
 }
 
 

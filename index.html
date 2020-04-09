@@ -7,12 +7,16 @@
     <meta name="keywords" content="Pharmacy, farmacie, produse medicale, servicii, Moldova, Republica Moldova, Practica Tehnologica, Vreau 10" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Renopharm - cea mai bună Web farmacie</title>
+    <link rel="stylesheet" href="css/animations.css" />
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/data.js"></script>
     <link rel="stylesheet" href="fontawesome/all.css" />
     <script src="fontawesome/all.js"></script>
     <!-- Toate informatiile despre produse -->
     <script src="data/data.js"></script>
+    <style></style>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="js/jQueryHelperFunctions.js"></script>
 </head>
 
 <body>
@@ -242,14 +246,40 @@
             </div>
             <div>
                 <h1>informație de contact</h1>
-                <a href="#"><i class="fas fa-globe-europe"></i> Str. Sarmisegetusa 1010/9</a>
-                <a href="#"><i class="fas fa-phone-alt"></i> +1 234 56789</a>
-                <a href="#" id="email"><i class="fas fa-envelope"></i> mail@domain.com</a>
-            </div>
+                <a href="#"><i class="fas fa-globe-europe"></i> Str. Sarmisegetusa 1010/9</a
+          >
+          <a href="#"><i class="fas fa-phone-alt"></i> +1 234 56789</a>
+                <a href="#" id="email"><i class="fas fa-envelope"></i> mail@domain.com</a
+          >
         </div>
-        <div class="lower-footer-bar"></div>
+      </div>
+      <div class="lower-footer-bar"></div>
     </footer>
     <script type="module" src="js/home.js"></script>
-</body>
+    <script>
+      // Section animations jquery
+      let featuredProdSection = $(".featured-products");
+      let newsContainer = $(".news-container");
+      let videoContainer = $(".video-container");
 
+      featuredProdSection.inViewport((px) => {
+        //trigger animation when the viewport has reached the 3rd height of element
+        if (px >= featuredProdSection.innerHeight() / 3) {
+          featuredProdSection.addClass("fadeFromTop");
+        }
+
+        newsContainer.inViewport((px) => {
+          if (px >= newsContainer.innerHeight() / 3) {
+            newsContainer.addClass("fadeFromLeft");
+          }
+        });
+
+        videoContainer.inViewport((px) => {
+          if (px >= videoContainer.innerHeight() / 3) {
+            videoContainer.addClass("fadeFromRight");
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
