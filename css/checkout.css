@@ -1,0 +1,6 @@
+@import "../components/navbar/style.css";
+@import "./animations.css";
+@import "../components/footer/style.css";
+body {
+    padding-top: 160px;
+}

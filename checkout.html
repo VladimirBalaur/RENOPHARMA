@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Vladimir Balaur" />
+    <meta name="keywords" content="Pharmacy, farmacie, produse medicale, servicii, Moldova, Republica Moldova, Practica Tehnologica, Vreau 10" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Renopharm - cea mai bună Web farmacie</title>
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/checkout.css" />
+    <script src="js/data.js"></script>
+    <link rel="stylesheet" href="fontawesome/all.css" />
+    <script src="fontawesome/all.js"></script>
+    <!-- Toate informatiile despre produse -->
+    <script src="data/data.js"></script>
+    <style></style>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!-- Here we have the functions needed to trigger animation effects on viewport -->
+    <script src="js/jQueryHelperFunctions.js"></script>
+</head>
+
+<body>
+    <div class="navigation-bar">
+        <div class="upper-bar">
+            <div class="phone">
+                <i class="fas fa-phone"></i>
+                <span>+1 123 456 789</span>
+            </div>
+            <div class="email">
+                <i class="fas fa-envelope"></i>
+                <span>info@company.com</span>
+            </div>
+            <div class="social-media">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-invision"></i>
+            </div>
+        </div>
+        <div class="lower-bar">
+            <div class="logo">
+                <a href=""><span>reno</span>pharma</a>
+            </div>
+            <nav>
+                <a href="./index.html">Acasă</a>
+                <a href="./news.html">noutăți</a>
+                <a href="./contact.html">ajutor</a>
+                <a href="./contact.html">contacte</a>
+                <div class="dropdown">
+                    <a href="./products_per_category.html">produse</a>
+                    <div class="dropdown-content">
+                        <a href="./products_per_category.html">Dental care</a>
+                        <a href="./products_per_category.html">Ingrijirea pielii</a>
+                        <a href="./products_per_category.html">Cosmetice</a>
+                        <a href="./products_per_category.html">Vitamine</a>
+                        <a href="./products_per_category.html">Echipamente medicale</a>
+                        <a href="./products_per_category.html">Baby Care</a>
+                        <a href="./productList.html">Toate produsele...</a>
+                    </div>
+                </div>
+                <a href="./appointmentForm.html">programare online</a>
+            </nav>
+            <a id="burger" href=""> <i class="fas fa-bars"></i> </a>
+            <div class="right-elements">
+                <div class="shopping-cart">
+                    <a href="shoppingCart.html"><i class="fas fa-shopping-cart"> </i></a
+            ><span class="cart-item-count">10</span>
+          </div>
+          <i class="fas fa-search"></i>
+          <div class="language-dd">
+            <a href=""><i class="fas fa-bars"></i></a>
+                    <div class="dd-content">
+                        <a href="#">RO</a>
+                        <a href="#">RU</a>
+                        <a href="#">EN</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section>
+        <div class="formulars">
+            <h1>Detalii achitare:</h1>
+            <div class="input-container">
+                <label for="">
+            <span class="label-text">Prenume</span>
+            <input type="text" name="name" id="name" />
+          </label>
+                <label for="">
+            <span class="label-text">Nume</span>
+            <input type="text" name="surname" id="surname" />
+          </label>
+            </div>
+            <label for="">
+          <span class="label-text">Țară</span>
+          <select name="country" id="country">
+            <option value="Vietnam">Vietnam</option>
+          </select>
+        </label>
+            <label for="">
+          <span class="label-text">Numele companiei</span>
+          <input type="text" name="company_name" id="company_name" />
+        </label>
+            <label for="">
+          <span class="label-text">Adresă</span>
+          <input placeholder="Street address" type="text" name="address" id="address" />
+        </label>
+            <label for="">
+          <span class="label-text">Oraș</span>
+          <input placeholder="Oraș" type="text" name="city" id="city" />
+        </label>
+            <div class="input-container">
+                <label for="">
+            <span class="label-text">Email Address</span>
+            <input type="text" name="email" id="email" />
+          </label>
+                <label for="">
+            <span class="label-text">Telefon</span>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              pattern="^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$"
+              required
+            />
+          </label>
+                <label for="">
+            <input type="checkbox" name="createAccount" id="createAccount" value="true" />
+            Creează un cont?
+          </label>
+            </div>
+        </div>
+        <div class="checkout-info">
+            <div class="upper-part">
+                <h1>comanda dumnreavoastră</h1>
+                <div class="head">
+                    <span>Product</span>
+                    <span>Total</span>
+                </div>
+                <hr />
+                <div class="content">
+                    <p class="item"><span>Product name x1</span> <span>$120</span></p>
+                    <p class="item"><span>Product name x2</span> <span>$280</span></p>
+                </div>
+                <hr />
+                <div class="content">
+                    <p class="item"><span>Subtotal</span> <span>$400</span></p>
+                    <p class="item"><span>Delivrare</span> <span>Free shipping</span></p>
+                </div>
+                <hr />
+                <div class="total">
+                    <span>Total</span>
+                    <span>$400</span>
+                </div>
+            </div>
+            <div class="lower-part">
+                <label for="">
+            <input type="checkbox" name="bank_transfer" id="bank_transfer" />
+            Transfer bancar direct
+          </label>
+                <p class="sidenote">
+                    Asigurați-vă că toate detaliile introduse sunt corecte pentru a evita tranzacțiile eronate, în cazul unei erori, compania nu este responsabilă pentru remedierea acestora, dacă eroare a apărut din cauza utilizatorului
+                </p>
+                <label for="">
+            <input type="checkbox" name="bank_transfer" id="bank_transfer" />
+            Achitare prin cheque
+          </label>
+                <label for="">
+            <input type="checkbox" name="bank_transfer" id="bank_transfer" />
+            PayPal
+          </label>
+            </div>
+        </div>
+        <input type="submit" value="COMANDĂ" />
+    </section>
+    <footer>
+        <div class="upper-footer-bar">
+            <div>
+                <p>
+                    Vă asigurăm servicii de calitate, și suport continuu pentru toți cumpărătorii noștri.
+                </p>
+            </div>
+            <div class="social-media">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-invision"></i>
+            </div>
+            <div>&nbsp;</div>
+        </div>
+        <div class="mid-footer-bar">
+            <div>
+                <h1>contul meu</h1>
+                <a href="./shoppingCart.html">Vizualizează coșul</a>
+                <a href="./wishlist.html">My Wishlist</a>
+                <a href="#">Achitare</a>
+            </div>
+            <div>
+                <h1>ajutor</h1>
+                <a href="./contact.html">F.A.Q</a>
+                <a href="./contact.html">Contactează-ne</a>
+                <a href="./contact.html">Privacy Policy</a>
+            </div>
+            <div>
+                <h1>informație de contact</h1>
+                <a href="#"><i class="fas fa-globe-europe"></i> Str. Sarmisegetusa 1010/9</a>
+                <a href="#"><i class="fas fa-phone-alt"></i> +1 234 56789</a>
+                <a href="#" id="email"><i class="fas fa-envelope"></i> mail@domain.com</a>
+            </div>
+        </div>
+        <div class="lower-footer-bar"></div>
+    </footer>
+    <script type="module" src="js/checkout.js"></script>
+</body>
+
+</html>
