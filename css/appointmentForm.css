@@ -54,7 +54,7 @@ section.main .left .img-container>* {
 
 .left .appointment-item:hover hr,
 .focused hr {
-    background-color: white !importante;
+    background-color: white !important;
 }
 
 section.main .left .appointment-item>div {
@@ -218,7 +218,6 @@ option[value=""][disabled] {
         grid-template-columns: 1fr;
     }
     section.main {
-        height: 100vh;
         padding: 90px 25px;
     }
     body {

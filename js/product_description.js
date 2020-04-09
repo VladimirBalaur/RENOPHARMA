@@ -27,28 +27,22 @@ document.querySelector("body").addEventListener(
             console.log(card);
 
             card.addEventListener("mouseover", () => {
-                card
-                    .querySelectorAll("div.product-buttons button")
-                    .forEach((button) => {
-                        button.style.transform = "translateX(0%)";
-                    });
+                card.querySelectorAll("div.product-buttons button").forEach((button) => {
+                    button.style.transform = "translateX(0%)";
+                });
             });
 
             card.addEventListener("mouseleave", () => {
-                card
-                    .querySelectorAll("div.product-buttons button")
-                    .forEach((button) => {
-                        button.style.transform = "translateX(101%)";
-                    });
+                card.querySelectorAll("div.product-buttons button").forEach((button) => {
+                    button.style.transform = "translateX(101%)";
+                });
             });
 
             card.querySelectorAll("a").forEach((item) => {
                 item.addEventListener("click", (event) => {
                     let prod = {
                         name: String(event.target.innerText).toLowerCase(),
-                        category: String(
-                            event.target.parentNode.parentNode.parentNode.dataset.category
-                        ).toLowerCase(),
+                        category: String(event.target.parentNode.parentNode.parentNode.dataset.category).toLowerCase(),
                         id: event.target.parentNode.parentNode.parentNode.dataset.id,
                     };
                     sessionStorage.setItem("reqProduct", JSON.stringify(prod));
@@ -63,29 +57,17 @@ document.querySelector("body").addEventListener(
                 if (button.dataset.role === "add-to-cart") {
                     button.addEventListener("click", (event) => {
                         const id = event.currentTarget.parentNode.parentNode.dataset.id;
-                        const category =
-                            event.currentTarget.parentNode.parentNode.dataset.category;
+                        const category = event.currentTarget.parentNode.parentNode.dataset.category;
                         const price = Number(
-                            event.currentTarget.parentNode.parentNode
-                            .querySelector(".price")
-                            .innerText.split("$")[1]
+                            event.currentTarget.parentNode.parentNode.querySelector(".price").innerText.split("$")[1]
                         );
-                        const name = event.currentTarget.parentNode.parentNode.querySelector(
-                            "p.title"
-                        ).innerText;
+                        const name = event.currentTarget.parentNode.parentNode.querySelector("p.title").innerText;
 
                         const imagePath = event.currentTarget.parentNode.parentNode.querySelector(
                             ".product-image-container img"
                         ).src;
 
-                        const cartItem = new CartProduct(
-                            id,
-                            name.toLowerCase(),
-                            price,
-                            category,
-                            1,
-                            imagePath
-                        );
+                        const cartItem = new CartProduct(id, name.toLowerCase(), price, category, 1, imagePath);
                         console.log(`Our item - ${cartItem}`);
 
                         if (localStorage.getItem("UserWishlist") !== null) {
@@ -116,10 +98,7 @@ document.querySelector("body").addEventListener(
                             localStorage.setItem("UserCart", JSON.stringify(newCart));
                         }
 
-                        console.log(
-                            "Cart content---",
-                            JSON.parse(localStorage.getItem("UserCart"))
-                        );
+                        console.log("Cart content---", JSON.parse(localStorage.getItem("UserCart")));
 
                         // update the cart items count
                         setCartItemsCount();
@@ -129,10 +108,7 @@ document.querySelector("body").addEventListener(
 
                             obj.items.forEach((item) => {
                                 if (
-                                    item.name ===
-                                    document
-                                    .querySelector(".product-info-content h1")
-                                    .innerText.toLowerCase()
+                                    item.name === document.querySelector(".product-info-content h1").innerText.toLowerCase()
                                 ) {
                                     document.querySelector(
                                         ".cart-operations button:first-of-type"
@@ -144,37 +120,23 @@ document.querySelector("body").addEventListener(
                 } else if (button.dataset.role === "add-to-wishlist") {
                     button.addEventListener("click", (event) => {
                         const id = event.currentTarget.parentNode.parentNode.dataset.id;
-                        const category =
-                            event.currentTarget.parentNode.parentNode.dataset.category;
+                        const category = event.currentTarget.parentNode.parentNode.dataset.category;
                         const price = Number(
-                            event.currentTarget.parentNode.parentNode
-                            .querySelector(".price")
-                            .innerText.split("$")[1]
+                            event.currentTarget.parentNode.parentNode.querySelector(".price").innerText.split("$")[1]
                         );
-                        const name = event.currentTarget.parentNode.parentNode.querySelector(
-                            "p.title"
-                        ).innerText;
+                        const name = event.currentTarget.parentNode.parentNode.querySelector("p.title").innerText;
 
                         const imagePath = event.currentTarget.parentNode.parentNode.querySelector(
                             ".product-image-container img"
                         ).src;
 
-                        const cartItem = new CartProduct(
-                            id,
-                            name.toLowerCase(),
-                            price,
-                            category,
-                            1,
-                            imagePath
-                        );
+                        const cartItem = new CartProduct(id, name.toLowerCase(), price, category, 1, imagePath);
                         console.log(`Our item from wishlist - ${cartItem}`);
 
                         if (localStorage.getItem("UserWishlist") !== null) {
                             let itemExists = false;
                             //first we get the cart items fron LS
-                            let UserWishlist = JSON.parse(
-                                localStorage.getItem("UserWishlist")
-                            );
+                            let UserWishlist = JSON.parse(localStorage.getItem("UserWishlist"));
                             //check if we already have this item
 
                             UserWishlist.items.forEach((item) => {
@@ -187,10 +149,7 @@ document.querySelector("body").addEventListener(
                                 // we push our cart item to the JSON object of cart items
                                 UserWishlist.items.push(cartItem);
                                 //we push  he whole JSON to the LS
-                                localStorage.setItem(
-                                    "UserWishlist",
-                                    JSON.stringify(UserWishlist)
-                                );
+                                localStorage.setItem("UserWishlist", JSON.stringify(UserWishlist));
 
                                 //add class inCart if it isn't set
                                 event.currentTarget.classList.add("inCart");
@@ -202,10 +161,7 @@ document.querySelector("body").addEventListener(
                             localStorage.setItem("UserWishlist", JSON.stringify(newCart));
                         }
 
-                        console.log(
-                            "Wishlist content---",
-                            JSON.parse(localStorage.getItem("UserWishlist"))
-                        );
+                        console.log("Wishlist content---", JSON.parse(localStorage.getItem("UserWishlist")));
 
                         // update the cart items count
                         setCartItemsCount();
@@ -218,17 +174,12 @@ document.querySelector("body").addEventListener(
                         let obj = JSON.parse(localStorage.getItem("UserCart"));
 
                         obj.items.forEach((item) => {
-                            if (
-                                item.name ===
-                                card.querySelector(".title").innerText.toLowerCase()
-                            ) {
+                            if (item.name === card.querySelector(".title").innerText.toLowerCase()) {
                                 card.querySelector(
                                     ".product-buttons button:first-of-type"
                                 ).innerHTML = `<i class="far fa-check-square "></i>`;
 
-                                card
-                                    .querySelector(".product-buttons button:first-of-type")
-                                    .classList.add("inCart");
+                                card.querySelector(".product-buttons button:first-of-type").classList.add("inCart");
                             }
                         });
                     }
@@ -238,13 +189,8 @@ document.querySelector("body").addEventListener(
                         let obj = JSON.parse(localStorage.getItem("UserWishlist"));
 
                         obj.items.forEach((item) => {
-                            if (
-                                item.name ===
-                                card.querySelector(".title").innerText.toLowerCase()
-                            ) {
-                                card
-                                    .querySelector(".product-buttons button:last-of-type")
-                                    .classList.add("inCart");
+                            if (item.name === card.querySelector(".title").innerText.toLowerCase()) {
+                                card.querySelector(".product-buttons button:last-of-type").classList.add("inCart");
                             }
                         });
                     }
@@ -256,16 +202,12 @@ document.querySelector("body").addEventListener(
                 let obj = JSON.parse(localStorage.getItem("UserCart"));
 
                 obj.items.forEach((item) => {
-                    if (
-                        item.name === card.querySelector(".title").innerText.toLowerCase()
-                    ) {
+                    if (item.name === card.querySelector(".title").innerText.toLowerCase()) {
                         card.querySelector(
                             ".product-buttons button:first-of-type"
                         ).innerHTML = `<i class="far fa-check-square "></i>`;
 
-                        card
-                            .querySelector(".product-buttons button:first-of-type")
-                            .classList.add("inCart");
+                        card.querySelector(".product-buttons button:first-of-type").classList.add("inCart");
                     }
                 });
             }
@@ -275,12 +217,8 @@ document.querySelector("body").addEventListener(
                 let obj = JSON.parse(localStorage.getItem("UserWishlist"));
 
                 obj.items.forEach((item) => {
-                    if (
-                        item.name === card.querySelector(".title").innerText.toLowerCase()
-                    ) {
-                        card
-                            .querySelector(".product-buttons button:last-of-type")
-                            .classList.add("inCart");
+                    if (item.name === card.querySelector(".title").innerText.toLowerCase()) {
+                        card.querySelector(".product-buttons button:last-of-type").classList.add("inCart");
                     }
                 });
             }
@@ -424,8 +362,7 @@ function getCount(parent, getChildrensChildren) {
     let children = parent.childNodes.length;
     for (let i = 0; i < children; i++) {
         if (parent.childNodes[i].nodeType != 3) {
-            if (getChildrensChildren)
-                relevantChildren += getCount(parent.childNodes[i], true);
+            if (getChildrensChildren) relevantChildren += getCount(parent.childNodes[i], true);
             relevantChildren++;
         }
     }
@@ -456,16 +393,12 @@ async function load_all_products(target_container, products, count) {
     while (i < count) {
         for (let j = 0; j < products.length; j++) {
             if (product_index < products[j].items.length) {
-                target_container.innerHTML += `  <div data-category="${
-          products[j].category
-        }" data-id="${
+                target_container.innerHTML += `  <div data-category="${products[j].category}" data-id="${
           products[j].items[product_index].id
         }" class="product-card">
                           <div class="product-image-container">
           
-                          <img src="${
-                            products[j].items[product_index].image_path
-                          }" alt="product" />
+                          <img src="${products[j].items[product_index].image_path}" alt="product" />
                           </div>
                           <div class="product-buttons">
                               <button data-role="add-to-cart">
@@ -479,9 +412,7 @@ async function load_all_products(target_container, products, count) {
                               <p class="title"><a href="././product_description.html">
                               ${products[j].items[product_index].name}</a>
                               </p>
-                              <p class="price">$${
-                                products[j].items[product_index].price
-                              }</p>
+                              <p class="price">$${products[j].items[product_index].price}</p>
                               <p style="color:#ff9600">${setStars(
                                 products[j].items[product_index].rating
                               )}</p>
@@ -494,16 +425,11 @@ async function load_all_products(target_container, products, count) {
     }
 }
 
-document
-    .querySelectorAll(".your-rating >div.star-container")
-    .forEach((item) => {
-        item.addEventListener("click", (event) => {
-            sessionStorage.setItem(
-                "selectedStars",
-                event.currentTarget.dataset.starIndex
-            );
-        });
+document.querySelectorAll(".your-rating >div.star-container").forEach((item) => {
+    item.addEventListener("click", (event) => {
+        sessionStorage.setItem("selectedStars", event.currentTarget.dataset.starIndex);
     });
+});
 
 document.querySelector("#Review form").addEventListener("submit", (event) => {
     let username = document.querySelector("input#username").value;
@@ -511,46 +437,48 @@ document.querySelector("#Review form").addEventListener("submit", (event) => {
     let rating = parseInt(sessionStorage.getItem("selectedStars"));
     let content = document.querySelector("#Review textarea").value;
 
-    let comment = new Comment(
-        username,
-        email,
-        rating,
-        content,
-        String(
-            new Date().toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-            })
-        )
-    );
+    if (username && email && rating && content) {
+        let comment = new Comment(
+            username,
+            email,
+            rating,
+            content,
+            String(
+                new Date().toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                })
+            )
+        );
 
-    console.log(comment);
+        console.log(comment);
 
-    let target_container = document.querySelector(".comments");
+        let target_container = document.querySelector(".comments");
 
-    for (let i = 0; i < products.length; i++) {
-        if (
-            String(products[i].category).toLowerCase().trim() ==
-            String(sessionStorage.getItem("userCategory").toLowerCase().trim())
-        ) {
-            console.log(`i found your desired category ${products[i].category}`);
+        for (let i = 0; i < products.length; i++) {
+            if (
+                String(products[i].category).toLowerCase().trim() ==
+                String(sessionStorage.getItem("userCategory").toLowerCase().trim())
+            ) {
+                console.log(`i found your desired category ${products[i].category}`);
 
-            products[i].items[reqProd.id - 1].reviews.push(comment);
-            console.log(products[i].items[reqProd.id - 1].reviews);
+                products[i].items[reqProd.id - 1].reviews.push(comment);
+                console.log(products[i].items[reqProd.id - 1].reviews);
 
-            Comment.appendCommentToContainer(target_container, comment);
+                Comment.appendCommentToContainer(target_container, comment);
 
-            document.querySelector("span.review-count").innerText =
-                products[i].items[reqProd.id - 1].reviews.length;
-            break;
+                document.querySelector("span.review-count").innerText =
+                    products[i].items[reqProd.id - 1].reviews.length;
+                break;
 
-            let inputs = document.querySelector("form > input");
-            let textarea = document.querySelector("form > textarea");
+                let inputs = document.querySelector("form > input");
+                let textarea = document.querySelector("form > textarea");
 
-            concat(inputs, textarea).forEach((item) => {
-                item.value = "";
-            });
+                concat(inputs, textarea).forEach((item) => {
+                    item.value = "";
+                });
+            }
         }
     }
 });

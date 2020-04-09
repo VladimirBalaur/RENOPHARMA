@@ -125,15 +125,17 @@
               required
             />
           </label>
-                <label for="">
-            <input type="checkbox" name="createAccount" id="createAccount" value="true" />
-            Creează un cont?
-          </label>
             </div>
+            <label for="">
+          <div class="checkbox">
+            <input type="checkbox" id="checkbox_1" />
+            <label for="checkbox_1">Creează un cont?</label>
+        </div>
+        </label>
         </div>
         <div class="checkout-info">
+            <h1>comanda dumneavoastră</h1>
             <div class="upper-part">
-                <h1>comanda dumnreavoastră</h1>
                 <div class="head">
                     <span>Product</span>
                     <span>Total</span>
@@ -155,23 +157,24 @@
                 </div>
             </div>
             <div class="lower-part">
-                <label for="">
-            <input type="checkbox" name="bank_transfer" id="bank_transfer" />
-            Transfer bancar direct
-          </label>
+                <div class="checkbox">
+                    <input type="checkbox" id="checkbox_2" />
+                    <label for="checkbox_2">Transfer bancar direct</label>
+                </div>
                 <p class="sidenote">
                     Asigurați-vă că toate detaliile introduse sunt corecte pentru a evita tranzacțiile eronate, în cazul unei erori, compania nu este responsabilă pentru remedierea acestora, dacă eroare a apărut din cauza utilizatorului
                 </p>
-                <label for="">
-            <input type="checkbox" name="bank_transfer" id="bank_transfer" />
-            Achitare prin cheque
-          </label>
-                <label for="">
-            <input type="checkbox" name="bank_transfer" id="bank_transfer" />
-            PayPal
-          </label>
+                <div class="checkbox">
+                    <input type="checkbox" id="checkbox_3" />
+                    <label for="checkbox_3">Achitare prin cheque</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" id="checkbox_4" />
+                    <label for="checkbox_4">Achitare prin PayPal</label>
+                </div>
             </div>
         </div>
+        <div></div>
         <input type="submit" value="COMANDĂ" />
     </section>
     <footer>

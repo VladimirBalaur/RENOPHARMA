@@ -7,10 +7,9 @@ import { Cart, CartProduct, areObjEqual, Wishlist } from "./cart.js";
 const NavUi = new Navbar();
 // To do: DO THE FILTERS AND THINK ABOUT DOING THE HOVER EFFECTS AND FOCUS EFFECTS OF CURRENT ACTIVE CATEGORY LINK AND PAGE LINK
 //Setting up all categories on ul
+setCartItemsCount();
 
-let categoriesList = document.querySelector(
-    "section.main  div.categories-list >ul"
-);
+let categoriesList = document.querySelector("section.main  div.categories-list >ul");
 
 console.log(products);
 //set the category list based on categories we have
@@ -22,10 +21,7 @@ products.forEach((product) => {
     a.href = "./productList.html";
     a.dataset.category = String(product.category).toLowerCase().trim();
     a.addEventListener("click", (event) => {
-        sessionStorage.setItem(
-            "featuredProductsCategory",
-            event.target.dataset.category
-        );
+        sessionStorage.setItem("featuredProductsCategory", event.target.dataset.category);
 
         // event.currentTarget.classList.toggle("active", true);
 
@@ -48,9 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
     generatePopularProducts(products, requestedCategory);
 });
 
-let target_products_container = document.querySelector(
-    ".right-container .products-container"
-); //the target container of prods
+let target_products_container = document.querySelector(".right-container .products-container"); //the target container of prods
 let prodsPerPage = 4;
 sessionStorage.setItem("minPrice", 0);
 sessionStorage.setItem("maxPrice", 10e9);
@@ -81,71 +75,59 @@ if (String(requestedCategory).toLowerCase().trim()) {
     // events for sort By button
 
     //event to trigger when the price filter is fired
-    document
-        .querySelector("#price-range-submit")
-        .addEventListener("click", (event) => {
-            sessionStorage.setItem(
-                "minPrice",
-                document.querySelector("#min_price").value
-            );
+    document.querySelector("#price-range-submit").addEventListener("click", (event) => {
+        sessionStorage.setItem("minPrice", document.querySelector("#min_price").value);
 
-            sessionStorage.setItem(
-                "maxPrice",
-                document.querySelector("#max_price").value
-            );
+        sessionStorage.setItem("maxPrice", document.querySelector("#max_price").value);
 
-            result_products_arr = load_products_from_category_by_chunks_withing_price_range(
-                products,
-                requestedCategory,
-                prodsPerPage,
-                Number(sessionStorage.getItem("minPrice")),
-                Number(sessionStorage.getItem("maxPrice"))
-            );
-            // load_products_from_category_by_chunks(
-            //     products,
-            //     requestedCategory,
-            //     prodsPerPage
-            // );
+        result_products_arr = load_products_from_category_by_chunks_withing_price_range(
+            products,
+            requestedCategory,
+            prodsPerPage,
+            Number(sessionStorage.getItem("minPrice")),
+            Number(sessionStorage.getItem("maxPrice"))
+        );
+        // load_products_from_category_by_chunks(
+        //     products,
+        //     requestedCategory,
+        //     prodsPerPage
+        // );
 
-            insertProductsByPage(
-                0,
-                result_products_arr,
-                target_products_container
-            ).then(() => {
-                document.querySelector("span.count").innerHTML = prodsPerPage;
-            });
+        insertProductsByPage(0, result_products_arr, target_products_container).then(() => {
+            document.querySelector("span.count").innerHTML = prodsPerPage;
+        });
 
-            //Setting the pagination elements on page load
-            let number_of_pages = result_products_arr.length - 1;
-            setPages(number_of_pages).then(() => {
-                //for each li item of pagination, set a click event that inserts the products on the page that is based on li value
-                document.querySelectorAll(".pagination ul li").forEach((item) => {
-                    item.addEventListener("click", (event) => {
-                        insertProductsByPage(
-                                parseInt(event.currentTarget.innerText) - 1, //the page count
-                                result_products_arr,
-                                target_products_container
-                            ) //after clicking on the li paginating item, scroll to top
-                            .then(() => {
-                                window.scroll(0, 0);
+        //Setting the pagination elements on page load
+        let number_of_pages = result_products_arr.length - 1;
+        setPages(number_of_pages).then(() => {
+            //for each li item of pagination, set a click event that inserts the products on the page that is based on li value
+            document.querySelectorAll(".pagination ul li").forEach((item) => {
+                item.addEventListener("click", (event) => {
+                    insertProductsByPage(
+                            parseInt(event.currentTarget.innerText) - 1, //the page count
+                            result_products_arr,
+                            target_products_container
+                        ) //after clicking on the li paginating item, scroll to top
+                        .then(() => {
+                            window.scroll(0, 0);
 
-                                //mark the active li elem page
-                                event.currentTarget.classList.toggle("active");
+                            //mark the active li elem page
+                            event.currentTarget.classList.toggle("active");
 
-                                //unmark the rest
-                                let pagItems = document.querySelectorAll("ul li");
-                                console.log(pagItems);
+                            //unmark the rest
+                            let pagItems = document.querySelectorAll("ul li");
+                            console.log(pagItems);
 
-                                for (let pagItem of pagItems) {
-                                    if (pagItem !== event.currentTarget) {
-                                        pagItem.classList.toggle("active", false);
-                                    }
+                            for (let pagItem of pagItems) {
+                                if (pagItem !== event.currentTarget) {
+                                    pagItem.classList.toggle("active", false);
                                 }
-                            });
-                    });
+                            }
+                        });
                 });
             });
         });
+    });
 
     document.querySelectorAll("select").forEach((item) => {
         item.addEventListener("change", (ev) => {
@@ -167,11 +149,7 @@ if (String(requestedCategory).toLowerCase().trim()) {
             //     prodsPerPage
             // );
 
-            insertProductsByPage(
-                0,
-                result_products_arr,
-                target_products_container
-            ).then(() => {
+            insertProductsByPage(0, result_products_arr, target_products_container).then(() => {
                 document.querySelector("span.count").innerHTML = prodsPerPage;
 
                 console.log("prods inserted");
@@ -213,11 +191,7 @@ if (String(requestedCategory).toLowerCase().trim()) {
     /*loading the first page of products on the user category*/
     document.querySelector("body").addEventListener(
         "load",
-        insertProductsByPage(
-            0,
-            result_products_arr,
-            target_products_container
-        ).then(() => {
+        insertProductsByPage(0, result_products_arr, target_products_container).then(() => {
             document.querySelector("span.count").innerHTML = prodsPerPage;
         })
     );
@@ -267,9 +241,7 @@ function generatePopularProducts(products, requestedCategory) {
     let counter = 0;
     let popularProdString = "";
     for (let i = 0; i < products.length; i++) {
-        if (
-            String(products[i].category).toLowerCase().trim() === requestedCategory
-        ) {
+        if (String(products[i].category).toLowerCase().trim() === requestedCategory) {
             console.log(`found your category${products[i].category}`);
 
             // get the higher mark
@@ -290,9 +262,7 @@ function generatePopularProducts(products, requestedCategory) {
                 }
 
                 if (products[i].items[j].rating == highestRating) {
-                    document.querySelector(
-                        ".popular-products-container"
-                    ).innerHTML += ` <div class="product-item">
+                    document.querySelector(".popular-products-container").innerHTML += ` <div class="product-item">
                     <div class="image-container">
                         <img src="${products[i].items[j].image_path}" alt="${products[i].items[j].name}" />
                     </div>
@@ -334,10 +304,7 @@ function load_products_from_category_by_chunks_withing_price_range(
 
     for (let i = 0; i < products.length; i++) {
         //looking for the suitable category
-        if (
-            String(category).toLowerCase() ===
-            String(products[i].category).toLowerCase()
-        ) {
+        if (String(category).toLowerCase() === String(products[i].category).toLowerCase()) {
             //we'll check how many products are withing this price range
             products[i].items.forEach((item) => {
                 if (item.price >= priceMin && item.price <= priceMax) {
@@ -379,28 +346,19 @@ function load_products_from_category_by_chunks_withing_price_range(
                     console.log(products[i].items[j].price, " the product index ", j);
 
                     if (products[i].items[j] != "undefined") {
-                        if (
-                            products[i].items[j].price >= priceMin &&
-                            products[i].items[j].price <= priceMax
-                        ) {
+                        if (products[i].items[j].price >= priceMin && products[i].items[j].price <= priceMax) {
                             current_selected_prods++;
-                            output_string += ` <div data-category="${
-                products[i].category
-              }" data-id="${products[i].items[j].id}" class="product-container">
-                        <div class="product-img"><img src="${
-                          products[i].items[j].image_path
-                        }" alt="${products[i].items[j].name}"> </div>
+                            output_string += ` <div data-category="${products[i].category}" data-id="${
+                products[i].items[j].id
+              }" class="product-container">
+                        <div class="product-img"><img src="${products[i].items[j].image_path}" alt="${
+                products[i].items[j].name
+              }"> </div>
                         <div class="product-main-content">
-                            <h1> <a href="./product_description.html">  ${
-                              products[i].items[j].name
-                            }</a></h1>
+                            <h1> <a href="./product_description.html">  ${products[i].items[j].name}</a></h1>
                             <h2>$${products[i].items[j].price}</h2>
-                            <p class="product-rating">${setStars(
-                              products[i].items[j].rating
-                            )}</p>
-                            <p class="product-description"> ${
-                              products[i].items[j].description_short
-                            }
+                            <p class="product-rating">${setStars(products[i].items[j].rating)}</p>
+                            <p class="product-description"> ${products[i].items[j].description_short}
                             </p>
                             <p class="product-tags">
                                 ${setTags(products[i].items[j])}
@@ -428,11 +386,7 @@ function load_products_from_category_by_chunks_withing_price_range(
     return page_contents;
 }
 
-async function insertProductsByPage(
-    page,
-    page_contents_arr,
-    target_products_container
-) {
+async function insertProductsByPage(page, page_contents_arr, target_products_container) {
     //get the content of html string of products on the corresponding page
     target_products_container.innerHTML = page_contents_arr[page];
 
@@ -445,32 +399,16 @@ async function insertProductsByPage(
                 console.log(button);
 
                 if (button.dataset.role === "add-to-cart") {
-                    const id =
-                        event.currentTarget.parentNode.parentNode.parentNode.dataset.id;
-                    const category =
-                        event.currentTarget.parentNode.parentNode.parentNode.dataset
-                        .category;
+                    const id = event.currentTarget.parentNode.parentNode.parentNode.dataset.id;
+                    const category = event.currentTarget.parentNode.parentNode.parentNode.dataset.category;
                     const price = Number(
-                        event.currentTarget.parentNode.parentNode.parentNode
-                        .querySelector("h2")
-                        .innerText.split("$")[1]
+                        event.currentTarget.parentNode.parentNode.parentNode.querySelector("h2").innerText.split("$")[1]
                     );
-                    const name = event.currentTarget.parentNode.parentNode.parentNode.querySelector(
-                        "h1"
-                    ).innerText;
+                    const name = event.currentTarget.parentNode.parentNode.parentNode.querySelector("h1").innerText;
 
-                    const imagePath = event.currentTarget.parentNode.parentNode.parentNode.querySelector(
-                        "img"
-                    ).src;
+                    const imagePath = event.currentTarget.parentNode.parentNode.parentNode.querySelector("img").src;
 
-                    const cartItem = new CartProduct(
-                        id,
-                        name.toLowerCase(),
-                        price,
-                        category,
-                        1,
-                        imagePath
-                    );
+                    const cartItem = new CartProduct(id, name.toLowerCase(), price, category, 1, imagePath);
                     console.log(`Our item - `, cartItem);
 
                     if (localStorage.getItem("UserCart") !== null) {
@@ -501,10 +439,7 @@ async function insertProductsByPage(
                         localStorage.setItem("UserCart", JSON.stringify(newCart));
                     }
 
-                    console.log(
-                        "Cart content---",
-                        JSON.parse(localStorage.getItem("UserCart"))
-                    );
+                    console.log("Cart content---", JSON.parse(localStorage.getItem("UserCart")));
 
                     // update the cart items count
                     setCartItemsCount();
@@ -513,46 +448,26 @@ async function insertProductsByPage(
                         let obj = JSON.parse(localStorage.getItem("UserCart"));
 
                         obj.items.forEach((item) => {
-                            if (
-                                item.name === card.querySelector("h1").innerText.toLowerCase()
-                            ) {
+                            if (item.name === card.querySelector("h1").innerText.toLowerCase()) {
                                 card.querySelector(
                                     ".buttons-container button:first-of-type"
                                 ).innerHTML = `<i class="far fa-check-square "></i> Deja exista in cos`;
 
-                                card
-                                    .querySelector(".buttons-container button:first-of-type")
-                                    .classList.add("inCart");
+                                card.querySelector(".buttons-container button:first-of-type").classList.add("inCart");
                             }
                         });
                     }
                 } else if (button.dataset.role === "add-to-wishlist") {
-                    const id =
-                        event.currentTarget.parentNode.parentNode.parentNode.dataset.id;
-                    const category =
-                        event.currentTarget.parentNode.parentNode.parentNode.dataset
-                        .category;
+                    const id = event.currentTarget.parentNode.parentNode.parentNode.dataset.id;
+                    const category = event.currentTarget.parentNode.parentNode.parentNode.dataset.category;
                     const price = Number(
-                        event.currentTarget.parentNode.parentNode.parentNode
-                        .querySelector("h2")
-                        .innerText.split("$")[1]
+                        event.currentTarget.parentNode.parentNode.parentNode.querySelector("h2").innerText.split("$")[1]
                     );
-                    const name = event.currentTarget.parentNode.parentNode.parentNode.querySelector(
-                        "h1"
-                    ).innerText;
+                    const name = event.currentTarget.parentNode.parentNode.parentNode.querySelector("h1").innerText;
 
-                    const imagePath = event.currentTarget.parentNode.parentNode.parentNode.querySelector(
-                        "img"
-                    ).src;
+                    const imagePath = event.currentTarget.parentNode.parentNode.parentNode.querySelector("img").src;
 
-                    const cartItem = new CartProduct(
-                        id,
-                        name.toLowerCase(),
-                        price,
-                        category,
-                        1,
-                        imagePath
-                    );
+                    const cartItem = new CartProduct(id, name.toLowerCase(), price, category, 1, imagePath);
                     console.log(`Our item from wishlist - ${cartItem}`);
 
                     if (localStorage.getItem("UserWishlist") !== null) {
@@ -571,10 +486,7 @@ async function insertProductsByPage(
                             // we push our cart item to the JSON object of cart items
                             UserWishlist.items.push(cartItem);
                             //we push  he whole JSON to the LS
-                            localStorage.setItem(
-                                "UserWishlist",
-                                JSON.stringify(UserWishlist)
-                            );
+                            localStorage.setItem("UserWishlist", JSON.stringify(UserWishlist));
 
                             //add class inCart if it isn't set
                             event.currentTarget.classList.add("inCart");
@@ -586,10 +498,7 @@ async function insertProductsByPage(
                         localStorage.setItem("UserWishlist", JSON.stringify(newCart));
                     }
 
-                    console.log(
-                        "Wishlist content---",
-                        JSON.parse(localStorage.getItem("UserWishlist"))
-                    );
+                    console.log("Wishlist content---", JSON.parse(localStorage.getItem("UserWishlist")));
                 }
                 //on click
                 /**********THIS CODE CHECKS IF ANY PRODUCT ON THE PAGE IS IN THE CART ALREADY********/
@@ -597,16 +506,12 @@ async function insertProductsByPage(
                     let obj = JSON.parse(localStorage.getItem("UserCart"));
 
                     obj.items.forEach((item) => {
-                        if (
-                            item.name === card.querySelector("h1").innerText.toLowerCase()
-                        ) {
+                        if (item.name === card.querySelector("h1").innerText.toLowerCase()) {
                             card.querySelector(
                                 ".buttons-container button:first-of-type"
                             ).innerHTML = `<i class="far fa-check-square "></i> Deja exista in cos`;
 
-                            card
-                                .querySelector(".buttons-container button:first-of-type")
-                                .classList.add("inCart");
+                            card.querySelector(".buttons-container button:first-of-type").classList.add("inCart");
                         }
                     });
                 }
@@ -616,12 +521,8 @@ async function insertProductsByPage(
                     let obj = JSON.parse(localStorage.getItem("UserWishlist"));
 
                     obj.items.forEach((item) => {
-                        if (
-                            item.name === card.querySelector("h1").innerText.toLowerCase()
-                        ) {
-                            card
-                                .querySelector(".buttons-container button:last-of-type")
-                                .classList.add("inWishlist");
+                        if (item.name === card.querySelector("h1").innerText.toLowerCase()) {
+                            card.querySelector(".buttons-container button:last-of-type").classList.add("inWishlist");
                         }
                     });
                 }
@@ -638,9 +539,7 @@ async function insertProductsByPage(
                         ".buttons-container button:first-of-type"
                     ).innerHTML = `<i class="far fa-check-square "></i> Deja exista in cos`;
 
-                    card
-                        .querySelector(".buttons-container button:first-of-type")
-                        .classList.add("inCart");
+                    card.querySelector(".buttons-container button:first-of-type").classList.add("inCart");
                 }
             });
         }
@@ -651,9 +550,7 @@ async function insertProductsByPage(
 
             obj.items.forEach((item) => {
                 if (item.name === card.querySelector("h1").innerText.toLowerCase()) {
-                    card
-                        .querySelector(".buttons-container button:last-of-type")
-                        .classList.add("inWishlist");
+                    card.querySelector(".buttons-container button:last-of-type").classList.add("inWishlist");
                 }
             });
         }
@@ -663,9 +560,7 @@ async function insertProductsByPage(
             item.addEventListener("click", (event) => {
                 let prod = {
                     name: String(event.target.innerText).toLowerCase(),
-                    category: String(
-                        event.target.parentNode.parentNode.parentNode.dataset.category
-                    ).toLowerCase(),
+                    category: String(event.target.parentNode.parentNode.parentNode.dataset.category).toLowerCase(),
                     id: event.target.parentNode.parentNode.parentNode.dataset.id,
                 };
                 sessionStorage.setItem("reqProduct", JSON.stringify(prod));

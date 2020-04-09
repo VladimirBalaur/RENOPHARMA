@@ -27,21 +27,13 @@ class shoppingCartUI {
             cartItems.forEach((item) => {
                 container.innerHTML += ` <div class="cart-item">
                 <div class="product-name-img">
-                    <div class="img-container">   <img src="${
-                      item.imagePath
-                    }" alt=""></div>
+                    <div class="img-container">   <img src="${item.imagePath}" alt=""></div>
                     <p class="product-name"><span>${item.name}</span></p>
                 </div>
-                <div class="product-category"><span>${
-                  item.category
-                }</span></div>
-                <div class="product-price"><span>$${item.price.toFixed(
-                  2
-                )}</span></div>
+                <div class="product-category"><span>${item.category}</span></div>
+                <div class="product-price"><span>$${item.price.toFixed(2)}</span></div>
                 <div class="cart-ops-container">
-                    <input type="number" value="${
-                      item.count
-                    }" min="1" max="999" name="" id="" />
+                    <input type="number" value="${item.count}" min="1" max="999" name="" id="" />
                     <i class="far fa-times-circle"></i>
                 </div>
             </div>`;
@@ -55,9 +47,7 @@ class shoppingCartUI {
             this.Pay();
 
             //events for removal buttons
-            let shoppingItemsRemoveBtns = document.querySelectorAll(
-                ".cart-item  .cart-ops-container >:last-child"
-            );
+            let shoppingItemsRemoveBtns = document.querySelectorAll(".cart-item  .cart-ops-container >:last-child");
             shoppingItemsRemoveBtns.forEach((btn) => {
                 // remove item on click
                 btn.addEventListener("click", (event) => {
@@ -67,9 +57,7 @@ class shoppingCartUI {
                 });
             });
 
-            let inputProdCount = document.querySelectorAll(
-                `.cart-ops-container input[type="number"]`
-            );
+            let inputProdCount = document.querySelectorAll(`.cart-ops-container input[type="number"]`);
 
             inputProdCount.forEach((item) => {
                 item.addEventListener("change", (ev) => {
@@ -80,24 +68,14 @@ class shoppingCartUI {
                     let Parent = item.parentNode.parentNode;
 
                     let title = Parent.querySelector(".product-name >span").innerText;
-                    let category = Parent.querySelector(".product-category >span")
-                        .innerText;
-                    let price = Parent.querySelector(
-                        ".product-price >span"
-                    ).innerText.split("$")[1];
+                    let category = Parent.querySelector(".product-category >span").innerText;
+                    let price = Parent.querySelector(".product-price >span").innerText.split("$")[1];
 
                     console.log(title, category, price);
 
                     for (let i = 0; i < items.length; i++) {
-                        if (
-                            items[i].category == category &&
-                            items[i].price == price &&
-                            items[i].name == title
-                        ) {
-                            console.log(
-                                `This is the element to alter count `,
-                                items[i].price
-                            );
+                        if (items[i].category == category && items[i].price == price && items[i].name == title) {
+                            console.log(`This is the element to alter count `, items[i].price);
 
                             items[i].count = parseInt(val);
 
@@ -114,20 +92,16 @@ class shoppingCartUI {
             /*****************/
 
             //events to coupon form
-            document
-                .querySelector(`.coupon-form input[type="submit"]`)
-                .addEventListener("click", (event) => {
-                    let inputText = document.querySelector(
-                        `.coupon-form input[type="text"]`
-                    ).value;
+            document.querySelector(`.coupon-form input[type="submit"]`).addEventListener("click", (event) => {
+                let inputText = document.querySelector(`.coupon-form input[type="text"]`).value;
 
-                    if (inputText) {
-                        this.getCouponDiscount(inputText);
-                    } else {
-                        this.discountToGet = 0;
-                        this.Pay();
-                    }
-                });
+                if (inputText) {
+                    this.getCouponDiscount(inputText);
+                } else {
+                    this.discountToGet = 0;
+                    this.Pay();
+                }
+            });
         });
     }
 
@@ -136,13 +110,9 @@ class shoppingCartUI {
         let items = cartContent.items;
         let Parent = item.parentNode.parentNode;
 
-        let titleElemToRemove = Parent.querySelector(".product-name >span")
-            .innerText;
-        let categoryElemToRemove = Parent.querySelector(".product-category >span")
-            .innerText;
-        let priceElemToRemove = Parent.querySelector(
-            ".product-price >span"
-        ).innerText.split("$")[1];
+        let titleElemToRemove = Parent.querySelector(".product-name >span").innerText;
+        let categoryElemToRemove = Parent.querySelector(".product-category >span").innerText;
+        let priceElemToRemove = Parent.querySelector(".product-price >span").innerText.split("$")[1];
 
         console.log(titleElemToRemove, categoryElemToRemove, priceElemToRemove);
 
@@ -154,9 +124,7 @@ class shoppingCartUI {
             ) {
                 console.log(`This is the element to remove `, items[i].price);
 
-                items = items.filter(
-                    (prod) => !areObjEqual(prod, items[i], ["id", "count"])
-                );
+                items = items.filter((prod) => !areObjEqual(prod, items[i], ["id", "count"]));
                 console.log(`this is your array after filtering `, items);
                 cartContent.items = items;
                 localStorage.setItem("UserCart", JSON.stringify(cartContent));
@@ -178,8 +146,7 @@ class shoppingCartUI {
                 if (discount.code.trim() === code.trim()) {
                     this.discountToGet = discount.total;
 
-                    document.querySelector("span.coupon").innerText =
-                        "-$" + this.discountToGet.toFixed(2);
+                    document.querySelector("span.coupon").innerText = "-$" + this.discountToGet.toFixed(2);
 
                     this.Pay();
                 }
@@ -200,17 +167,18 @@ class shoppingCartUI {
                 console.log(item.price);
             });
 
-            document.querySelector("span.subtotal").innerText =
-                "$" + totalPrice.toFixed(2);
-            document.querySelector("span.coupon").innerText =
-                "-$" + this.discountToGet.toFixed(2);
+            document.querySelector("span.subtotal").innerText = "$" + totalPrice.toFixed(2);
+            document.querySelector("span.coupon").innerText = "-$" + this.discountToGet.toFixed(2);
             totalPrice -= this.discountToGet;
             console.log(this.discountToGet);
 
-            document.querySelector("span.total").innerText =
-                "$" + totalPrice.toFixed(2);
+            document.querySelector("span.total").innerText = "$" + totalPrice.toFixed(2);
         } else {
             openModal("Nu puteti procura nimic, nu aveti produse");
+            document.querySelector("span.subtotal").innerText = "$" + 0;
+            document.querySelector("span.coupon").innerText = "-$" + 0;
+
+            document.querySelector("span.total").innerText = "$" + 0;
         }
     }
 }

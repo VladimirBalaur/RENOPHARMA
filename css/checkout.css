@@ -2,5 +2,234 @@
 @import "./animations.css";
 @import "../components/footer/style.css";
 body {
-    padding-top: 160px;
+    padding-top: 175px;
+}
+
+.checkbox input[type="checkbox"] {
+    opacity: 0;
+    width: 0;
+}
+
+.checkbox label {
+    position: relative;
+    display: inline-block;
+    /*16px width of fake checkbox + 6px distance between fake checkbox and text*/
+    padding-left: 20px;
+}
+
+.checkbox label::before,
+.checkbox label::after {
+    position: absolute;
+    content: "";
+    /*Needed for the line-height to take effect*/
+    display: inline-block;
+}
+
+
+/*Outer box of the fake checkbox*/
+
+.checkbox label::before {
+    height: 12px;
+    width: 12px;
+    border: 1px solid;
+    left: 0px;
+    /*(24px line-height - 16px height of fake checkbox) / 2 - 1px for the border
+     *to vertically center it.
+     */
+    top: 3px;
+}
+
+
+/*Checkmark of the fake checkbox*/
+
+.checkbox label::after {
+    height: 4px;
+    width: 9px;
+    border-left: 2px solid;
+    border-bottom: 2px solid;
+    transform: rotate(-45deg);
+    left: 2px;
+    top: 5px;
+}
+
+
+/*Hide the checkmark by default*/
+
+.checkbox input[type="checkbox"]+label::after {
+    content: none;
+}
+
+
+/*Unhide on the checked state*/
+
+.checkbox input[type="checkbox"]:checked+label::after {
+    content: "";
+}
+
+
+/*Adding focus styles on the outer-box of the fake checkbox*/
+
+.checkbox input[type="checkbox"]:focus+label::before {
+    outline: rgb(59, 153, 252) auto 5px;
+}
+
+section h1 {
+    font-size: 14px;
+    font-family: "Poppins";
+    color: rgb(36, 38, 40);
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+section {
+    display: grid;
+    max-width: 1270px;
+    grid-template-columns: 650px 445px;
+    margin: 0 auto;
+    grid-column-gap: 30px;
+    grid-template-rows: 1;
+}
+
+div.input-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+div.input-container label {
+    width: 40%;
+}
+
+label span.label-text {
+    font-size: 14px;
+    font-family: "Arial";
+    color: rgb(35, 35, 35);
+    line-height: 1.429;
+    text-align: left;
+    display: block;
+    font-weight: 600;
+    margin: 5px 0;
+}
+
+.formulars label {
+    margin-bottom: 10px;
+}
+
+.formulars input,
+.formulars select {
+    padding: 10px;
+    border: 1px solid #a3a2a3;
+    width: 100%;
+}
+
+input[type="checkbox"] {
+    width: unset;
+}
+
+label {
+    font-size: 14px;
+    font-family: "Roboto";
+    color: rgb(35, 35, 35);
+    line-height: 1.429;
+    text-align: left;
+    display: block;
+}
+
+.checkout-info {
+    border: 1px solid #b3b2b3;
+    font-size: 14px;
+    font-family: "Roboto";
+    color: rgb(35, 35, 35);
+    line-height: 1.429;
+    text-align: left;
+}
+
+.checkout-info h1 {
+    margin: 30px 0 0 30px;
+}
+
+.checkout-info>div {
+    padding: 30px;
+}
+
+.checkout-info p {
+    margin: 10px 0;
+}
+
+.checkout-info .head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkout-info p.item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkout-info hr {
+    width: calc(100% + 30px);
+    border: none;
+    height: 1px;
+    background: #e3e3e3;
+}
+
+.checkout-info div.content {
+    margin: 25px 0;
+}
+
+.checkout-info .total {
+    display: flex;
+    justify-content: space-between;
+    margin: 33px 0;
+}
+
+.checkout-info .total span {
+    font-size: 18px;
+    font-family: "Roboto";
+    color: rgb(35, 35, 35);
+    line-height: 1.111;
+    text-align: left;
+    font-weight: bold;
+}
+
+.checkout-info>div:first-of-type {
+    padding-bottom: 0;
+}
+
+.checkout-info>div:last-of-type {
+    padding-top: 0;
+}
+
+.checkout-info div.checkbox {
+    margin: 10px 0;
+}
+
+.checkout-info p.sidenote {
+    background-color: #f8f8f8;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-family: "Roboto";
+    color: black;
+    line-height: 1.714;
+    text-align: left;
+}
+
+input[type="submit"] {
+    margin: 15px 0 0 auto;
+    height: 36px;
+    width: 136px;
+    background: var(--light-green);
+    border: none;
+    color: white;
+    font-size: 14px;
+    font-family: "Myriad Pro";
+    text-transform: uppercase;
+    text-align: center;
+}
+
+section {
+    margin-top: 111px;
+    margin-bottom: 111px;
 }
