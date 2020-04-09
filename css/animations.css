@@ -27,7 +27,7 @@
 @keyframes FadeInFromTop {
     from {
         position: relative;
-        top: -300px;
+        top: -20%;
         opacity: 0;
     }
     to {

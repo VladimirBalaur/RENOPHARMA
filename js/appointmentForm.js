@@ -92,15 +92,18 @@ select.addEventListener("change", (event) => {
 
     let otherServiceDivs = document.querySelectorAll(".left div[data-service]");
 
-    for (let div of otherServiceDivs) {
-        if (div !== reqServiceDiv) {
-            div.classList.remove("focused");
-            console.log(div);
-        }
-    }
+    // for (let div of otherServiceDivs) {
+    //     if (div !== reqServiceDiv) {
+    //         div.classList.remove("focused");
+    //         console.log(div);
+    //     }
+    // }
 
+    removeClassOnElementExcept(reqServiceDiv, "focused", otherServiceDivs);
+
+    //we filter the doctors that correspond to the clicked div service
     let doctorOptions = document.querySelectorAll("select#reqDoctor option").forEach((option) => {
-        if (option.dataset.serviceName !== serviceId && option.getAttribute("disabled") == false) {
+        if (option.dataset.serviceName !== serviceId) {
             option.style.display = "none";
         } else {
             option.style.display = "block";
@@ -121,7 +124,19 @@ serviceDivs.forEach((item) => {
 
         let reqOption = document.querySelector(`#reqDoctor option[data-service-name="${service}"]`);
 
-        //we filter the doctors that correspond to the clicked service
+        let otherServiceDivs = document.querySelectorAll(".left div[data-service]");
+        event.currentTarget.classList.add("focused");
+
+        // for (let div of otherServiceDivs) {
+        //     if (div !== event.currentTarget) {
+        //         div.classList.remove("focused");
+        //         console.log(div);
+        //     }
+        // }
+
+        removeClassOnElementExcept(event.currentTarget, "focused", otherServiceDivs);
+
+        //we filter the doctors that correspond to the clicked div service
         let doctorOptions = document.querySelectorAll("select#reqDoctor option").forEach((option) => {
             if (option.dataset.serviceName !== service) {
                 option.style.display = "none";
@@ -131,3 +146,12 @@ serviceDivs.forEach((item) => {
         });
     });
 });
+
+// ************
+function removeClassOnElementExcept(elementToExcept, className = "", elementsToEvaluate = []) {
+    for (let el of elementsToEvaluate) {
+        if (el !== elementToExcept) {
+            el.classList.remove(String(className).toLowerCase().trim());
+        }
+    }
+}

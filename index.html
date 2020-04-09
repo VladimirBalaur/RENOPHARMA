@@ -45,7 +45,7 @@
             <nav>
                 <a href="./index.html">Acasă</a>
                 <a href="./news.html">noutăți</a>
-                <a href="#">ajutor</a>
+                <a href="./contact.html">ajutor</a>
                 <a href="./contact.html">contacte</a>
                 <div class="dropdown">
                     <a href="./products_per_category.html">produse</a>
@@ -237,7 +237,7 @@
                 <h1>contul meu</h1>
                 <a href="./shoppingCart.html">Vizualizează coșul</a>
                 <a href="./wishlist.html">My Wishlist</a>
-                <a href="#">Achitare</a>
+                <a href="./checkout.html">Achitare</a>
             </div>
             <div>
                 <h1>ajutor</h1>
@@ -247,39 +247,38 @@
             </div>
             <div>
                 <h1>informație de contact</h1>
-                <a href="#"><i class="fas fa-globe-europe"></i> Str. Sarmisegetusa 1010/9</a
-          >
-          <a href="#"><i class="fas fa-phone-alt"></i> +1 234 56789</a>
-                <a href="#" id="email"><i class="fas fa-envelope"></i> mail@domain.com</a
-          >
+                <a href="#"><i class="fas fa-globe-europe"></i> Str. Sarmisegetusa 1010/9</a>
+                <a href="#"><i class="fas fa-phone-alt"></i> +1 234 56789</a>
+                <a href="#" id="email"><i class="fas fa-envelope"></i> mail@domain.com</a>
+            </div>
         </div>
-      </div>
-      <div class="lower-footer-bar"></div>
+        <div class="lower-footer-bar"></div>
     </footer>
     <script type="module" src="js/home.js"></script>
     <script>
-      // Section animations jquery
-      let featuredProdSection = $(".featured-products");
-      let newsContainer = $(".news-container");
-      let videoContainer = $(".video-container");
+        // Section animations jquery
+        let featuredProdSection = $(".featured-products");
+        let newsContainer = $(".news-container");
+        let videoContainer = $(".video-container");
 
-      featuredProdSection.inViewport((px) => {
-        //trigger animation when the viewport has reached the 3rd height of element
-        if (px >= featuredProdSection.innerHeight() / 3) {
-          featuredProdSection.addClass("fadeFromTop");
-        }
-      });
-      newsContainer.inViewport((px) => {
-        if (px >= newsContainer.innerHeight() / 3) {
-          newsContainer.addClass("fadeFromLeft");
-        }
-      });
+        featuredProdSection.inViewport((px) => {
+            //trigger animation when the viewport has reached the 3rd height of element
+            if (px >= featuredProdSection.innerHeight() / 3) {
+                featuredProdSection.addClass("fadeFromTop");
+            }
+        });
+        newsContainer.inViewport((px) => {
+            if (px >= newsContainer.innerHeight() / 3) {
+                newsContainer.addClass("fadeFromLeft");
+            }
+        });
 
-      videoContainer.inViewport((px) => {
-        if (px >= videoContainer.innerHeight() / 3) {
-          videoContainer.addClass("fadeFromRight");
-        }
-      });
+        videoContainer.inViewport((px) => {
+            if (px >= videoContainer.innerHeight() / 3) {
+                videoContainer.addClass("fadeFromRight");
+            }
+        });
     </script>
-  </body>
+</body>
+
 </html>
