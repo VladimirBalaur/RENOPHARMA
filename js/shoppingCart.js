@@ -1,6 +1,7 @@
 import { Navbar } from "../components/navbar/script.js";
 import { areObjEqual } from "./cart.js";
 import { setCartItemsCount } from "./setCartItemsCount.js";
+import openModal from "../components/modal/modal.js";
 
 const navUI = new Navbar();
 setCartItemsCount();
@@ -184,7 +185,7 @@ class shoppingCartUI {
                 }
             });
         } else {
-            alert("ERROR ! Nu aveti produse");
+            openModal(`Nu aveți nici un produs, pentru a executa această operație`);
         }
     }
 
@@ -209,7 +210,7 @@ class shoppingCartUI {
             document.querySelector("span.total").innerText =
                 "$" + totalPrice.toFixed(2);
         } else {
-            alert("Nu puteti procura nimic, nu aveti produse");
+            openModal("Nu puteti procura nimic, nu aveti produse");
         }
     }
 }

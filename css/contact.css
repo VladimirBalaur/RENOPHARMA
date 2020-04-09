@@ -3,6 +3,18 @@ body {
     padding-top: 250px;
 }
 
+.fadeFromLeft {
+    animation-name: FadeFromLeft;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+}
+
+.fadeFromRight {
+    animation-name: FadeFromRight;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+}
+
 section {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(550px, 1fr));

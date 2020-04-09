@@ -12,6 +12,7 @@
 
     <!-- -->
     <script src="fontawesome/all.js"></script>
+    <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="fontawesome/all.css" />
     <link rel="stylesheet" href="css/productList.css" />
     <!-- Price range -->
@@ -20,6 +21,7 @@
     <!-- -->
     <!-- Toate informatiile despre produse -->
     <script src="data/data.js"></script>
+    <script src="js/jQueryHelperFunctions.js"></script>
     <style>
         /* Override the jquery styles for price range */
         
@@ -162,7 +164,7 @@
             <nav>
                 <a href="./index.html">Acasă</a>
                 <a href="./news.html">noutăți</a>
-                <a href="#">ajutor</a>
+                <a href="./contact.html">ajutor</a>
                 <a href="./contact.html">contacte</a>
                 <div class="dropdown">
                     <a href="./products_per_category.html">produse</a>
@@ -333,7 +335,26 @@
         </div>
         <div class="lower-footer-bar"></div>
     </footer>
+    <script>
+        // Section animations jquery
+        let leftContainer = $(".left-container");
+        let productsContainer = $(".products-container");
+
+
+        leftContainer.inViewport((px) => {
+            if (px >= leftContainer.innerHeight() / 3) {
+                leftContainer.addClass("fadeFromLeft");
+            }
+        });
+
+        productsContainer.inViewport((px) => {
+            if (px >= productsContainer.innerHeight() / 3) {
+                productsContainer.addClass("fadeFromRight");
+            }
+        });
+    </script>
     <script type="module" src="js/productList.js"></script>
+
 </body>
 
 </html>

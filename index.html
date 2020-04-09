@@ -16,6 +16,7 @@
     <script src="data/data.js"></script>
     <style></style>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!-- Here we have the functions needed to trigger animation effects on viewport -->
     <script src="js/jQueryHelperFunctions.js"></script>
 </head>
 
@@ -267,18 +268,17 @@
         if (px >= featuredProdSection.innerHeight() / 3) {
           featuredProdSection.addClass("fadeFromTop");
         }
+      });
+      newsContainer.inViewport((px) => {
+        if (px >= newsContainer.innerHeight() / 3) {
+          newsContainer.addClass("fadeFromLeft");
+        }
+      });
 
-        newsContainer.inViewport((px) => {
-          if (px >= newsContainer.innerHeight() / 3) {
-            newsContainer.addClass("fadeFromLeft");
-          }
-        });
-
-        videoContainer.inViewport((px) => {
-          if (px >= videoContainer.innerHeight() / 3) {
-            videoContainer.addClass("fadeFromRight");
-          }
-        });
+      videoContainer.inViewport((px) => {
+        if (px >= videoContainer.innerHeight() / 3) {
+          videoContainer.addClass("fadeFromRight");
+        }
       });
     </script>
   </body>

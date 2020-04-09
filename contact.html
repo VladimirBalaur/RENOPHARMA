@@ -7,11 +7,16 @@
     <meta name="keywords" content="Pharmacy, farmacie, produse medicale, servicii, Moldova, Republica Moldova, Practica Tehnologica, Vreau 10" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Renopharm - cea mai bună Web farmacie</title>
+    <link rel="stylesheet" href="css/animations.css" />
+
     <link rel="stylesheet" href="css/contact.css" />
     <script src="js/data.js"></script>
     <link rel="stylesheet" href="fontawesome/all.css" />
     <!-- Toate informatiile despre produse -->
     <script src="data/data.js"></script>
+    <!-- -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="js/jQueryHelperFunctions.js"></script>
 </head>
 
 <body>
@@ -104,8 +109,12 @@
             <p>
                 <i class="fas fa-globe-europe"></i> Ne puteți găsi la adresa: 1234, Orașul meu natal frumos și mare, Chișinău Republica Moldova
             </p>
-            <p><i class="fas fa-phone-volume"></i> Telefon de contact: +1 234 5678 9999</p>
-            <p><i class="fas fa-envelope"></i>Email: UnZeceLaPractică@balaur.vladimir</p>
+            <p>
+                <i class="fas fa-phone-volume"></i> Telefon de contact: +1 234 5678 9999
+            </p>
+            <p>
+                <i class="fas fa-envelope"></i>Email: UnZeceLaPractică@balaur.vladimir
+            </p>
         </div>
     </section>
     <footer>
@@ -139,14 +148,39 @@
             </div>
             <div>
                 <h1>informație de contact</h1>
-                <a href="#"><i class="fas fa-globe-europe"></i> Str. Sarmisegetusa 1010/9</a>
-                <a href="#"><i class="fas fa-phone-alt"></i> +1 234 56789</a>
-                <a href="#" id="email"><i class="fas fa-envelope"></i> mail@domain.com</a>
-            </div>
+                <a href="#"><i class="fas fa-globe-europe"></i> Str. Sarmisegetusa 1010/9</a
+          >
+          <a href="#"><i class="fas fa-phone-alt"></i> +1 234 56789</a>
+                <a href="#" id="email"><i class="fas fa-envelope"></i> mail@domain.com</a
+          >
         </div>
-        <div class="lower-footer-bar"></div>
+      </div>
+      <div class="lower-footer-bar"></div>
     </footer>
     <script type="module" src="js/contact.js"></script>
-</body>
+    <script>
+      // Section animations jquery
+      let accordion = $(".accordion");
+      let chart = $(".chart");
+      let contact = $(".contact");
 
+      accordion.inViewport((px) => {
+        if (px >= accordion.innerHeight() / 3) {
+          accordion.addClass("fadeFromLeft");
+        }
+      });
+
+      chart.inViewport((px) => {
+        if (px >= chart.innerHeight() / 3) {
+          chart.addClass("fadeFromRight");
+        }
+      });
+
+      contact.inViewport((px) => {
+        if (px >= contact.innerHeight() / 3) {
+          contact.addClass("fadeFromLeft");
+        }
+      });
+    </script>
+  </body>
 </html>

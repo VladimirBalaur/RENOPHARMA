@@ -2,6 +2,18 @@
 
 /* Compensate the space from top of navbar */
 
+.fadeFromLeft {
+    animation-name: FadeFromLeft;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+}
+
+.fadeFromRight {
+    animation-name: FadeFromRight;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+}
+
 body {
     padding-top: 165px;
 }

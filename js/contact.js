@@ -3,6 +3,7 @@ import { setCartItemsCount } from "./setCartItemsCount.js";
 import openModal from "../components/modal/modal.js";
 const navUI = new Navbar();
 
+setCartItemsCount();
 class ContactsUI {
     async getData() {
         let response = await fetch("../data/faq.json", {
@@ -43,7 +44,9 @@ class ContactsUI {
             container.innerHTML = output;
 
             //let the first question tab be open
-            document.querySelectorAll(".accordion .content")[0].classList.add("openedTab");
+            document
+                .querySelectorAll(".accordion .content")[0]
+                .classList.add("openedTab");
         } else {
             console.log(`questions are undefined`);
         }
@@ -53,26 +56,34 @@ class ContactsUI {
         this.getData().then(() => {
             this.setComponentsOnPage().then(() => {
                 //Accordion functionality
-                let arrows = document.querySelectorAll(".accordion .item-head span.arrow").forEach((arrow) => {
-                    arrow.addEventListener("click", (event) => {
-                        event.currentTarget.classList.toggle("clickedChev", true);
+                let arrows = document
+                    .querySelectorAll(".accordion .item-head span.arrow")
+                    .forEach((arrow) => {
+                        arrow.addEventListener("click", (event) => {
+                            event.currentTarget.classList.toggle("clickedChev", true);
 
-                        let content = event.currentTarget.parentNode.parentNode.querySelector(".content");
-                        content.classList.toggle("openedTab", true);
+                            let content = event.currentTarget.parentNode.parentNode.querySelector(
+                                ".content"
+                            );
+                            content.classList.toggle("openedTab", true);
 
-                        let arrows = document.querySelectorAll(".accordion .item-head span.arrow");
-                        console.log(arrows);
+                            let arrows = document.querySelectorAll(
+                                ".accordion .item-head span.arrow"
+                            );
+                            console.log(arrows);
 
-                        for (let i = 0; i < arrows.length; i++) {
-                            if (arrows[i] != event.currentTarget) {
-                                arrows[i].classList.toggle("clickedChev", false);
+                            for (let i = 0; i < arrows.length; i++) {
+                                if (arrows[i] != event.currentTarget) {
+                                    arrows[i].classList.toggle("clickedChev", false);
 
-                                let content = arrows[i].parentNode.parentNode.querySelector(".content");
-                                content.classList.toggle("openedTab", false);
+                                    let content = arrows[i].parentNode.parentNode.querySelector(
+                                        ".content"
+                                    );
+                                    content.classList.toggle("openedTab", false);
+                                }
                             }
-                        }
+                        });
                     });
-                });
             });
         });
     }
