@@ -1,6 +1,7 @@
 @import "../components/navbar/style.css";
 @import "./animations.css";
 @import "../components/footer/style.css";
+@import "../components/modal/modal.css";
 body {
     padding-top: 175px;
 }
@@ -163,7 +164,20 @@ label {
     justify-content: space-between;
 }
 
-.checkout-info p.item {
+.checkout-info div[data-content="cart-items"] p.item {
+    display: grid;
+    grid-template-columns: 90% 10%;
+    grid-column-gap: 10px;
+    position: relative;
+}
+
+.checkout-info div[data-content="cart-items"] p.item::before {
+    content: "-";
+    position: absolute;
+    left: -10px;
+}
+
+.checkout-info div[data-content="cart-totals"] p.item {
     display: flex;
     justify-content: space-between;
 }

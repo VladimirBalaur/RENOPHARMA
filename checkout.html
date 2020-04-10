@@ -21,6 +21,15 @@
 </head>
 
 <body>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Some text in the Modal..</p>
+        </div>
+    </div>
+
     <div class="navigation-bar">
         <div class="upper-bar">
             <div class="phone">
@@ -94,9 +103,7 @@
             </div>
             <label for="">
           <span class="label-text">Țară</span>
-          <select name="country" id="country">
-            <option value="Vietnam">Vietnam</option>
-          </select>
+          <select name="country" id="country"> </select>
         </label>
             <label for="">
           <span class="label-text">Numele companiei</span>
@@ -104,7 +111,12 @@
         </label>
             <label for="">
           <span class="label-text">Adresă</span>
-          <input placeholder="Street address" type="text" name="address" id="address" />
+          <input
+            placeholder="Street address"
+            type="text"
+            name="address"
+            id="address"
+          />
         </label>
             <label for="">
           <span class="label-text">Oraș</span>
@@ -141,19 +153,28 @@
                     <span>Total</span>
                 </div>
                 <hr />
-                <div class="content">
-                    <p class="item"><span>Product name x1</span> <span>$120</span></p>
-                    <p class="item"><span>Product name x2</span> <span>$280</span></p>
+                <div data-content="cart-items" class="content">
+                    <!-- Singular items -->
+                    <!-- <p class="item">
+                        <span data-role="name-count">Product name x1</span> <span data-role="price">$120</span>
+                    </p>
+                    <p class="item">
+                        <span data-role="name-count">Product name x2</span> <span data-role="price">$120</span>
+                    </p> -->
                 </div>
                 <hr />
-                <div class="content">
-                    <p class="item"><span>Subtotal</span> <span>$400</span></p>
-                    <p class="item"><span>Delivrare</span> <span>Free shipping</span></p>
+                <div data-content="cart-totals" class="content">
+                    <p class="item">
+                        <span>Subtotal</span> <span class="subtotal">$400</span>
+                    </p>
+                    <p class="item">
+                        <span>Delivrare</span> <span>Free shipping</span>
+                    </p>
                 </div>
                 <hr />
                 <div class="total">
                     <span>Total</span>
-                    <span>$400</span>
+                    <span id="total"></span>
                 </div>
             </div>
             <div class="lower-part">
@@ -207,14 +228,15 @@
             </div>
             <div>
                 <h1>informație de contact</h1>
-                <a href="#"><i class="fas fa-globe-europe"></i> Str. Sarmisegetusa 1010/9</a>
-                <a href="#"><i class="fas fa-phone-alt"></i> +1 234 56789</a>
-                <a href="#" id="email"><i class="fas fa-envelope"></i> mail@domain.com</a>
-            </div>
+                <a href="#"><i class="fas fa-globe-europe"></i> Str. Sarmisegetusa 1010/9</a
+          >
+          <a href="#"><i class="fas fa-phone-alt"></i> +1 234 56789</a>
+                <a href="#" id="email"><i class="fas fa-envelope"></i> mail@domain.com</a
+          >
         </div>
-        <div class="lower-footer-bar"></div>
+      </div>
+      <div class="lower-footer-bar"></div>
     </footer>
     <script type="module" src="js/checkout.js "></script>
-</body>
-
+  </body>
 </html>

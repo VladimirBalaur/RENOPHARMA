@@ -16,13 +16,15 @@ class AppointmentFormUI {
                 },
             });
 
-            let responseCountries = await fetch("https://restcountries-v1.p.rapidapi.com/all", {
-                method: "GET",
-                headers: {
-                    "x-rapidapi-host": "restcountries-v1.p.rapidapi.com",
-                    "x-rapidapi-key": "f004cb53d4msh23a56366c5d1ab5p13f806jsn495f5fe7cbfa",
-                },
-            });
+            let responseCountries = await fetch(
+                "https://restcountries-v1.p.rapidapi.com/all", {
+                    method: "GET",
+                    headers: {
+                        "x-rapidapi-host": "restcountries-v1.p.rapidapi.com",
+                        "x-rapidapi-key": "f004cb53d4msh23a56366c5d1ab5p13f806jsn495f5fe7cbfa",
+                    },
+                }
+            );
 
             if (responseDoctors.ok) {
                 this.services = await responseDoctors.json();
@@ -57,13 +59,17 @@ class AppointmentFormUI {
                 let option = document.createElement("option");
                 option.setAttribute(
                     "value",
-                    `${String(doctor.name).split(" ")[0]}-${String(doctor.name).split(" ")[1]}-${doctor.function}`
+                    `${String(doctor.name).split(" ")[0]}-${
+            String(doctor.name).split(" ")[1]
+          }-${doctor.function}`
                 );
 
                 option.textContent = `${String(doctor.name)}, ${doctor.function} `;
                 select.appendChild(option);
 
-                option.dataset.serviceName = String(service.serviceName).toLowerCase().replace(/ /g, "-");
+                option.dataset.serviceName = String(service.serviceName)
+                    .toLowerCase()
+                    .replace(/ /g, "-");
             });
         });
         // console.log(this.doctors.doctors);
@@ -75,7 +81,7 @@ class AppointmentFormUI {
         this.countries.forEach((country) => {
             let option = document.createElement("option");
             option.value = country.name;
-            option.textContent = country.name;
+            option.textContent = country.name + "/ " + country.nativeName;
 
             select.appendChild(option);
         });
@@ -87,7 +93,9 @@ const UI = new AppointmentFormUI();
 let select = document.querySelector("select#reqService");
 select.addEventListener("change", (event) => {
     let serviceId = event.currentTarget.value;
-    let reqServiceDiv = document.querySelector(`.left div[data-service="${serviceId}"]`);
+    let reqServiceDiv = document.querySelector(
+        `.left div[data-service="${serviceId}"]`
+    );
     console.log(serviceId);
 
     let otherServiceDivs = document.querySelectorAll(".left div[data-service]");
@@ -102,13 +110,15 @@ select.addEventListener("change", (event) => {
     removeClassOnElementExcept(reqServiceDiv, "focused", otherServiceDivs);
 
     //we filter the doctors that correspond to the clicked div service
-    let doctorOptions = document.querySelectorAll("select#reqDoctor option").forEach((option) => {
-        if (option.dataset.serviceName !== serviceId) {
-            option.style.display = "none";
-        } else {
-            option.style.display = "block";
-        }
-    });
+    let doctorOptions = document
+        .querySelectorAll("select#reqDoctor option")
+        .forEach((option) => {
+            if (option.dataset.serviceName !== serviceId) {
+                option.style.display = "none";
+            } else {
+                option.style.display = "block";
+            }
+        });
 
     reqServiceDiv.classList.add("focused");
 });
@@ -122,7 +132,9 @@ serviceDivs.forEach((item) => {
         let serviceSelect = document.querySelector("#reqService");
         serviceSelect.value = service;
 
-        let reqOption = document.querySelector(`#reqDoctor option[data-service-name="${service}"]`);
+        let reqOption = document.querySelector(
+            `#reqDoctor option[data-service-name="${service}"]`
+        );
 
         let otherServiceDivs = document.querySelectorAll(".left div[data-service]");
         event.currentTarget.classList.add("focused");
@@ -134,21 +146,31 @@ serviceDivs.forEach((item) => {
         //     }
         // }
 
-        removeClassOnElementExcept(event.currentTarget, "focused", otherServiceDivs);
+        removeClassOnElementExcept(
+            event.currentTarget,
+            "focused",
+            otherServiceDivs
+        );
 
         //we filter the doctors that correspond to the clicked div service
-        let doctorOptions = document.querySelectorAll("select#reqDoctor option").forEach((option) => {
-            if (option.dataset.serviceName !== service) {
-                option.style.display = "none";
-            } else {
-                option.style.display = "block";
-            }
-        });
+        let doctorOptions = document
+            .querySelectorAll("select#reqDoctor option")
+            .forEach((option) => {
+                if (option.dataset.serviceName !== service) {
+                    option.style.display = "none";
+                } else {
+                    option.style.display = "block";
+                }
+            });
     });
 });
 
 // ************
-function removeClassOnElementExcept(elementToExcept, className = "", elementsToEvaluate = []) {
+function removeClassOnElementExcept(
+    elementToExcept,
+    className = "",
+    elementsToEvaluate = []
+) {
     for (let el of elementsToEvaluate) {
         if (el !== elementToExcept) {
             el.classList.remove(String(className).toLowerCase().trim());
