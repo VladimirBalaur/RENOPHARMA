@@ -63,6 +63,44 @@ class shoppingCartUI {
 
         this.loadCartItems().then(() => {
             this.Pay();
+            this.getCountriesAndInsertInForm().then((countries) => {
+                console.log(`My countries`, countries);
+
+                let selectCountries = document.querySelector("select#country_select");
+                let regionsForm = document.querySelector("select#region_select");
+
+                selectCountries.addEventListener("change", (event) => {
+                    console.log(event.currentTarget.value);
+
+                    for (let country of countries) {
+                        if (country.name == event.currentTarget.value) {
+                            regionsForm.innerHTML = "";
+                            let option = document.createElement("option");
+                            option.setAttribute("value", country.capital);
+                            option.textContent = country.capital;
+                            regionsForm.appendChild(option);
+                        }
+                    }
+                });
+                // document
+                //   .querySelectorAll("select#country_select option")
+                //   .forEach((option) => {
+                //     option.addEventListener("click", (event) => {
+                //       let regionsForm = document.querySelector("select#region_select");
+                //       console.log("I have an event");
+
+                //       console.log("hello");
+
+                //       // for (let country of countries) {
+                //       //     // if (event.currentTarget.value == country.name) {
+                //       //     //     console.log(country.name);
+                //       //     // }
+
+                //       //     console.log(country);
+                //       // }
+                //     });
+                //   });
+            });
 
             //events for removal buttons
             let shoppingItemsRemoveBtns = document.querySelectorAll(
@@ -235,6 +273,43 @@ class shoppingCartUI {
             document.querySelector("span.coupon").innerText = "-$" + 0;
 
             document.querySelector("span.total").innerText = "$" + 0;
+        }
+    }
+
+    async getCountriesAndInsertInForm() {
+        try {
+            let responseCountries = await fetch(
+                "https://restcountries-v1.p.rapidapi.com/all", {
+                    method: "GET",
+                    headers: {
+                        "x-rapidapi-host": "restcountries-v1.p.rapidapi.com",
+                        "x-rapidapi-key": "f004cb53d4msh23a56366c5d1ab5p13f806jsn495f5fe7cbfa",
+                    },
+                }
+            );
+
+            if (responseCountries.ok) {
+                let countries = await responseCountries.json();
+
+                console.log(countries);
+
+                let selectCountries = document.querySelector("select#country_select");
+                console.log();
+
+                countries.forEach((country) => {
+                    let option = document.createElement("option");
+                    option.setAttribute("value", country.name);
+                    option.textContent = country.name + " /" + country.nativeName;
+
+                    selectCountries.appendChild(option);
+                });
+
+                return countries;
+            } else {
+                throw new Error("Failed to fetch data about countries");
+            }
+        } catch (err) {
+            console.log(err);
         }
     }
 }
