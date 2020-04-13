@@ -450,6 +450,9 @@ footer div.lower-footer-bar {
     div.popular-products-container {
         order: 0;
     }
+    body {
+        padding-top: 75px;
+    }
 }
 
 @media screen and (max-width: 768px) {

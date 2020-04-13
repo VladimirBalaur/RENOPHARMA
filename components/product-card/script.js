@@ -139,7 +139,13 @@ export class Product {
                                             "Cart content---",
                                             JSON.parse(localStorage.getItem("UserCart"))
                                         );
+                                        document
+                                            .querySelector(`.cart-operations button:first-of-type`)
+                                            .classList.add("inWishlist");
 
+                                        document.querySelector(
+                                            ".cart-operations button:first-of-type"
+                                        ).innerHTML = `<i class="far fa-check-square "></i> Deja exista in cos`;
                                         // update the cart items count
                                         setCartItemsCount();
                                     } else if (
@@ -235,6 +241,10 @@ export class Product {
                                     document.querySelector(
                                         ".cart-operations button:first-of-type"
                                     ).innerHTML = `<i class="far fa-check-square "></i> Deja exista in cos`;
+
+                                    document
+                                        .querySelector(".cart-operations button:first-of-type")
+                                        .classList.add("inWishlist");
                                 }
                             });
                         }
