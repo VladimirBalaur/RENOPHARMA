@@ -203,6 +203,12 @@ option[value=""][disabled] {
     }
 }
 
+@media screen and (max-width: 1400px) {
+    .language-dd {
+        display: none;
+    }
+}
+
 @media screen and (max-width: 604px) {
     .left {
         order: 2;

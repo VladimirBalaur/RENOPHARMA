@@ -9,12 +9,12 @@ const navOps = new Navbar(); //loading all events of the navbar
 /***inserting products on a page, based on category */
 let target_products_container = document.querySelector(".products-container"); //the target container of prods
 let prodsPerPage = 9;
-let userCategory = sessionStorage.getItem("userCategory");
+let userCategory = sessionStorage.getItem("userCategory") || "dental care";
 sessionStorage.setItem("sortName", false);
 
 if (
     String(userCategory).toLowerCase().trim() !==
-    String("Toate produsele...").toLowerCase().trim()
+    String("Produse").toLowerCase().trim()
 ) {
     //setting the title of the document
     document.querySelector("title").innerHTML = `${userCategory} - produse`;
@@ -142,8 +142,7 @@ if (
         })
     );
 } else {
-    //setting the title of the document
-    document.querySelector("title").innerHTML = `${userCategory} `;
+    document.querySelector("title").innerHTML = `Toate produsele `;
 
     /*an array returned from the function, which returns an array of strings, each item of arr being a string of html code that includes the products chunk*/
     let result_products_arr = load_all_products_by_chunks(products, prodsPerPage);

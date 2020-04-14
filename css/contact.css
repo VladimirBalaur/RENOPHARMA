@@ -237,3 +237,9 @@ footer div.lower-footer-bar {
         grid-template-columns: 1fr;
     }
 }
+
+@media screen and (max-width: 1400px) {
+    .language-dd {
+        display: none;
+    }
+}

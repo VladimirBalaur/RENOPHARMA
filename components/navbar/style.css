@@ -234,6 +234,9 @@ div.lower-bar .right-elements>* {
     nav {
         display: none;
     }
+    div.language-dd {
+        display: none !important;
+    }
 }
 
 @media screen and (max-width: 550px) {

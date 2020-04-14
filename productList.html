@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" type="text/css" media="all" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
-
+    <!-- Sidenav -->
+    <link rel="stylesheet" href="components/sideNav/sidenav.css" />
+    <script src="./components/sideNav/sidenav.js"></script>
+    <!--  -->
     <!-- -->
     <script src="fontawesome/all.js"></script>
     <link rel="stylesheet" href="css/animations.css">
@@ -140,6 +143,37 @@
 </head>
 
 <body>
+    <div class="sideNav">
+        <div class="logo">
+            <a href=""><span>reno</span>pharma</a>
+        </div>
+        <span class="closebtn" onclick="closeNav()">&times;</span>
+        <div class="nav">
+            <a href="./index.html">Acasă</a>
+            <a href="./news.html">noutăți</a>
+            <a href="./contact.html">ajutor</a>
+            <a href="./contact.html">contacte</a>
+            <div class="dropdown">
+                <a href="./products_per_category.html">produse</a>
+                <div class="dropdown-content">
+                    <a href="./products_per_category.html">Dental care</a>
+                    <a href="./products_per_category.html">Ingrijirea pielii</a>
+                    <a href="./products_per_category.html">Cosmetice</a>
+                    <a href="./products_per_category.html">Vitamine</a>
+                    <a href="./products_per_category.html">Echipamente medicale</a>
+                    <a href="./products_per_category.html">Baby Care</a>
+                    <a href="./productList.html">Toate produsele...</a>
+                </div>
+            </div>
+            <a href="./appointmentForm.html">programare online</a>
+
+            <div class="languages">
+                <a href="#">RO</a>
+                <a href="#">RU</a>
+                <a href="#">EN</a>
+            </div>
+        </div>
+    </div>
     <div class="navigation-bar">
         <div class="upper-bar">
             <div class="phone">
@@ -159,7 +193,7 @@
         </div>
         <div class="lower-bar">
             <div class="logo">
-                <a href="index.html"><span>reno</span>pharma</a>
+                <a href=""><span>reno</span>pharma</a>
             </div>
             <nav>
                 <a href="./index.html">Acasă</a>
@@ -180,15 +214,17 @@
                 </div>
                 <a href="./appointmentForm.html">programare online</a>
             </nav>
-            <a id="burger" href=""> <i class="fas fa-bars"></i> </a>
+            <a id="burger" onclick="openNav()" href="#">
+                <i class="fas fa-bars"></i>
+            </a>
             <div class="right-elements">
                 <div class="shopping-cart">
                     <a href="shoppingCart.html"><i class="fas fa-shopping-cart"> </i></a
-                        ><span class="cart-item-count">10</span>
+            ><span class="cart-item-count">10</span>
           </div>
           <i class="fas fa-search"></i>
-                    <div class="language-dd">
-                        <a href=""><i class="fas fa-bars"></i></a>
+          <div class="language-dd">
+            <a href=""><i class="fas fa-bars"></i></a>
                     <div class="dd-content">
                         <a href="#">RO</a>
                         <a href="#">RU</a>

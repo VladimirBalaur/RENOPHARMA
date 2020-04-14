@@ -1028,6 +1028,12 @@ div.section-head {
     }
 }
 
+@media screen and (max-width: 1400px) {
+    .language-dd {
+        display: none;
+    }
+}
+
 @media screen and (max-width: 400px) {
     div.lower-bar .logo a {
         font-size: 15px;

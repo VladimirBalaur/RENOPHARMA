@@ -276,3 +276,9 @@ section {
         width: 100%;
     }
 }
+
+@media screen and (max-width: 1400px) {
+    .language-dd {
+        display: none;
+    }
+}

@@ -49,14 +49,12 @@ export class Navbar {
 
         /***Setting the sessionstorage events, that will memorize which category to return if a certain category was selected */
 
-        document
-            .querySelectorAll("nav .dropdown .dropdown-content a")
-            .forEach((item) => {
-                //for each item of links, add an event that will set the UserCategory the inner text
-                item.addEventListener("click", (event) => {
-                    sessionStorage.setItem("userCategory", event.target.innerText);
-                    console.log(event.target.innerText);
-                });
+        document.querySelectorAll(".dropdown-content a").forEach((item) => {
+            //for each item of links, add an event that will set the UserCategory the inner text
+            item.addEventListener("click", (event) => {
+                sessionStorage.setItem("userCategory", event.target.innerText);
+                console.log(event.target.innerText);
             });
+        });
     }
 }

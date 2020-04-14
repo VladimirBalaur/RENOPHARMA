@@ -231,3 +231,9 @@ footer div.lower-footer-bar {
         max-width: 100px;
     }
 }
+
+@media screen and (max-width: 1400px) {
+    .language-dd {
+        display: none;
+    }
+}

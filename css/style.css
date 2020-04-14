@@ -866,3 +866,9 @@ footer div.lower-footer-bar {
 
 
 /**********************************/
+
+@media screen and (max-width: 1400px) {
+    div.language-dd {
+        display: none;
+    }
+}
