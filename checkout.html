@@ -13,6 +13,8 @@
     <!--  -->
     <link rel="stylesheet" href="css/animations.css" />
     <link rel="stylesheet" href="css/checkout.css" />
+    <link rel="stylesheet" href="components/searchOverlay/search.css" />
+
     <script src="js/data.js"></script>
     <link rel="stylesheet" href="fontawesome/all.css" />
     <script src="fontawesome/all.js"></script>
@@ -65,6 +67,16 @@
             </div>
         </div>
     </div>
+    <!-- Search button overlay -->
+    <div class="search">
+        <span onclick="closeSearchSection()" class="close">&times;</span>
+        <div class="input">
+            <input placeholder="Caută..." type="text" name="search" id="search" />
+            <button type="submit">Go</button>
+        </div>
+    </div>
+    <!--  -->
+
     <div class="navigation-bar">
         <div class="upper-bar">
             <div class="phone">
@@ -84,7 +96,7 @@
         </div>
         <div class="lower-bar">
             <div class="logo">
-                <a href=""><span>reno</span>pharma</a>
+                <a href="./index.html"><span>reno</span>pharma</a>
             </div>
             <nav>
                 <a href="./index.html">Acasă</a>
@@ -113,41 +125,43 @@
                     <a href="shoppingCart.html"><i class="fas fa-shopping-cart"> </i></a
             ><span class="cart-item-count">10</span>
           </div>
-          <i class="fas fa-search"></i>
-          <div class="language-dd">
-            <a href=""><i class="fas fa-bars"></i></a>
-                    <div class="dd-content">
-                        <a href="#">RO</a>
-                        <a href="#">RU</a>
-                        <a href="#">EN</a>
+          <a id="searchBtn" onclick="showSearchSection()" href="#"
+            ><i class="fas fa-search"></i
+          ></a>
+                    <div class="language-dd">
+                        <a href=""><i class="fas fa-bars"></i></a>
+                        <div class="dd-content">
+                            <a href="#">RO</a>
+                            <a href="#">RU</a>
+                            <a href="#">EN</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <section>
-        <div class="formulars">
-            <form method="GET" onsubmit="return false;">
-                <h1>Detalii achitare:</h1>
-                <div class="input-container">
-                    <label for="">
+        <section>
+            <div class="formulars">
+                <form method="GET" onsubmit="return false;">
+                    <h1>Detalii achitare:</h1>
+                    <div class="input-container">
+                        <label for="">
             <span class="label-text required">Prenume</span>
             <input required  type="text" name="name" id="name" />
           </label>
-                    <label for="">
+                        <label for="">
             <span class="label-text required">Nume</span>
             <input required type="text" name="surname" id="surname" />
           </label>
-                </div>
-                <label for="">
+                    </div>
+                    <label for="">
           <span class="label-text required">Țară</span>
           <select required name="country" id="country"> </select>
         </label>
-                <label for="">
+                    <label for="">
           <span class="label-text">Numele companiei</span>
           <input type="text" name="company_name" id="company_name" />
         </label>
-                <label for="">
+                    <label for="">
           <span class="label-text required">Adresă</span>
           <input required
             placeholder="Street address"
@@ -156,16 +170,16 @@
             id="address"
           />
         </label>
-                <label for="">
+                    <label for="">
           <span class="label-text required">Oraș</span>
           <input required placeholder="Oraș" type="text" name="city" id="city" />
         </label>
-                <div class="input-container">
-                    <label for="">
+                    <div class="input-container">
+                        <label for="">
             <span class="label-text required">Email Address</span>
             <input  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"required type="text" name="email" id="email" />
           </label>
-                    <label for="">
+                        <label for="">
             <span class="label-text required">Telefon</span>
             <input required
               type="tel"
@@ -175,68 +189,68 @@
               required
             />
           </label>
-                </div>
-                <label for="">
+                    </div>
+                    <label for="">
           <div class="checkbox">
             <input type="checkbox" id="checkbox_1" />
             <label for="checkbox_1">Creează un cont?</label>
 
-        </div>
-        </label>
-        </div>
-        <div class="checkout-info">
-            <h1>comanda dumneavoastră</h1>
-            <div class="upper-part">
-                <div class="head">
-                    <span>Product</span>
-                    <span>Total</span>
-                </div>
-                <hr />
-                <div data-content="cart-items" class="content">
-                    <!-- Singular items -->
-                    <!-- <p class="item">
+            </div>
+            </label>
+    </div>
+    <div class="checkout-info">
+        <h1>comanda dumneavoastră</h1>
+        <div class="upper-part">
+            <div class="head">
+                <span>Product</span>
+                <span>Total</span>
+            </div>
+            <hr />
+            <div data-content="cart-items" class="content">
+                <!-- Singular items -->
+                <!-- <p class="item">
                         <span data-role="name-count">Product name x1</span> <span data-role="price">$120</span>
                     </p>
                     <p class="item">
                         <span data-role="name-count">Product name x2</span> <span data-role="price">$120</span>
                     </p> -->
-                </div>
-                <hr />
-                <div data-content="cart-totals" class="content">
-                    <p class="item">
-                        <span>Subtotal</span> <span class="subtotal">$400</span>
-                    </p>
-                    <p class="item">
-                        <span>Delivrare</span> <span>Free shipping</span>
-                    </p>
-                </div>
-                <hr />
-                <div class="total">
-                    <span>Total</span>
-                    <span id="total"></span>
-                </div>
             </div>
-            <div class="lower-part">
-                <div class="checkbox">
-                    <input type="checkbox" id="checkbox_2" />
-                    <label for="checkbox_2">Transfer bancar direct</label>
-                </div>
-                <p class="sidenote">
-                    Asigurați-vă că toate detaliile introduse sunt corecte pentru a evita tranzacțiile eronate, în cazul unei erori, compania nu este responsabilă pentru remedierea acestora, dacă eroare a apărut din cauza utilizatorului
+            <hr />
+            <div data-content="cart-totals" class="content">
+                <p class="item">
+                    <span>Subtotal</span> <span class="subtotal">$400</span>
                 </p>
-                <div class="checkbox">
-                    <input type="checkbox" id="checkbox_3" />
-                    <label for="checkbox_3">Achitare prin cheque</label>
-                </div>
-                <div class="checkbox">
-                    <input type="checkbox" id="checkbox_4" />
-                    <label for="checkbox_4">Achitare prin PayPal</label>
-                </div>
+                <p class="item">
+                    <span>Delivrare</span> <span>Free shipping</span>
+                </p>
+            </div>
+            <hr />
+            <div class="total">
+                <span>Total</span>
+                <span id="total"></span>
             </div>
         </div>
-        <div></div>
-        <input id="submit" type="submit" value=" COMANDĂ " />
-        </form>
+        <div class="lower-part">
+            <div class="checkbox">
+                <input type="checkbox" id="checkbox_2" />
+                <label for="checkbox_2">Transfer bancar direct</label>
+            </div>
+            <p class="sidenote">
+                Asigurați-vă că toate detaliile introduse sunt corecte pentru a evita tranzacțiile eronate, în cazul unei erori, compania nu este responsabilă pentru remedierea acestora, dacă eroare a apărut din cauza utilizatorului
+            </p>
+            <div class="checkbox">
+                <input type="checkbox" id="checkbox_3" />
+                <label for="checkbox_3">Achitare prin cheque</label>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" id="checkbox_4" />
+                <label for="checkbox_4">Achitare prin PayPal</label>
+            </div>
+        </div>
+    </div>
+    <div></div>
+    <input id="submit" type="submit" value=" COMANDĂ " />
+    </form>
     </section>
     <footer>
         <div class="upper-footer-bar">
@@ -278,5 +292,7 @@
       <div class="lower-footer-bar"></div>
     </footer>
     <script type="module" src="js/checkout.js "></script>
+    <script src="components/searchOverlay/search.js"></script>
+
   </body>
 </html>

@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="components/sideNav/sidenav.css" />
     <script src="./components/sideNav/sidenav.js"></script>
     <!--  -->
+    <link rel="stylesheet" href="components/searchOverlay/search.css" />
+
     <!--  -->
     <link rel="stylesheet" href="css/shoppingCart.css" />
     <!-- <script src="fontawesome/all.js"></script> -->
@@ -53,6 +55,16 @@
             </div>
         </div>
     </div>
+    <!-- Search button overlay -->
+    <div class="search">
+        <span onclick="closeSearchSection()" class="close">&times;</span>
+        <div class="input">
+            <input placeholder="Caută..." type="text" name="search" id="search" />
+            <button type="submit">Go</button>
+        </div>
+    </div>
+    <!--  -->
+
     <div class="navigation-bar">
         <div class="upper-bar">
             <div class="phone">
@@ -72,7 +84,7 @@
         </div>
         <div class="lower-bar">
             <div class="logo">
-                <a href=""><span>reno</span>pharma</a>
+                <a href="./index.html"><span>reno</span>pharma</a>
             </div>
             <nav>
                 <a href="./index.html">Acasă</a>
@@ -101,28 +113,30 @@
                     <a href="shoppingCart.html"><i class="fas fa-shopping-cart"> </i></a
             ><span class="cart-item-count">10</span>
           </div>
-          <i class="fas fa-search"></i>
-          <div class="language-dd">
-            <a href=""><i class="fas fa-bars"></i></a>
-                    <div class="dd-content">
-                        <a href="#">RO</a>
-                        <a href="#">RU</a>
-                        <a href="#">EN</a>
+          <a id="searchBtn" onclick="showSearchSection()" href="#"
+            ><i class="fas fa-search"></i
+          ></a>
+                    <div class="language-dd">
+                        <a href=""><i class="fas fa-bars"></i></a>
+                        <div class="dd-content">
+                            <a href="#">RO</a>
+                            <a href="#">RU</a>
+                            <a href="#">EN</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <section class="cart-section">
-        <div class="cart-header">
-            <div>Produse</div>
-            <div class="">Categorie</div>
-            <div>Preț</div>
-            <div>&nbsp;</div>
-        </div>
-        <div class="cart-products-container">
-            <!-- Singular cart item -->
-            <!-- <div class="cart-item">
+        <section class="cart-section">
+            <div class="cart-header">
+                <div>Produse</div>
+                <div class="">Categorie</div>
+                <div>Preț</div>
+                <div>&nbsp;</div>
+            </div>
+            <div class="cart-products-container">
+                <!-- Singular cart item -->
+                <!-- <div class="cart-item">
                 <div class="product-name-img">
                     <div class="img-container">
                         <img src="" alt="" />
@@ -136,84 +150,84 @@
                     <i class="far fa-times-circle"></i>
                 </div>
             </div> -->
-            <!-- -->
-        </div>
-    </section>
-    <section class="cart-forms">
-        <div class="coupon-form">
-            <h1>Utilizează codul unui coupon</h1>
-            <form action="#" onsubmit="return false;">
-                <label for="">Introduceți numărul couponului:</label>
-                <input placeholder="Introduceți numărul couponului" type="text" name="" id="couponNr" />
-                <input type="submit" value="APPLY" />
-            </form>
-        </div>
-        <div class="voucher-form">
-            <h1>Utilizează un voucher</h1>
-            <form action="">
-                <label for="">Introduceți numărul voucherului aici:</label>
-                <input placeholder="Introduceți numărul voucherului" type="text" name="" id="voucherNr" />
-                <input type="submit" value="APPLY" />
-            </form>
-        </div>
-        <div class="delivery-form">
-            <h1>delivrarea</h1>
-            <label for="">Selectează țara</label>
-            <select name="" id="country_select"> </select>
-            <label for="">Selectează regiunea</label>
-            <select name="" id="region_select"></select>
-            <label for="">Postalcode</label>
-            <input type="text" placeholder="Postcode/Zip" name="" id="postalcode" />
-            <input type="submit" id="update-totals" value="update totals" />
-        </div>
-        <div class="cart-totals">
-            <h1>totalul din coș</h1>
-            <div class="totals-container">
-                <p><span>Subtotal</span> <span class="subtotal">$450</span></p>
-                <p><span>Coupon</span> <span class="coupon">-$50</span></p>
-                <p>
-                    <span>Delivrare</span> <span class="delivery">Free shipping</span>
-                </p>
-                <hr />
-                <p><span>Total</span> <span class="total"></span></p>
+                <!-- -->
             </div>
-            <input type="submit" data-role="checkout" onclick="location.href='./checkout.html'" id="onlinePay" value="Achitare online" />
-        </div>
-    </section>
-    <footer>
-        <div class="upper-footer-bar">
-            <div>
-                <p>
-                    Vă asigurăm servicii de calitate, și suport continuu pentru toți cumpărătorii noștri.
-                </p>
+        </section>
+        <section class="cart-forms">
+            <div class="coupon-form">
+                <h1>Utilizează codul unui coupon</h1>
+                <form action="#" onsubmit="return false;">
+                    <label for="">Introduceți numărul couponului:</label>
+                    <input placeholder="Introduceți numărul couponului" type="text" name="" id="couponNr" />
+                    <input type="submit" value="APPLY" />
+                </form>
             </div>
-            <div class="social-media">
-                <i class="fab fa-facebook-f"></i>
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-invision"></i>
+            <div class="voucher-form">
+                <h1>Utilizează un voucher</h1>
+                <form action="">
+                    <label for="">Introduceți numărul voucherului aici:</label>
+                    <input placeholder="Introduceți numărul voucherului" type="text" name="" id="voucherNr" />
+                    <input type="submit" value="APPLY" />
+                </form>
             </div>
-            <div>&nbsp;</div>
-        </div>
-        <div class="mid-footer-bar">
-            <div>
-                <h1>contul meu</h1>
-                <a href="./shoppingCart.html">Vizualizează coșul</a>
-                <a href="./wishlist.html">My Wishlist</a>
-                <a href="./checkout.html">Achitare</a>
+            <div class="delivery-form">
+                <h1>delivrarea</h1>
+                <label for="">Selectează țara</label>
+                <select name="" id="country_select"> </select>
+                <label for="">Selectează regiunea</label>
+                <select name="" id="region_select"></select>
+                <label for="">Postalcode</label>
+                <input type="text" placeholder="Postcode/Zip" name="" id="postalcode" />
+                <input type="submit" id="update-totals" value="update totals" />
             </div>
-            <div>
-                <h1>ajutor</h1>
-                <a href="./contact.html">F.A.Q</a>
-                <a href="./contact.html">Contactează-ne</a>
-                <a href="./contact.html">Privacy Policy</a>
+            <div class="cart-totals">
+                <h1>totalul din coș</h1>
+                <div class="totals-container">
+                    <p><span>Subtotal</span> <span class="subtotal">$450</span></p>
+                    <p><span>Coupon</span> <span class="coupon">-$50</span></p>
+                    <p>
+                        <span>Delivrare</span> <span class="delivery">Free shipping</span>
+                    </p>
+                    <hr />
+                    <p><span>Total</span> <span class="total"></span></p>
+                </div>
+                <input type="submit" data-role="checkout" onclick="location.href='./checkout.html'" id="onlinePay" value="Achitare online" />
             </div>
-            <div>
-                <h1>informație de contact</h1>
-                <a href="#"><i class="fas fa-globe-europe"></i> Str. Sarmisegetusa 1010/9</a
+        </section>
+        <footer>
+            <div class="upper-footer-bar">
+                <div>
+                    <p>
+                        Vă asigurăm servicii de calitate, și suport continuu pentru toți cumpărătorii noștri.
+                    </p>
+                </div>
+                <div class="social-media">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-invision"></i>
+                </div>
+                <div>&nbsp;</div>
+            </div>
+            <div class="mid-footer-bar">
+                <div>
+                    <h1>contul meu</h1>
+                    <a href="./shoppingCart.html">Vizualizează coșul</a>
+                    <a href="./wishlist.html">My Wishlist</a>
+                    <a href="./checkout.html">Achitare</a>
+                </div>
+                <div>
+                    <h1>ajutor</h1>
+                    <a href="./contact.html">F.A.Q</a>
+                    <a href="./contact.html">Contactează-ne</a>
+                    <a href="./contact.html">Privacy Policy</a>
+                </div>
+                <div>
+                    <h1>informație de contact</h1>
+                    <a href="#"><i class="fas fa-globe-europe"></i> Str. Sarmisegetusa 1010/9</a
           >
           <a href="#"><i class="fas fa-phone-alt"></i> +1 234 56789</a>
-                <a href="#" id="email"><i class="fas fa-envelope"></i> mail@domain.com</a
+                    <a href="#" id="email"><i class="fas fa-envelope"></i> mail@domain.com</a
           >
         </div>
       </div>
@@ -228,5 +242,6 @@
       </div>
     </div>
     <script type="module" src="./js/shoppingCart.js"></script>
+    <script src="components/searchOverlay/search.js"></script>
   </body>
 </html>

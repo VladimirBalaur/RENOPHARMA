@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="css/appointmentForm.css" />
     <!-- Sidenav -->
     <link rel="stylesheet" href="components/sideNav/sidenav.css" />
+    <link rel="stylesheet" href="components/searchOverlay/search.css" />
+
     <script src="./components/sideNav/sidenav.js"></script>
     <!--  -->
     <script src="js/data.js"></script>
@@ -51,6 +53,16 @@
             </div>
         </div>
     </div>
+    <!-- Search button overlay -->
+    <div class="search">
+        <span onclick="closeSearchSection()" class="close">&times;</span>
+        <div class="input">
+            <input placeholder="Caută..." type="text" name="search" id="search" />
+            <button type="submit">Go</button>
+        </div>
+    </div>
+    <!--  -->
+
     <div class="navigation-bar">
         <div class="upper-bar">
             <div class="phone">
@@ -70,7 +82,7 @@
         </div>
         <div class="lower-bar">
             <div class="logo">
-                <a href=""><span>reno</span>pharma</a>
+                <a href="./index.html"><span>reno</span>pharma</a>
             </div>
             <nav>
                 <a href="./index.html">Acasă</a>
@@ -99,85 +111,87 @@
                     <a href="shoppingCart.html"><i class="fas fa-shopping-cart"> </i></a
             ><span class="cart-item-count">10</span>
           </div>
-          <i class="fas fa-search"></i>
-          <div class="language-dd">
-            <a href=""><i class="fas fa-bars"></i></a>
-                    <div class="dd-content">
-                        <a href="#">RO</a>
-                        <a href="#">RU</a>
-                        <a href="#">EN</a>
+          <a id="searchBtn" onclick="showSearchSection()" href="#"
+            ><i class="fas fa-search"></i
+          ></a>
+                    <div class="language-dd">
+                        <a href=""><i class="fas fa-bars"></i></a>
+                        <div class="dd-content">
+                            <a href="#">RO</a>
+                            <a href="#">RU</a>
+                            <a href="#">EN</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <section class="main">
-        <div>
-            <div class="left">
-                <div data-service="produse-farmaceutice" class="appointment-item">
-                    <div>
-                        <div class="img-container">
-                            <i class="fas fa-pills"></i>
+        <section class="main">
+            <div>
+                <div class="left">
+                    <div data-service="produse-farmaceutice" class="appointment-item">
+                        <div>
+                            <div class="img-container">
+                                <i class="fas fa-pills"></i>
+                            </div>
+                            <hr />
+                            <h2>Produse farmaceutice</h2>
                         </div>
-                        <hr />
-                        <h2>Produse farmaceutice</h2>
+                    </div>
+                    <div data-service="produse-dentare" class="appointment-item">
+                        <div>
+                            <div class="img-container">
+                                <i class="fas fa-tooth"></i>
+                            </div>
+                            <hr />
+                            <h2>Produse dentare</h2>
+                        </div>
+                    </div>
+                    <div data-service="health-caring" class="appointment-item">
+                        <div>
+                            <div class="img-container">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <hr />
+                            <h2>Health Caring</h2>
+                        </div>
+                    </div>
+                    <div data-service="consultatie-medicala" class="appointment-item">
+                        <div>
+                            <div class="img-container">
+                                <i class="fas fa-syringe"></i>
+                            </div>
+                            <hr />
+                            <h2>Consultație medicală</h2>
+                        </div>
+                    </div>
+                    <div data-service="programarea-la-clinica-stomatologica" class="appointment-item">
+                        <div>
+                            <div class="img-container">
+                                <i class="fas fa-tooth"></i>
+                            </div>
+                            <hr />
+                            <h2>Programare la clinică stomatologică</h2>
+                        </div>
+                    </div>
+                    <div data-service="consultatie-speciala" class="appointment-item">
+                        <div>
+                            <div class="img-container">
+                                <i class="fas fa-stethoscope"></i>
+                            </div>
+                            <hr />
+                            <h2>Consultație specializată</h2>
+                        </div>
                     </div>
                 </div>
-                <div data-service="produse-dentare" class="appointment-item">
-                    <div>
-                        <div class="img-container">
-                            <i class="fas fa-tooth"></i>
-                        </div>
-                        <hr />
-                        <h2>Produse dentare</h2>
-                    </div>
-                </div>
-                <div data-service="health-caring" class="appointment-item">
-                    <div>
-                        <div class="img-container">
-                            <i class="fas fa-heartbeat"></i>
-                        </div>
-                        <hr />
-                        <h2>Health Caring</h2>
-                    </div>
-                </div>
-                <div data-service="consultatie-medicala" class="appointment-item">
-                    <div>
-                        <div class="img-container">
-                            <i class="fas fa-syringe"></i>
-                        </div>
-                        <hr />
-                        <h2>Consultație medicală</h2>
-                    </div>
-                </div>
-                <div data-service="programarea-la-clinica-stomatologica" class="appointment-item">
-                    <div>
-                        <div class="img-container">
-                            <i class="fas fa-tooth"></i>
-                        </div>
-                        <hr />
-                        <h2>Programare la clinică stomatologică</h2>
-                    </div>
-                </div>
-                <div data-service="consultatie-speciala" class="appointment-item">
-                    <div>
-                        <div class="img-container">
-                            <i class="fas fa-stethoscope"></i>
-                        </div>
-                        <hr />
-                        <h2>Consultație specializată</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="right">
-                <form action="/" onsubmit="return false">
-                    <h1>Programează-te acum</h1>
-                    <select placeholder="Selectează țara de origine" name="originCountry" id="originCountry">
+                <div class="right">
+                    <form action="/" onsubmit="return false">
+                        <h1>Programează-te acum</h1>
+                        <select placeholder="Selectează țara de origine" name="originCountry" id="originCountry">
               <option value="" disabled="true" selected hidden
                 >Selectează țara de origine</option
               >
             </select>
-                    <select value="Selectează serviciul dorit" name="reqService" id="reqService">
+                        <select value="Selectează serviciul dorit" name="reqService" id="reqService">
               <option value="" disabled selected hidden
                 >Selectează serviciul dorit</option
               >
@@ -191,58 +205,59 @@
               >
               <option value="consultatie-speciala">Consultație speciala</option>
             </select>
-                    <select name="reqDoctor" id="reqDoctor">
+                        <select name="reqDoctor" id="reqDoctor">
               <option value="" disabled selected hidden
                 >Selectează doctorul dorit</option
               >
             </select>
-                    <input placeholder="Selectează o dată" onfocus="(this.type='date')" onblur="(this.type='text')" type="text" name="reqDate" id="reqDate" />
-                    <input placeholder="Selectează timpul" type="text" onfocus="(this.type='time')" onblur="(this.type='text')" name="reqTime" id="reqTime" />
-                    <p class="sideNote">Toate câmpurile sunt obligatorii**</p>
-                    <button type="submit">Submit</button>
-                </form>
+                        <input placeholder="Selectează o dată" onfocus="(this.type='date')" onblur="(this.type='text')" type="text" name="reqDate" id="reqDate" />
+                        <input placeholder="Selectează timpul" type="text" onfocus="(this.type='time')" onblur="(this.type='text')" name="reqTime" id="reqTime" />
+                        <p class="sideNote">Toate câmpurile sunt obligatorii**</p>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
             </div>
-        </div>
-    </section>
-    <footer>
-        <div class="upper-footer-bar">
-            <div>
-                <p>
-                    Vă asigurăm servicii de calitate, și suport continuu pentru toți cumpărătorii noștri.
-                </p>
+        </section>
+        <footer>
+            <div class="upper-footer-bar">
+                <div>
+                    <p>
+                        Vă asigurăm servicii de calitate, și suport continuu pentru toți cumpărătorii noștri.
+                    </p>
+                </div>
+                <div class="social-media">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-invision"></i>
+                </div>
+                <div>&nbsp;</div>
             </div>
-            <div class="social-media">
-                <i class="fab fa-facebook-f"></i>
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-invision"></i>
-            </div>
-            <div>&nbsp;</div>
-        </div>
-        <div class="mid-footer-bar">
-            <div>
-                <h1>contul meu</h1>
-                <a href="./shoppingCart.html">Vizualizează coșul</a>
-                <a href="./wishlist.html">My Wishlist</a>
-                <a href="./checkout.html">Achitare</a>
-            </div>
-            <div>
-                <h1>ajutor</h1>
-                <a href="./contact.html">F.A.Q</a>
-                <a href="./contact.html">Contactează-ne</a>
-                <a href="./contact.html">Privacy Policy</a>
-            </div>
-            <div>
-                <h1>informație de contact</h1>
-                <a href="#"><i class="fas fa-globe-europe"></i> Str. Sarmisegetusa 1010/9</a
+            <div class="mid-footer-bar">
+                <div>
+                    <h1>contul meu</h1>
+                    <a href="./shoppingCart.html">Vizualizează coșul</a>
+                    <a href="./wishlist.html">My Wishlist</a>
+                    <a href="./checkout.html">Achitare</a>
+                </div>
+                <div>
+                    <h1>ajutor</h1>
+                    <a href="./contact.html">F.A.Q</a>
+                    <a href="./contact.html">Contactează-ne</a>
+                    <a href="./contact.html">Privacy Policy</a>
+                </div>
+                <div>
+                    <h1>informație de contact</h1>
+                    <a href="#"><i class="fas fa-globe-europe"></i> Str. Sarmisegetusa 1010/9</a
           >
           <a href="#"><i class="fas fa-phone-alt"></i> +1 234 56789</a>
-                <a href="#" id="email"><i class="fas fa-envelope"></i> mail@domain.com</a
+                    <a href="#" id="email"><i class="fas fa-envelope"></i> mail@domain.com</a
           >
         </div>
       </div>
       <div class="lower-footer-bar"></div>
     </footer>
     <script type="module" src="./js/appointmentForm.js"></script>
+    <script src="components/searchOverlay/search.js"></script>
   </body>
 </html>

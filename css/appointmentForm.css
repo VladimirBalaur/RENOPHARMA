@@ -105,7 +105,7 @@ section.main .left .appointment-item>div {
 }
 
 .right form select,
-input {
+.right form input {
     padding: 0 15px;
     border: none;
     margin: 5px 0;

@@ -11,6 +11,8 @@
     <!-- Sidenav -->
     <link rel="stylesheet" href="components/sideNav/sidenav.css" />
     <script src="./components/sideNav/sidenav.js"></script>
+    <link rel="stylesheet" href="components/searchOverlay/search.css" />
+
     <!--  -->
     <script src="js/data.js"></script>
     <link rel="stylesheet" href="css/product_description.css" />
@@ -67,6 +69,16 @@
             </div>
         </div>
     </div>
+    <!-- Search button overlay -->
+    <div class="search">
+        <span onclick="closeSearchSection()" class="close">&times;</span>
+        <div class="input">
+            <input placeholder="Caută..." type="text" name="search" id="search" />
+            <button type="submit">Go</button>
+        </div>
+    </div>
+    <!--  -->
+
     <div class="navigation-bar">
         <div class="upper-bar">
             <div class="phone">
@@ -86,7 +98,7 @@
         </div>
         <div class="lower-bar">
             <div class="logo">
-                <a href=""><span>reno</span>pharma</a>
+                <a href="./index.html"><span>reno</span>pharma</a>
             </div>
             <nav>
                 <a href="./index.html">Acasă</a>
@@ -115,172 +127,175 @@
                     <a href="shoppingCart.html"><i class="fas fa-shopping-cart"> </i></a
             ><span class="cart-item-count">10</span>
           </div>
-          <i class="fas fa-search"></i>
-          <div class="language-dd">
-            <a href=""><i class="fas fa-bars"></i></a>
-                    <div class="dd-content">
-                        <a href="#">RO</a>
-                        <a href="#">RU</a>
-                        <a href="#">EN</a>
+          <a id="searchBtn" onclick="showSearchSection()" href="#"
+            ><i class="fas fa-search"></i
+          ></a>
+                    <div class="language-dd">
+                        <a href=""><i class="fas fa-bars"></i></a>
+                        <div class="dd-content">
+                            <a href="#">RO</a>
+                            <a href="#">RU</a>
+                            <a href="#">EN</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <section class="product-description-section">
-        <div class="product-info-container">
-            <div class="image"><img src="#" alt="" /></div>
+        <section class="product-description-section">
+            <div class="product-info-container">
+                <div class="image"><img src="#" alt="" /></div>
 
-            <div class="product-info-content">
-                <h1>Numele produsului</h1>
-                <p><span class="price">$</span> <span class="rating"></span></p>
-                <p class="short-description">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-                <hr />
-                <div class="cart-count-container"></div>
-                <div class="quantity">
-                    <input type="number" min="1" max="9" step="1" value="1" />
-                </div>
-                <div class="cart-operations">
-                    <button data-role="add-to-cart" class="add-to-cart">
+                <div class="product-info-content">
+                    <h1>Numele produsului</h1>
+                    <p><span class="price">$</span> <span class="rating"></span></p>
+                    <p class="short-description">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                    <hr />
+                    <div class="cart-count-container"></div>
+                    <div class="quantity">
+                        <input type="number" min="1" max="9" step="1" value="1" />
+                    </div>
+                    <div class="cart-operations">
+                        <button data-role="add-to-cart" class="add-to-cart">
               <i class="fas fa-cart-plus"></i> Adauga in cos
             </button>
-                    <button data-role="add-to-wishlist">
+                        <button data-role="add-to-wishlist">
               <i class="far fa-heart"></i>
             </button>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="description-review-container">
-            <div class="tab">
-                <button class="tablinks active" onclick="openTab(event, 'Description')">
+            <div class="description-review-container">
+                <div class="tab">
+                    <button class="tablinks active" onclick="openTab(event, 'Description')">
             Description
           </button>
-                <button class="tablinks" onclick="openTab(event, 'Review')">
+                    <button class="tablinks" onclick="openTab(event, 'Review')">
             Review
           </button>
-            </div>
-
-            <div id="Description" style="display: block;" class="tabcontent">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-            </div>
-
-            <div id="Review" class="tabcontent">
-                <p>
-                    <span class="review-count">1</span> reviews for
-                    <span class="product-name">Product name</span>.
-                </p>
-                <div class="comments">
-                    <!-- Singular comment -->
                 </div>
-                <!--  -->
-                <div class="add-review-container">
-                    <form action="#" onsubmit="return false;" method="GET">
-                        <h1>Add a review</h1>
-                        <input type="text" placeholder="Numele tău..." id="username" />
-                        <input type="email" placeholder="Email-ul tău..." id="user_email" />
-                        <br />
 
-                        <h2>Your review</h2>
-                        <div class="your-rating">
-                            <h2>Your rating:</h2>
-                            <div data-star-index="1" class="star-container">
-                                <i class="far fa-star"></i>
-                            </div>
-                            <div data-star-index="2" class="star-container">
-                                <i class="far fa-star"></i><i class="far fa-star"></i>
-                            </div>
-                            <div data-star-index="3" class="star-container">
-                                <i class="far fa-star"></i><i class="far fa-star"></i
+                <div id="Description" style="display: block;" class="tabcontent">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </div>
+
+                <div id="Review" class="tabcontent">
+                    <p>
+                        <span class="review-count">1</span> reviews for
+                        <span class="product-name">Product name</span>.
+                    </p>
+                    <div class="comments">
+                        <!-- Singular comment -->
+                    </div>
+                    <!--  -->
+                    <div class="add-review-container">
+                        <form action="#" onsubmit="return false;" method="GET">
+                            <h1>Add a review</h1>
+                            <input type="text" placeholder="Numele tău..." id="username" />
+                            <input type="email" placeholder="Email-ul tău..." id="user_email" />
+                            <br />
+
+                            <h2>Your review</h2>
+                            <div class="your-rating">
+                                <h2>Your rating:</h2>
+                                <div data-star-index="1" class="star-container">
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <div data-star-index="2" class="star-container">
+                                    <i class="far fa-star"></i><i class="far fa-star"></i>
+                                </div>
+                                <div data-star-index="3" class="star-container">
+                                    <i class="far fa-star"></i><i class="far fa-star"></i
                   ><i class="far fa-star"></i>
-                            </div>
-                            <div data-star-index="4" class="star-container">
-                                <i class="far fa-star"></i><i class="far fa-star"></i
+                                </div>
+                                <div data-star-index="4" class="star-container">
+                                    <i class="far fa-star"></i><i class="far fa-star"></i
                   ><i class="far fa-star"></i><i class="far fa-star"></i>
-                            </div>
-                            <div data-star-index="5" class="star-container">
-                                <i class="far fa-star"></i><i class="far fa-star"></i
+                                </div>
+                                <div data-star-index="5" class="star-container">
+                                    <i class="far fa-star"></i><i class="far fa-star"></i
                   ><i class="far fa-star"></i><i class="far fa-star"></i
                   ><i class="far fa-star"></i>
+                                </div>
                             </div>
-                        </div>
-                        <textarea name="" id="" cols="30" rows="10"></textarea>
-                        <input type="submit" value="trimite" />
-                    </form>
+                            <textarea name="" id="" cols="30" rows="10"></textarea>
+                            <input type="submit" value="trimite" />
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section class="similar-products">
-        <div class="section-head">
-            <h1>Produse asemănătoare</h1>
-            <div class="toggle-buttons">
-                <button class="ctrl-btn pro-prev">
+        </section>
+        <section class="similar-products">
+            <div class="section-head">
+                <h1>Produse asemănătoare</h1>
+                <div class="toggle-buttons">
+                    <button class="ctrl-btn pro-prev">
             <i class="fas fa-arrow-left"></i>
           </button>
-                <button class="ctrl-btn pro-next">
+                    <button class="ctrl-btn pro-next">
             <i class="fas fa-arrow-right"></i>
           </button>
+                </div>
             </div>
-        </div>
 
-        <div class="slider" id="slider">
-            <div class="slide" id="slide"></div>
-        </div>
-    </section>
-    <footer>
-        <div class="upper-footer-bar">
-            <div>
-                <p>
-                    Vă asigurăm servicii de calitate, și suport continuu pentru toți cumpărătorii noștri.
-                </p>
+            <div class="slider" id="slider">
+                <div class="slide" id="slide"></div>
             </div>
-            <div class="social-media">
-                <i class="fab fa-facebook-f"></i>
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-invision"></i>
+        </section>
+        <footer>
+            <div class="upper-footer-bar">
+                <div>
+                    <p>
+                        Vă asigurăm servicii de calitate, și suport continuu pentru toți cumpărătorii noștri.
+                    </p>
+                </div>
+                <div class="social-media">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-invision"></i>
+                </div>
+                <div>&nbsp;</div>
             </div>
-            <div>&nbsp;</div>
-        </div>
-        <div class="mid-footer-bar">
-            <div>
-                <h1>contul meu</h1>
-                <a href="./shoppingCart.html">Vizualizează coșul</a>
-                <a href="./wishlist.html">My Wishlist</a>
-                <a href="./checkout.html">Achitare</a>
-            </div>
-            <div>
-                <h1>ajutor</h1>
-                <a href="./contact.html">F.A.Q</a>
-                <a href="./contact.html">Contactează-ne</a>
-                <a href="./contact.html">Privacy Policy</a>
-            </div>
-            <div>
-                <h1>informație de contact</h1>
-                <a href="#"><i class="fas fa-globe-europe"></i> Str. Sarmisegetusa 1010/9</a
+            <div class="mid-footer-bar">
+                <div>
+                    <h1>contul meu</h1>
+                    <a href="./shoppingCart.html">Vizualizează coșul</a>
+                    <a href="./wishlist.html">My Wishlist</a>
+                    <a href="./checkout.html">Achitare</a>
+                </div>
+                <div>
+                    <h1>ajutor</h1>
+                    <a href="./contact.html">F.A.Q</a>
+                    <a href="./contact.html">Contactează-ne</a>
+                    <a href="./contact.html">Privacy Policy</a>
+                </div>
+                <div>
+                    <h1>informație de contact</h1>
+                    <a href="#"><i class="fas fa-globe-europe"></i> Str. Sarmisegetusa 1010/9</a
           >
           <a href="#"><i class="fas fa-phone-alt"></i> +1 234 56789</a>
-                <a href="#" id="email"><i class="fas fa-envelope"></i> mail@domain.com</a
+                    <a href="#" id="email"><i class="fas fa-envelope"></i> mail@domain.com</a
           >
         </div>
       </div>
       <div class="lower-footer-bar"></div>
     </footer>
     <script type="module" src="js/product_description.js"></script>
+    <script src="components/searchOverlay/search.js"></script>
   </body>
 </html>

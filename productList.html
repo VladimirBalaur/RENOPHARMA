@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="components/sideNav/sidenav.css" />
     <script src="./components/sideNav/sidenav.js"></script>
     <!--  -->
+    <link rel="stylesheet" href="components/searchOverlay/search.css" />
+
     <!-- -->
     <script src="fontawesome/all.js"></script>
     <link rel="stylesheet" href="css/animations.css">
@@ -174,6 +176,16 @@
             </div>
         </div>
     </div>
+    <!-- Search button overlay -->
+    <div class="search">
+        <span onclick="closeSearchSection()" class="close">&times;</span>
+        <div class="input">
+            <input placeholder="Caută..." type="text" name="search" id="search" />
+            <button type="submit">Go</button>
+        </div>
+    </div>
+    <!--  -->
+
     <div class="navigation-bar">
         <div class="upper-bar">
             <div class="phone">
@@ -193,7 +205,7 @@
         </div>
         <div class="lower-bar">
             <div class="logo">
-                <a href=""><span>reno</span>pharma</a>
+                <a href="./index.html"><span>reno</span>pharma</a>
             </div>
             <nav>
                 <a href="./index.html">Acasă</a>
@@ -222,54 +234,56 @@
                     <a href="shoppingCart.html"><i class="fas fa-shopping-cart"> </i></a
             ><span class="cart-item-count">10</span>
           </div>
-          <i class="fas fa-search"></i>
-          <div class="language-dd">
-            <a href=""><i class="fas fa-bars"></i></a>
-                    <div class="dd-content">
-                        <a href="#">RO</a>
-                        <a href="#">RU</a>
-                        <a href="#">EN</a>
+          <a id="searchBtn" onclick="showSearchSection()" href="#"
+            ><i class="fas fa-search"></i
+          ></a>
+                    <div class="language-dd">
+                        <a href=""><i class="fas fa-bars"></i></a>
+                        <div class="dd-content">
+                            <a href="#">RO</a>
+                            <a href="#">RU</a>
+                            <a href="#">EN</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
 
-    <section class="main">
-        <div class="left-container">
-            <div class="categories-list">
-                <h3>Categorii</h3>
-                <ul>
+        <section class="main">
+            <div class="left-container">
+                <div class="categories-list">
+                    <h3>Categorii</h3>
+                    <ul>
 
-                </ul>
-            </div>
-            <div class="filter">
-                <h3>filtrare prețuri</h3>
+                    </ul>
+                </div>
+                <div class="filter">
+                    <h3>filtrare prețuri</h3>
 
-                <div id="slider-range" class="price-filter-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content" name="rangeInput">
-                    <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
-                    <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 9%;"></span
+                    <div id="slider-range" class="price-filter-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content" name="rangeInput">
+                        <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
+                        <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 9%;"></span
             ><span
               tabindex="0"
               class="ui-slider-handle ui-corner-all ui-state-default"
               style="left: 74%;"
             ></span>
-                </div>
+                    </div>
 
-                <div id="input-container" style="margin:30px auto">
-                    <input type="number" min="0" max="9900" oninput="validity.valid||(value='0');" id="min_price" class="price-range-field" />
-                    <input type="number" min="0" max="10000" oninput="validity.valid||(value='10000');" id="max_price" class="price-range-field" />
-                    <button class="price-range-search" id="price-range-submit" style="display: block;">
+                    <div id="input-container" style="margin:30px auto">
+                        <input type="number" min="0" max="9900" oninput="validity.valid||(value='0');" id="min_price" class="price-range-field" />
+                        <input type="number" min="0" max="10000" oninput="validity.valid||(value='10000');" id="max_price" class="price-range-field" />
+                        <button class="price-range-search" id="price-range-submit" style="display: block;">
               <i class="fas fa-search"></i>
             </button>
+                    </div>
                 </div>
-            </div>
-            <div class="popular-products-container">
-                <h3>Cele mai populare produse</h3>
-                <!-- Singular product item -->
-                <!-- <div class="product-item">
+                <div class="popular-products-container">
+                    <h3>Cele mai populare produse</h3>
+                    <!-- Singular product item -->
+                    <!-- <div class="product-item">
                         <div class="image-container">
                             <img src="" alt="this is a popular product" />
                         </div>
@@ -278,33 +292,33 @@
                             <p class="price">$</p>
                         </div>
                     </div> -->
-                <!--  -->
+                    <!--  -->
 
-            </div>
-        </div>
-        <div class="right-container">
-            <div class="infobar">
-                <div class="results-showing">
-                    Afișare 1-<span class="count"></span>
-                    <span class="products-count"></span> rezultate
                 </div>
+            </div>
+            <div class="right-container">
+                <div class="infobar">
+                    <div class="results-showing">
+                        Afișare 1-<span class="count"></span>
+                        <span class="products-count"></span> rezultate
+                    </div>
 
-                <div class="sortby-container">
-                    Sortează după preț
-                    <select name="" id="sortby">
+                    <div class="sortby-container">
+                        Sortează după preț
+                        <select name="" id="sortby">
               <option value="asc">Crescator</option>
               <option value="desc">Descrescator</option>
             </select>
+                    </div>
                 </div>
-            </div>
 
-            <!-- <div class="filter-sort-btns-container">
+                <!-- <div class="filter-sort-btns-container">
                 <div class="filter"><i class="fas fa-funnel-dollar"></i> <span>Filtru</span> </div>
                 <div class="sort"><i class="fas fa-sort"></i> <span>Sortare</span></div>
             </div> -->
-            <div class="products-container">
-                <!-- Singular product -->
-                <!-- <div class="product-container">
+                <div class="products-container">
+                    <!-- Singular product -->
+                    <!-- <div class="product-container">
                         <div class="product-img">
                             <img src="" alt=""> </div>
                         <div class="product-main-content">
@@ -324,11 +338,11 @@
                             </div>
                         </div>
                     </div> -->
-                <!--  -->
-            </div>
+                    <!--  -->
+                </div>
 
-        </div>
-        </div>
+            </div>
+    </div>
 
     </section>
     <div class="pagination">
@@ -397,6 +411,7 @@
         });
     </script>
     <script type="module" src="js/productList.js"></script>
+    <script src="components/searchOverlay/search.js"></script>
 
 </body>
 

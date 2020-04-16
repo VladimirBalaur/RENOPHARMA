@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="components/sideNav/sidenav.css" />
     <script src="./components/sideNav/sidenav.js"></script>
     <!--  -->
+    <link rel="stylesheet" href="components/searchOverlay/search.css" />
+
     <link rel="stylesheet" href="fontawesome/all.css" />
     <!-- Toate informatiile despre produse -->
     <script src="data/data.js"></script>
@@ -51,6 +53,16 @@
             </div>
         </div>
     </div>
+    <!-- Search button overlay -->
+    <div class="search">
+        <span onclick="closeSearchSection()" class="close">&times;</span>
+        <div class="input">
+            <input placeholder="Caută..." type="text" name="search" id="search" />
+            <button type="submit">Go</button>
+        </div>
+    </div>
+    <!--  -->
+
     <div class="navigation-bar">
         <div class="upper-bar">
             <div class="phone">
@@ -70,7 +82,7 @@
         </div>
         <div class="lower-bar">
             <div class="logo">
-                <a href=""><span>reno</span>pharma</a>
+                <a href="./index.html"><span>reno</span>pharma</a>
             </div>
             <nav>
                 <a href="./index.html">Acasă</a>
@@ -99,28 +111,30 @@
                     <a href="shoppingCart.html"><i class="fas fa-shopping-cart"> </i></a
             ><span class="cart-item-count">10</span>
           </div>
-          <i class="fas fa-search"></i>
-          <div class="language-dd">
-            <a href=""><i class="fas fa-bars"></i></a>
-                    <div class="dd-content">
-                        <a href="#">RO</a>
-                        <a href="#">RU</a>
-                        <a href="#">EN</a>
+          <a id="searchBtn" onclick="showSearchSection()" href="#"
+            ><i class="fas fa-search"></i
+          ></a>
+                    <div class="language-dd">
+                        <a href=""><i class="fas fa-bars"></i></a>
+                        <div class="dd-content">
+                            <a href="#">RO</a>
+                            <a href="#">RU</a>
+                            <a href="#">EN</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <section class="cart-section">
-        <div class="cart-header">
-            <div>Produse</div>
-            <div class="">Categorie</div>
-            <div>Preț</div>
-            <div>&nbsp;</div>
-        </div>
-        <div class="cart-products-container">
-            <!-- Singular cart item -->
-            <!-- <div class="cart-item">
+        <section class="cart-section">
+            <div class="cart-header">
+                <div>Produse</div>
+                <div class="">Categorie</div>
+                <div>Preț</div>
+                <div>&nbsp;</div>
+            </div>
+            <div class="cart-products-container">
+                <!-- Singular cart item -->
+                <!-- <div class="cart-item">
                 <div class="product-name-img">
                     <div class="img-container">
                         <img src="" alt="" />
@@ -134,53 +148,53 @@
                     <i class="far fa-times-circle"></i>
                 </div>
             </div> -->
-            <!-- -->
-        </div>
-    </section>
+                <!-- -->
+            </div>
+        </section>
 
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>Some text in the Modal..</p>
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Some text in the Modal..</p>
+            </div>
+            <!---------------->
         </div>
-        <!---------------->
-    </div>
-    <footer>
-        <div class="upper-footer-bar">
-            <div>
-                <p>
-                    Vă asigurăm servicii de calitate, și suport continuu pentru toți cumpărătorii noștri.
-                </p>
+        <footer>
+            <div class="upper-footer-bar">
+                <div>
+                    <p>
+                        Vă asigurăm servicii de calitate, și suport continuu pentru toți cumpărătorii noștri.
+                    </p>
+                </div>
+                <div class="social-media">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-invision"></i>
+                </div>
+                <div>&nbsp;</div>
             </div>
-            <div class="social-media">
-                <i class="fab fa-facebook-f"></i>
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-invision"></i>
-            </div>
-            <div>&nbsp;</div>
-        </div>
-        <div class="mid-footer-bar">
-            <div>
-                <h1>contul meu</h1>
-                <a href="./shoppingCart.html">Vizualizează coșul</a>
-                <a href="./wishlist.html">My Wishlist</a>
-                <a href="./checkout.html">Achitare</a>
-            </div>
-            <div>
-                <h1>ajutor</h1>
-                <a href="./contact.html">F.A.Q</a>
-                <a href="./contact.html">Contactează-ne</a>
-                <a href="./contact.html">Privacy Policy</a>
-            </div>
-            <div>
-                <h1>informație de contact</h1>
-                <a href="#"><i class="fas fa-globe-europe"></i> Str. Sarmisegetusa 1010/9</a
+            <div class="mid-footer-bar">
+                <div>
+                    <h1>contul meu</h1>
+                    <a href="./shoppingCart.html">Vizualizează coșul</a>
+                    <a href="./wishlist.html">My Wishlist</a>
+                    <a href="./checkout.html">Achitare</a>
+                </div>
+                <div>
+                    <h1>ajutor</h1>
+                    <a href="./contact.html">F.A.Q</a>
+                    <a href="./contact.html">Contactează-ne</a>
+                    <a href="./contact.html">Privacy Policy</a>
+                </div>
+                <div>
+                    <h1>informație de contact</h1>
+                    <a href="#"><i class="fas fa-globe-europe"></i> Str. Sarmisegetusa 1010/9</a
           >
           <a href="#"><i class="fas fa-phone-alt"></i> +1 234 56789</a>
-                <a href="#" id="email"><i class="fas fa-envelope"></i> mail@domain.com</a
+                    <a href="#" id="email"><i class="fas fa-envelope"></i> mail@domain.com</a
           >
         </div>
       </div>
@@ -188,5 +202,6 @@
     </footer>
 
     <script type="module" src="./js/wishlist.js"></script>
+    <script src="components/searchOverlay/search.js"></script>
   </body>
 </html>

@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/data.js"></script>
     <link rel="stylesheet" href="fontawesome/all.css" />
+    <link rel="stylesheet" href="components/searchOverlay/search.css" />
     <script src="fontawesome/all.js"></script>
     <!-- Toate informatiile despre produse -->
     <script src="data/data.js"></script>
@@ -25,6 +26,7 @@
 </head>
 
 <body>
+    <!-- SideNav overlay -->
     <div class="sideNav">
         <div class="logo">
             <a href=""><span>reno</span>pharma</a>
@@ -56,6 +58,17 @@
             </div>
         </div>
     </div>
+    <!--  -->
+    <!-- Search button overlay -->
+    <div class="search">
+        <span onclick="closeSearchSection()" class="close">&times;</span>
+        <div class="input">
+            <input placeholder="Caută..." type="text" name="search" id="search" />
+            <button type="submit">Go</button>
+        </div>
+    </div>
+    <!--  -->
+
     <div class="navigation-bar">
         <div class="upper-bar">
             <div class="phone">
@@ -104,121 +117,123 @@
                     <a href="shoppingCart.html"><i class="fas fa-shopping-cart"> </i></a
             ><span class="cart-item-count">10</span>
           </div>
-          <i class="fas fa-search"></i>
-          <div class="language-dd">
-            <a href=""><i class="fas fa-bars"></i></a>
-                    <div class="dd-content">
-                        <a href="#">RO</a>
-                        <a href="#">RU</a>
-                        <a href="#">EN</a>
+          <a id="searchBtn" onclick="showSearchSection()" href="#"
+            ><i class="fas fa-search"></i
+          ></a>
+                    <div class="language-dd">
+                        <a href=""><i class="fas fa-bars"></i></a>
+                        <div class="dd-content">
+                            <a href="#">RO</a>
+                            <a href="#">RU</a>
+                            <a href="#">EN</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <header>
-        <div class="content">
-            <h1>Cea mai buna <span>Web-farmacie</span></h1>
-            <p>
-                Lorem ipsum dolor sit,e . Accusantium minima reprehenderfacere libero laborum commodi, labore exercitationem fuga.
-            </p>
-            <button>Afla mai mult</button>
-        </div>
-    </header>
-    <section class="providers">
-        <div class="providers-content">
-            <h1>furnizori calificati</h1>
-            <h2>Cea mai calificate produse, le găsiți la noi</h2>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-        </div>
-        <div class="featured-products">
-            <div class="product-card">
-                <img src="img/arbidol.jpg" alt="arbidol" />
-                <div class="product-content">
-                    <p class="title">Arbidol - 100mg</p>
-                    <p class="price">$245.00</p>
-                </div>
+        <header>
+            <div class="content">
+                <h1>Cea mai buna <span>Web-farmacie</span></h1>
+                <p>
+                    Lorem ipsum dolor sit,e . Accusantium minima reprehenderfacere libero laborum commodi, labore exercitationem fuga.
+                </p>
+                <button>Afla mai mult</button>
             </div>
+        </header>
+        <section class="providers">
+            <div class="providers-content">
+                <h1>furnizori calificati</h1>
+                <h2>Cea mai calificate produse, le găsiți la noi</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+            </div>
+            <div class="featured-products">
+                <div class="product-card">
+                    <img src="img/arbidol.jpg" alt="arbidol" />
+                    <div class="product-content">
+                        <p class="title">Arbidol - 100mg</p>
+                        <p class="price">$245.00</p>
+                    </div>
+                </div>
 
-            <div class="product-card">
-                <img src="img/strepsils.jpg" alt="arbidol" />
-                <div class="product-content">
-                    <p class="title">
-                        Strepsils intensive - preparat fără prescripție medicală
-                    </p>
-                    <p class="price">$245.00</p>
+                <div class="product-card">
+                    <img src="img/strepsils.jpg" alt="arbidol" />
+                    <div class="product-content">
+                        <p class="title">
+                            Strepsils intensive - preparat fără prescripție medicală
+                        </p>
+                        <p class="price">$245.00</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="product-card">
-                <img src="img/arbidol.jpg" alt="arbidol" />
-                <div class="product-content">
-                    <p class="title">Arpeflu</p>
-                    <p class="price">$245.00</p>
+                <div class="product-card">
+                    <img src="img/arbidol.jpg" alt="arbidol" />
+                    <div class="product-content">
+                        <p class="title">Arpeflu</p>
+                        <p class="price">$245.00</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section class="offers">
-        <div>
-            <i class="far fa-gem"></i>
-            <h1>oferte speciale</h1>
-            <h2>Cumpără mult, salvează mult</h2>
-        </div>
-        <div>
-            <i class="fas fa-paper-plane"></i>
-            <h1>livrare gratuită</h1>
-            <h2>Asupra comenzilor mai mari de 99lei</h2>
-        </div>
-        <div>
-            <i class="fas fa-retweet"></i>
-            <h1>suport continuu 24/7</h1>
-            <h2>Protejăm cumpărătorii noștri</h2>
-        </div>
-        <div>
-            <i class="fas fa-rocket"></i>
-            <h1>livrare rapidă</h1>
-            <h2>Livrăm produsele direct spre dvs</h2>
-        </div>
-    </section>
-    <section class="news">
-        <div class="news-container">
-            <h1><span>Ultimele</span> stiri</h1>
-            <div class="news-wrapper">
-                <img src="img/News-img.jpg" alt="control medical asigurat" />
-                <div class="news-content">
-                    <h1>Control medical asigurat</h1>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque harum nam quod perspiciatis perferendis quaerat pariatur facere recusandae velit quae, ipsa excepturi animi porro laudantium ab modi qui nemo necessitatibus?
-                    </p>
+        </section>
+        <section class="offers">
+            <div>
+                <i class="far fa-gem"></i>
+                <h1>oferte speciale</h1>
+                <h2>Cumpără mult, salvează mult</h2>
+            </div>
+            <div>
+                <i class="fas fa-paper-plane"></i>
+                <h1>livrare gratuită</h1>
+                <h2>Asupra comenzilor mai mari de 99lei</h2>
+            </div>
+            <div>
+                <i class="fas fa-retweet"></i>
+                <h1>suport continuu 24/7</h1>
+                <h2>Protejăm cumpărătorii noștri</h2>
+            </div>
+            <div>
+                <i class="fas fa-rocket"></i>
+                <h1>livrare rapidă</h1>
+                <h2>Livrăm produsele direct spre dvs</h2>
+            </div>
+        </section>
+        <section class="news">
+            <div class="news-container">
+                <h1><span>Ultimele</span> stiri</h1>
+                <div class="news-wrapper">
+                    <img src="img/News-img.jpg" alt="control medical asigurat" />
+                    <div class="news-content">
+                        <h1>Control medical asigurat</h1>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque harum nam quod perspiciatis perferendis quaerat pariatur facere recusandae velit quae, ipsa excepturi animi porro laudantium ab modi qui nemo necessitatibus?
+                        </p>
+                    </div>
+                </div>
+                <div class="news-wrapper">
+                    <img src="img/News-img-2.jpg" alt="servicii farmaceutice" />
+                    <div class="news-content">
+                        <h1>servicii farmaceutice de calitate</h1>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque harum nam quod perspiciatis perferendis quaerat pariatur facere recusandae velit quae, ipsa excepturi animi porro laudantium ab modi qui nemo necessitatibus?
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="news-wrapper">
-                <img src="img/News-img-2.jpg" alt="servicii farmaceutice" />
-                <div class="news-content">
-                    <h1>servicii farmaceutice de calitate</h1>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque harum nam quod perspiciatis perferendis quaerat pariatur facere recusandae velit quae, ipsa excepturi animi porro laudantium ab modi qui nemo necessitatibus?
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="video-container">
-            <h1><span>Video</span> introducere</h1>
-            <video controls>
+            <div class="video-container">
+                <h1><span>Video</span> introducere</h1>
+                <video controls>
           <source src="videos/video.mp4" type="video/mp4" />
           Your browser does not support the video tag
         </video>
-        </div>
-    </section>
-    <section class="product-grid">
-        <h1>produsele comercializate</h1>
-        <h2>Cele mai bune produse direct de la furnizori</h2>
-        <div class="container">
-            <!-- Singular product -->
-            <!-- <div class="product-card">
+            </div>
+        </section>
+        <section class="product-grid">
+            <h1>produsele comercializate</h1>
+            <h2>Cele mai bune produse direct de la furnizori</h2>
+            <div class="container">
+                <!-- Singular product -->
+                <!-- <div class="product-card">
                 <div class="product-image-container">
                     <img src="img/Cosmetice/2.jpg" alt="product" />
                 </div>
@@ -237,59 +252,59 @@
                 </div>
             </div> -->
 
-            <!-- end of singular product -->
-        </div>
-    </section>
-    <section class="discount">
-        <div class="left">
-            <h1>profită de un discount la produsele noastre</h1>
-            <p>
-                Donec eu tristique felis. Duis augue mi, auctor ut purus et, dignissim aliquet quam. register your email for news and special offers
-            </p>
-            <input type="email" placeholder="E-mail address..." name="email" id="" />
-            <input type="submit" value="preia cuponul" />
-        </div>
-        <div class="right">
-            <img src="img/brand-1.jpg" alt="brand" />
-            <img src="img/brand-2.jpg" alt="brand" />
-            <img src="img/brand-3.jpg" alt="brand" />
-            <img src="img/brand-4.jpg" alt="brand" />
-        </div>
-    </section>
-    <footer>
-        <div class="upper-footer-bar">
-            <div>
+                <!-- end of singular product -->
+            </div>
+        </section>
+        <section class="discount">
+            <div class="left">
+                <h1>profită de un discount la produsele noastre</h1>
                 <p>
-                    Vă asigurăm servicii de calitate, și suport continuu pentru toți cumpărătorii noștri.
+                    Donec eu tristique felis. Duis augue mi, auctor ut purus et, dignissim aliquet quam. register your email for news and special offers
                 </p>
+                <input type="email" placeholder="E-mail address..." name="email" id="" />
+                <input type="submit" value="preia cuponul" />
             </div>
-            <div class="social-media">
-                <i class="fab fa-facebook-f"></i>
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-invision"></i>
+            <div class="right">
+                <img src="img/brand-1.jpg" alt="brand" />
+                <img src="img/brand-2.jpg" alt="brand" />
+                <img src="img/brand-3.jpg" alt="brand" />
+                <img src="img/brand-4.jpg" alt="brand" />
             </div>
-            <div>&nbsp;</div>
-        </div>
-        <div class="mid-footer-bar">
-            <div>
-                <h1>contul meu</h1>
-                <a href="./shoppingCart.html">Vizualizează coșul</a>
-                <a href="./wishlist.html">My Wishlist</a>
-                <a href="./checkout.html">Achitare</a>
+        </section>
+        <footer>
+            <div class="upper-footer-bar">
+                <div>
+                    <p>
+                        Vă asigurăm servicii de calitate, și suport continuu pentru toți cumpărătorii noștri.
+                    </p>
+                </div>
+                <div class="social-media">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-invision"></i>
+                </div>
+                <div>&nbsp;</div>
             </div>
-            <div>
-                <h1>ajutor</h1>
-                <a href="./contact.html">F.A.Q</a>
-                <a href="./contact.html">Contactează-ne</a>
-                <a href="./contact.html">Privacy Policy</a>
-            </div>
-            <div>
-                <h1>informație de contact</h1>
-                <a href="#"><i class="fas fa-globe-europe"></i> Str. Sarmisegetusa 1010/9</a
+            <div class="mid-footer-bar">
+                <div>
+                    <h1>contul meu</h1>
+                    <a href="./shoppingCart.html">Vizualizează coșul</a>
+                    <a href="./wishlist.html">My Wishlist</a>
+                    <a href="./checkout.html">Achitare</a>
+                </div>
+                <div>
+                    <h1>ajutor</h1>
+                    <a href="./contact.html">F.A.Q</a>
+                    <a href="./contact.html">Contactează-ne</a>
+                    <a href="./contact.html">Privacy Policy</a>
+                </div>
+                <div>
+                    <h1>informație de contact</h1>
+                    <a href="#"><i class="fas fa-globe-europe"></i> Str. Sarmisegetusa 1010/9</a
           >
           <a href="#"><i class="fas fa-phone-alt"></i> +1 234 56789</a>
-                <a href="#" id="email"><i class="fas fa-envelope"></i> mail@domain.com</a
+                    <a href="#" id="email"><i class="fas fa-envelope"></i> mail@domain.com</a
           >
         </div>
       </div>
@@ -320,5 +335,6 @@
         }
       });
     </script>
+    <script src="components/searchOverlay/search.js"></script>
   </body>
 </html>

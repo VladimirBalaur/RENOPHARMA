@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="components/sideNav/sidenav.css" />
     <script src="./components/sideNav/sidenav.js"></script>
     <!--  -->
+    <link rel="stylesheet" href="components/searchOverlay/search.css" />
+
     <link rel="stylesheet" href="fontawesome/all.css" />
     <script src="fontawesome/all.js"></script>
     <!-- Toate informatiile despre produse -->
@@ -54,6 +56,16 @@
             </div>
         </div>
     </div>
+    <!-- Search button overlay -->
+    <div class="search">
+        <span onclick="closeSearchSection()" class="close">&times;</span>
+        <div class="input">
+            <input placeholder="Caută..." type="text" name="search" id="search" />
+            <button type="submit">Go</button>
+        </div>
+    </div>
+    <!--  -->
+
     <div class="navigation-bar">
         <div class="upper-bar">
             <div class="phone">
@@ -73,7 +85,7 @@
         </div>
         <div class="lower-bar">
             <div class="logo">
-                <a href=""><span>reno</span>pharma</a>
+                <a href="./index.html"><span>reno</span>pharma</a>
             </div>
             <nav>
                 <a href="./index.html">Acasă</a>
@@ -102,107 +114,110 @@
                     <a href="shoppingCart.html"><i class="fas fa-shopping-cart"> </i></a
             ><span class="cart-item-count">10</span>
           </div>
-          <i class="fas fa-search"></i>
-          <div class="language-dd">
-            <a href=""><i class="fas fa-bars"></i></a>
-                    <div class="dd-content">
-                        <a href="#">RO</a>
-                        <a href="#">RU</a>
-                        <a href="#">EN</a>
+          <a id="searchBtn" onclick="showSearchSection()" href="#"
+            ><i class="fas fa-search"></i
+          ></a>
+                    <div class="language-dd">
+                        <a href=""><i class="fas fa-bars"></i></a>
+                        <div class="dd-content">
+                            <a href="#">RO</a>
+                            <a href="#">RU</a>
+                            <a href="#">EN</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <section class="news">
-        <h1><span>Ultimele</span> stiri</h1>
-        <div class="news-container">
-            <div class="news-wrapper">
-                <div class="img-container">
-                    <img src="img/News-img.jpg" alt="control medical asigurat" />
-                </div>
+        <section class="news">
+            <h1><span>Ultimele</span> stiri</h1>
+            <div class="news-container">
+                <div class="news-wrapper">
+                    <div class="img-container">
+                        <img src="img/News-img.jpg" alt="control medical asigurat" />
+                    </div>
 
-                <div class="news-content">
-                    <h1>Control medical asigurat</h1>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque harum nam quod perspiciatis perferendis quaerat pariatur facere recusandae velit quae, ipsa excepturi animi porro laudantium ab modi qui nemo necessitatibus?
-                    </p>
+                    <div class="news-content">
+                        <h1>Control medical asigurat</h1>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque harum nam quod perspiciatis perferendis quaerat pariatur facere recusandae velit quae, ipsa excepturi animi porro laudantium ab modi qui nemo necessitatibus?
+                        </p>
+                    </div>
+                </div>
+                <div class="news-wrapper">
+                    <div class="img-container">
+                        <img src="img/News-img.jpg" alt="control medical asigurat" />
+                    </div>
+
+                    <div class="news-content">
+                        <h1>Control medical asigurat</h1>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque harum nam quod perspiciatis perferendis quaerat pariatur facere recusandae velit quae, ipsa excepturi animi porro laudantium ab modi qui nemo necessitatibus?
+                        </p>
+                    </div>
+                </div>
+                <div class="news-wrapper">
+                    <div class="img-container">
+                        <img src="img/News-img.jpg" alt="control medical asigurat" />
+                    </div>
+
+                    <div class="news-content">
+                        <h1>Control medical asigurat</h1>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque harum nam quod perspiciatis perferendis quaerat pariatur facere recusandae velit quae, ipsa excepturi animi porro laudantium ab modi qui nemo necessitatibus?
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="news-wrapper">
-                <div class="img-container">
-                    <img src="img/News-img.jpg" alt="control medical asigurat" />
-                </div>
-
-                <div class="news-content">
-                    <h1>Control medical asigurat</h1>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque harum nam quod perspiciatis perferendis quaerat pariatur facere recusandae velit quae, ipsa excepturi animi porro laudantium ab modi qui nemo necessitatibus?
-                    </p>
-                </div>
-            </div>
-            <div class="news-wrapper">
-                <div class="img-container">
-                    <img src="img/News-img.jpg" alt="control medical asigurat" />
-                </div>
-
-                <div class="news-content">
-                    <h1>Control medical asigurat</h1>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque harum nam quod perspiciatis perferendis quaerat pariatur facere recusandae velit quae, ipsa excepturi animi porro laudantium ab modi qui nemo necessitatibus?
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="pagination">
-        <div></div>
-        <ul>
-            <!-- <li>1</li>
+        </section>
+        <div class="pagination">
+            <div></div>
+            <ul>
+                <!-- <li>1</li>
             <li>2</li>
             <li>3</li> -->
-        </ul>
-        <div></div>
-    </div>
-    <footer>
-        <div class="upper-footer-bar">
-            <div>
-                <p>
-                    Vă asigurăm servicii de calitate, și suport continuu pentru toți cumpărătorii noștri.
-                </p>
-            </div>
-            <div class="social-media">
-                <i class="fab fa-facebook-f"></i>
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-invision"></i>
-            </div>
-            <div>&nbsp;</div>
+            </ul>
+            <div></div>
         </div>
-        <div class="mid-footer-bar">
-            <div>
-                <h1>contul meu</h1>
-                <a href="./shoppingCart.html">Vizualizează coșul</a>
-                <a href="./wishlist.html">My Wishlist</a>
-                <a href="./checkout.html">Achitare</a>
+        <footer>
+            <div class="upper-footer-bar">
+                <div>
+                    <p>
+                        Vă asigurăm servicii de calitate, și suport continuu pentru toți cumpărătorii noștri.
+                    </p>
+                </div>
+                <div class="social-media">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-invision"></i>
+                </div>
+                <div>&nbsp;</div>
             </div>
-            <div>
-                <h1>ajutor</h1>
-                <a href="./contact.html">F.A.Q</a>
-                <a href="./contact.html">Contactează-ne</a>
-                <a href="./contact.html">Privacy Policy</a>
-            </div>
-            <div>
-                <h1>informație de contact</h1>
-                <a href="#"><i class="fas fa-globe-europe"></i> Str. Sarmisegetusa 1010/9</a
+            <div class="mid-footer-bar">
+                <div>
+                    <h1>contul meu</h1>
+                    <a href="./shoppingCart.html">Vizualizează coșul</a>
+                    <a href="./wishlist.html">My Wishlist</a>
+                    <a href="./checkout.html">Achitare</a>
+                </div>
+                <div>
+                    <h1>ajutor</h1>
+                    <a href="./contact.html">F.A.Q</a>
+                    <a href="./contact.html">Contactează-ne</a>
+                    <a href="./contact.html">Privacy Policy</a>
+                </div>
+                <div>
+                    <h1>informație de contact</h1>
+                    <a href="#"><i class="fas fa-globe-europe"></i> Str. Sarmisegetusa 1010/9</a
           >
           <a href="#"><i class="fas fa-phone-alt"></i> +1 234 56789</a>
-                <a href="#" id="email"><i class="fas fa-envelope"></i> mail@domain.com</a
+                    <a href="#" id="email"><i class="fas fa-envelope"></i> mail@domain.com</a
           >
         </div>
       </div>
       <div class="lower-footer-bar"></div>
     </footer>
     <script type="module" src="./js/news.js"></script>
+    <script src="components/searchOverlay/search.js"></script>
   </body>
 </html>

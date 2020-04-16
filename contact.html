@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="components/sideNav/sidenav.css" />
     <script src="./components/sideNav/sidenav.js"></script>
     <!--  -->
+
+    <link rel="stylesheet" href="components/searchOverlay/search.css" />
+
     <link rel="stylesheet" href="css/contact.css" />
     <script src="js/data.js"></script>
     <link rel="stylesheet" href="fontawesome/all.css" />
@@ -54,6 +57,16 @@
             </div>
         </div>
     </div>
+    <!-- Search button overlay -->
+    <div class="search">
+        <span onclick="closeSearchSection()" class="close">&times;</span>
+        <div class="input">
+            <input placeholder="Caută..." type="text" name="search" id="search" />
+            <button type="submit">Go</button>
+        </div>
+    </div>
+    <!--  -->
+
     <div class="navigation-bar">
         <div class="upper-bar">
             <div class="phone">
@@ -73,7 +86,7 @@
         </div>
         <div class="lower-bar">
             <div class="logo">
-                <a href=""><span>reno</span>pharma</a>
+                <a href="./index.html"><span>reno</span>pharma</a>
             </div>
             <nav>
                 <a href="./index.html">Acasă</a>
@@ -102,24 +115,26 @@
                     <a href="shoppingCart.html"><i class="fas fa-shopping-cart"> </i></a
             ><span class="cart-item-count">10</span>
           </div>
-          <i class="fas fa-search"></i>
-          <div class="language-dd">
-            <a href=""><i class="fas fa-bars"></i></a>
-                    <div class="dd-content">
-                        <a href="#">RO</a>
-                        <a href="#">RU</a>
-                        <a href="#">EN</a>
+          <a id="searchBtn" onclick="showSearchSection()" href="#"
+            ><i class="fas fa-search"></i
+          ></a>
+                    <div class="language-dd">
+                        <a href=""><i class="fas fa-bars"></i></a>
+                        <div class="dd-content">
+                            <a href="#">RO</a>
+                            <a href="#">RU</a>
+                            <a href="#">EN</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <section>
-        <div class="accordion">
-            <h1>F.A.Q</h1>
-            <div class="container">
-                <!-- Singular acc item -->
-                <!-- <div class="accordion-item">
+        <section>
+            <div class="accordion">
+                <h1>F.A.Q</h1>
+                <div class="container">
+                    <!-- Singular acc item -->
+                    <!-- <div class="accordion-item">
                     <div class="item-head">
                         <i class="far fa-question-circle"></i>
                         <p>intrebare</p>
@@ -130,62 +145,62 @@
                         similique excepturi omnis ducimus maiores dolores odit obcaecati officiis sint odio ab numquam libero laboriosam atque?
                     </div>
                 </div> -->
-                <!--  -->
+                    <!--  -->
+                </div>
             </div>
-        </div>
-        <div class="chart">
-            <h1>Locația noastră:</h1>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d87099.7113621405!2d28.81355337860829!3d46.983966920148404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2s!4v1586191461615!5m2!1sru!2s" frameborder="0" style="border: 0;" allowfullscreen=""
-                aria-hidden="false" tabindex="0"></iframe>
-        </div>
+            <div class="chart">
+                <h1>Locația noastră:</h1>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d87099.7113621405!2d28.81355337860829!3d46.983966920148404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2s!4v1586191461615!5m2!1sru!2s" frameborder="0" style="border: 0;" allowfullscreen=""
+                    aria-hidden="false" tabindex="0"></iframe>
+            </div>
 
-        <div class="contact">
-            <h1>Informație de contact</h1>
-            <p>
-                <i class="fas fa-globe-europe"></i> Ne puteți găsi la adresa: 1234, Orașul meu natal frumos și mare, Chișinău Republica Moldova
-            </p>
-            <p>
-                <i class="fas fa-phone-volume"></i> Telefon de contact: +1 234 5678 9999
-            </p>
-            <p>
-                <i class="fas fa-envelope"></i>Email: UnZeceLaPractică@balaur.vladimir
-            </p>
-        </div>
-    </section>
-    <footer>
-        <div class="upper-footer-bar">
-            <div>
+            <div class="contact">
+                <h1>Informație de contact</h1>
                 <p>
-                    Vă asigurăm servicii de calitate, și suport continuu pentru toți cumpărătorii noștri.
+                    <i class="fas fa-globe-europe"></i> Ne puteți găsi la adresa: 1234, Orașul meu natal frumos și mare, Chișinău Republica Moldova
+                </p>
+                <p>
+                    <i class="fas fa-phone-volume"></i> Telefon de contact: +1 234 5678 9999
+                </p>
+                <p>
+                    <i class="fas fa-envelope"></i>Email: UnZeceLaPractică@balaur.vladimir
                 </p>
             </div>
-            <div class="social-media">
-                <i class="fab fa-facebook-f"></i>
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-invision"></i>
+        </section>
+        <footer>
+            <div class="upper-footer-bar">
+                <div>
+                    <p>
+                        Vă asigurăm servicii de calitate, și suport continuu pentru toți cumpărătorii noștri.
+                    </p>
+                </div>
+                <div class="social-media">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-invision"></i>
+                </div>
+                <div>&nbsp;</div>
             </div>
-            <div>&nbsp;</div>
-        </div>
-        <div class="mid-footer-bar">
-            <div>
-                <h1>contul meu</h1>
-                <a href="./shoppingCart.html">Vizualizează coșul</a>
-                <a href="./wishlist.html">My Wishlist</a>
-                <a href="./checkout.html">Achitare</a>
-            </div>
-            <div>
-                <h1>ajutor</h1>
-                <a href="./contact.html">F.A.Q</a>
-                <a href="./contact.html">Contactează-ne</a>
-                <a href="./contact.html">Privacy Policy</a>
-            </div>
-            <div>
-                <h1>informație de contact</h1>
-                <a href="#"><i class="fas fa-globe-europe"></i> Str. Sarmisegetusa 1010/9</a
+            <div class="mid-footer-bar">
+                <div>
+                    <h1>contul meu</h1>
+                    <a href="./shoppingCart.html">Vizualizează coșul</a>
+                    <a href="./wishlist.html">My Wishlist</a>
+                    <a href="./checkout.html">Achitare</a>
+                </div>
+                <div>
+                    <h1>ajutor</h1>
+                    <a href="./contact.html">F.A.Q</a>
+                    <a href="./contact.html">Contactează-ne</a>
+                    <a href="./contact.html">Privacy Policy</a>
+                </div>
+                <div>
+                    <h1>informație de contact</h1>
+                    <a href="#"><i class="fas fa-globe-europe"></i> Str. Sarmisegetusa 1010/9</a
           >
           <a href="#"><i class="fas fa-phone-alt"></i> +1 234 56789</a>
-                <a href="#" id="email"><i class="fas fa-envelope"></i> mail@domain.com</a
+                    <a href="#" id="email"><i class="fas fa-envelope"></i> mail@domain.com</a
           >
         </div>
       </div>
@@ -216,5 +231,6 @@
         }
       });
     </script>
+    <script src="components/searchOverlay/search.js"></script>
   </body>
 </html>

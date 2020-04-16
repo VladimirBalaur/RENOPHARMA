@@ -1,0 +1,85 @@
+@keyframes fade {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+div.search {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    display: none;
+    background: #ffffffeb;
+    z-index: 99999999999;
+    top: 0;
+}
+
+div.search div.input {
+    width: 20%;
+    transform: scale(3);
+    display: flex;
+}
+
+div.search input[type="text"] {
+    border: none;
+    border-bottom: 1px solid rgb(59, 59, 59);
+    width: 100%;
+    outline: none;
+    background: transparent;
+}
+
+div.search span.close {
+    transform: scale(calc(100 - 97));
+    color: black;
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    z-index: 99999999;
+    cursor: pointer;
+}
+
+div.search button[type="submit"] {
+    background: rgb(59, 59, 59);
+    color: white;
+    border: none;
+    margin-left: 5px;
+    cursor: pointer;
+    padding: 3px;
+}
+
+div.search button[type="submit"]:focus,
+div.search button[type="submit"]:hover {
+    opacity: 0.8;
+}
+
+@media screen and (max-width: 950px) {
+    div.search div.input {
+        transform: scale(2);
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    div.search div.input {
+        transform: scale(1.5);
+        width: 50%;
+    }
+}
