@@ -127,46 +127,47 @@
     </div>
     <section>
         <div class="formulars">
-            <h1>Detalii achitare:</h1>
-            <div class="input-container">
-                <label for="">
-            <span class="label-text">Prenume</span>
-            <input type="text" name="name" id="name" />
+            <form method="GET" onsubmit="return false;">
+                <h1>Detalii achitare:</h1>
+                <div class="input-container">
+                    <label for="">
+            <span class="label-text required">Prenume</span>
+            <input required  type="text" name="name" id="name" />
           </label>
-                <label for="">
-            <span class="label-text">Nume</span>
-            <input type="text" name="surname" id="surname" />
+                    <label for="">
+            <span class="label-text required">Nume</span>
+            <input required type="text" name="surname" id="surname" />
           </label>
-            </div>
-            <label for="">
-          <span class="label-text">Țară</span>
-          <select name="country" id="country"> </select>
+                </div>
+                <label for="">
+          <span class="label-text required">Țară</span>
+          <select required name="country" id="country"> </select>
         </label>
-            <label for="">
+                <label for="">
           <span class="label-text">Numele companiei</span>
           <input type="text" name="company_name" id="company_name" />
         </label>
-            <label for="">
-          <span class="label-text">Adresă</span>
-          <input
+                <label for="">
+          <span class="label-text required">Adresă</span>
+          <input required
             placeholder="Street address"
             type="text"
             name="address"
             id="address"
           />
         </label>
-            <label for="">
-          <span class="label-text">Oraș</span>
-          <input placeholder="Oraș" type="text" name="city" id="city" />
+                <label for="">
+          <span class="label-text required">Oraș</span>
+          <input required placeholder="Oraș" type="text" name="city" id="city" />
         </label>
-            <div class="input-container">
-                <label for="">
-            <span class="label-text">Email Address</span>
-            <input type="text" name="email" id="email" />
+                <div class="input-container">
+                    <label for="">
+            <span class="label-text required">Email Address</span>
+            <input  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"required type="text" name="email" id="email" />
           </label>
-                <label for="">
-            <span class="label-text">Telefon</span>
-            <input
+                    <label for="">
+            <span class="label-text required">Telefon</span>
+            <input required
               type="tel"
               id="phone"
               name="phone"
@@ -174,11 +175,12 @@
               required
             />
           </label>
-            </div>
-            <label for="">
+                </div>
+                <label for="">
           <div class="checkbox">
             <input type="checkbox" id="checkbox_1" />
             <label for="checkbox_1">Creează un cont?</label>
+
         </div>
         </label>
         </div>
@@ -233,7 +235,8 @@
             </div>
         </div>
         <div></div>
-        <input type="submit" value=" COMANDĂ " />
+        <input id="submit" type="submit" value=" COMANDĂ " />
+        </form>
     </section>
     <footer>
         <div class="upper-footer-bar">

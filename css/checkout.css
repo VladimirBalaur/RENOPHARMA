@@ -248,6 +248,11 @@ section {
     margin-bottom: 111px;
 }
 
+span.required::after {
+    content: "*";
+    color: red;
+}
+
 @media screen and (max-width: 1120px) {
     section {
         grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));

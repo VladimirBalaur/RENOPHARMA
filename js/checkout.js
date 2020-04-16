@@ -7,21 +7,21 @@ setCartItemsCount();
 
 class CheckoutUI {
     async getCartData() {
-        if (
-            localStorage.getItem("UserCart") &&
-            sessionStorage.getItem("cartTotals")
-        ) {
-            this.cartItems = await JSON.parse(localStorage.getItem("UserCart")).items;
-        } else {
-            openModal(
-                "Nu puteti efectua aceasta operatie, nu aveti nimic setat in cosul de cumparaturi"
-            );
-            setTimeout(() => {
-                window.location = "shoppingCart.html";
-            }, 3000);
+            if (
+                localStorage.getItem("UserCart") &&
+                sessionStorage.getItem("cartTotals")
+            ) {
+                this.cartItems = await JSON.parse(localStorage.getItem("UserCart")).items;
+            } else {
+                openModal(
+                    "Nu puteti efectua aceasta operatie, nu aveti nimic setat in cosul de cumparaturi"
+                );
+                setTimeout(() => {
+                    window.location = "shoppingCart.html";
+                }, 3000);
+            }
         }
-    }
-
+        /**  */
     async getCountriesAndInsertInForm() {
         try {
             let responseCountries = await fetch(
@@ -78,9 +78,59 @@ class CheckoutUI {
     constructor() {
         this.getCartData().then(() => {
             this.insertData();
-            this.getCountriesAndInsertInForm();
+            this.getCountriesAndInsertInForm().then(() => {
+                // adding an event for input button click to save the data
+                let formSubmitBtn = document
+                    .querySelector(`#submit`)
+                    .addEventListener("click", () => {
+                        console.log("Submitting");
+
+                        formValidate();
+                    });
+            });
         });
     }
 }
 
+function formValidate() {
+    let name = document.querySelector(`form input[name="name"]`).value;
+    let surname = document.querySelector(`form input[name="surname"]`).value;
+    let country = document.querySelector(`select#country`).value;
+    let companyName = document.querySelector(`form #company_name`).value;
+    let address = document.querySelector(`form #address`).value;
+    let city = document.querySelector(`form #city`).value;
+    let email = document.querySelector(`form #email`).value;
+    let phone = document.querySelector(`form #phone`).value;
+    let createAccount = document.querySelector("#checkbox_1").value;
+
+    console.log(
+        name,
+        surname,
+        country,
+        companyName,
+        address,
+        city,
+        email,
+        phone,
+        createAccount
+    );
+
+    let obj = {
+        aaa: "bbb",
+    };
+
+    postCheckoutData(obj);
+}
+
+async function postCheckoutData(dataObj) {
+    fetch("../data/checkout.json", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(dataObj),
+    }).then((response) => {
+        return response.json();
+    });
+}
 let UI = new CheckoutUI();
