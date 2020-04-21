@@ -24,6 +24,19 @@ div.infobar {
     font-family: Roboto, sans-serif!;
 }
 
+div.infobar * {
+    font-family: "Poppins";
+}
+
+div.infobar select {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+    transition: 300ms;
+    cursor: pointer;
+}
+
 div.filter-sort-btns-container {
     display: grid;
     grid-gap: 10px;

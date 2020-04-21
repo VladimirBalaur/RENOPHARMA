@@ -222,14 +222,8 @@ div.lower-bar .right-elements>* {
     div.right-elements div.shopping-cart svg {
         display: inline-block;
     }
-    div.right-elements svg:last-of-type {
-        display: none;
-    }
     div.right-elements div.shopping-cart {
         display: inline-block;
-    }
-    div.right-elements svg:last-of-type {
-        display: none;
     }
     nav {
         display: none;

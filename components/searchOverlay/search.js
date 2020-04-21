@@ -1,5 +1,5 @@
 function closeSearchSection() {
-    let durationMs = 1000;
+    let durationMs = 700;
     let elem = document.querySelector("div.search");
     elem.style.animationName = "fade";
     elem.style.animationDuration = `${durationMs}ms`;
@@ -15,6 +15,6 @@ function showSearchSection() {
 
     elem.style.display = "flex";
     elem.style.animationName = "show";
-    elem.style.animationDuration = `1s`;
+    elem.style.animationDuration = `.7s`;
     elem.style.animationFillMode = "forwards";
 }

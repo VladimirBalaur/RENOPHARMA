@@ -12,6 +12,19 @@ html {
     animation-fill-mode: forwards;
 }
 
+div.infobar * {
+    font-family: "Poppins";
+}
+
+div.infobar select {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+    transition: 300ms;
+    cursor: pointer;
+}
+
 div.product-card {
     max-width: 340px;
     height: 565px;
